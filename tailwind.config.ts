@@ -1,13 +1,14 @@
-import { type Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -29,7 +30,6 @@ export default {
         brand: {
           red: "#e8bf1c",
           orange: "#456ea6",
-          cielo: "bg-gradient-to-r from-sky-300 to-sky-50",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -62,6 +62,9 @@ export default {
         bonewhite: "#FAF9F6",
         Lavandasuave: "#E6E6FA",
       },
+      backgroundImage: {
+        cielo: "linear-gradient(to right, #7dd3fc, #f0f9ff)", // Definición de gradiente corregida
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -69,6 +72,9 @@ export default {
       },
     },
   },
-  plugins: ["tailwindcss-animate"],
-} satisfies Config
+  plugins: [tailwindcssAnimate],
+};
+
+export default config;
+
 
