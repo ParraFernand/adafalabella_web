@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
@@ -34,6 +34,7 @@ export function Hero() {
           <div className="hidden md:block md:absolute left-[50%] top-[50%] transform -translate-y-1/2">
           
         </div>
+        
       </div>
     </section>
   )
