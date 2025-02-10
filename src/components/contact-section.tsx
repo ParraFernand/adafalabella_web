@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { MapPin } from "lucide-react"
+import Image from "next/image"
+
 
 export function ContactSection() {
   return (
@@ -7,11 +9,13 @@ export function ContactSection() {
       {/* Upper Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/back1"
-            alt="City Background"
-            className="w-full h-full object-cover"
-          />
+                    <Image
+                        src="/back1.jpg"
+                        alt="Industrial_Background"
+                        width={1472}
+                        height={832}
+                        className="object-cover w-full"
+                    />
         </div>
         <div className="relative container mx-auto h-full px-4">
           <div className="flex items-center h-full max-w-2xl">
@@ -37,11 +41,14 @@ export function ContactSection() {
       {/* Lower Section */}
       <div className="relative h-[40vh] bg-gray-900">
         <div className="absolute inset-0">
-          <img
-            src="/bak2.jpg"
-            alt="Map Background"
+        <Image
+             src="/bak2.jpg"
+              alt="Industrial_Background"
+              width={1000}          
+              height={832}
             className="w-full h-full object-cover grayscale"
           />
+          
           {/* Location Markers */}
           {[...Array(5)].map((_, i) => (
             <MapPin
