@@ -6,7 +6,7 @@ export function GroupBanner() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/placeholder.svg?height=600&width=1600"
+          src="/back1.jpg"
           alt="Masterline Containers"
           className="w-full h-full object-cover"
         />

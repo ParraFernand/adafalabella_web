@@ -8,7 +8,7 @@ export function ContactSection() {
       <div className="relative h-[60vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/placeholder.svg?height=800&width=1600"
+            src="/back1"
             alt="City Background"
             className="w-full h-full object-cover"
           />
@@ -38,7 +38,7 @@ export function ContactSection() {
       <div className="relative h-[40vh] bg-gray-900">
         <div className="absolute inset-0">
           <img
-            src="/placeholder.svg?height=600&width=1600"
+            src="/bak2.jpg"
             alt="Map Background"
             className="w-full h-full object-cover grayscale"
           />
