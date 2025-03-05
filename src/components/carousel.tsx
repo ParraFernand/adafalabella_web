@@ -8,7 +8,7 @@ import Image from "next/image"
 
 const carouselItems = [
   {
-    title: "4 talentos humanos indispensables para Masterline",
+    title: "4 talentos humanos indispensables para AdaFalabella",
     content:
       "Nuestro centro siempre han sido las personas, y en estos 20 años de trayectoria, apostar por el talento humano, siempre nos ha traído grandes avances, tanto que hemos llegado a identificar 4 perfiles que están presentes en todos nuestros equipos y que nos han llevado a hacer historia, hoy los queremos compartir contigo.",
   },
@@ -36,7 +36,8 @@ export function Carousel() {
   return (
     <section className="relative min-h-[600px] overflow-hidden">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-red via-brand-orange to-yellow-500">
+
+      <div className="absolute inset-0 bg-black/70 via-transparent">
         {/* Background image */}
         <div className="relative h-full w-full opacity-50 mix-blend-overlay">
           <Image

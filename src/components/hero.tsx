@@ -24,10 +24,8 @@ export function Hero() {
       </div>
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-6rem)] flex flex-col md:flex-row items-center justify-start">
-
-      {/*<div className="relative bg-indigo-300 px-8 py-14 rounded-lg text-[#e8bf1c] text-center w-full sm:max-w-lg shadow-lg">*/}
-      <div className="text-white text-center w-full sm:max-w-md mx-auto md:ml-24 md:-mt-14 font-jafherb">
-        {/* <div className="max-w-md bg-indigo-300 px-6 py-12 rounded-lg text-[#e8bf1c] text-center w-full sm:w-auto">*/}
+        
+      <div className="text-white text-center w-full sm:max-w-md mx-auto md:ml-32 md:-mt-14 font-jafherb">
         {/* Texto Principal */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
             Permítenos Impulsar tu negocio
@@ -41,9 +39,10 @@ export function Hero() {
           <Image 
             src="/girl.png" 
             alt="Imagen Descriptiva" 
-            width={450} 
+            width={600} 
             height={400} 
             className="object-contain"
+
           />
           
         </div>

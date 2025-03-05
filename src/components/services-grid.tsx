@@ -3,23 +3,23 @@ import Link from "next/link"
 
 const services = [
   {
-    title: ["CHARTER", "AÉREO"],
+    title: ["TRANSPORTE", "AÉREO"],
     image: "/servicio1-1.png",
-    href: "#", // URL de destino
+    href: "/aereo",
   },
   {
-    title: ["PROYECTOS", "XXL"],
+    title: ["TRANSPORTE", "TERRESTRE"],
     image: "/servicio2-1.png",
     href: "#",
   },
   {
-    title: ["FULL", "&LCL"],
+    title: ["TRANSPORTE", "MARITIMO"],
     image: "/servicio3-1.jpg",
     href: "#",
   },
   {
-    title: ["3PL &", "BODEGAS"],
-    image: "/placeholder.svg?height=400&width=600",
+    title: ["OTROS", "SERVICIOS"],
+    image: "/cajas.jpg",
     href: "#",
   },
 ]
@@ -32,7 +32,7 @@ export function ServicesGrid() {
           className="absolute inset-0 bg-fixed bg-cover bg-center" 
           style={{ backgroundImage: "url('/logis1.jpg')" }}
         >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* Contenido con efecto de desplazamiento */}
@@ -51,7 +51,7 @@ export function ServicesGrid() {
                   className="object-cover transition-transform duration-300 group-hover:scale-110 group-hover:translate-y-4"
                 />
               </div>
-
+              <div className="absolute inset-0 bg-black/50 via-transparent" />
               {/* Contenido */}
               <div className="relative flex flex-col justify-center items-center text-center h-[350px] w-[220px] mx-auto p-6 border border-white/20">
                 {service.title.map((line, i) => (

@@ -12,7 +12,7 @@ export function Hero() {
                 alt="Industrial_Background"
                 width={1472}
                 height={832}
-                className="object-cover w-full"
+                className="object-cover w-full h-full"
             />
         
         {/* Gradient Overlay */} 

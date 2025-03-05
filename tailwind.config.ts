@@ -30,6 +30,7 @@ const config: Config = {
         brand: {
           red: "#e8bf1c",
           orange: "#456ea6",
+          gold: "#e8bf1c",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
