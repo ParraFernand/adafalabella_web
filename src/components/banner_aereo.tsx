@@ -1,6 +1,10 @@
 
+<<<<<<< HEAD
 
 export function Banner_aereo() {
+=======
+export function BannerAereo() {
+>>>>>>> 762d824 (cambios 19)
   return (
     <section className="grid grid-cols-1 md:grid-cols-7 min-h-screen">
       {/* Sección izquierda - Contenido alineado a la izquierda */}

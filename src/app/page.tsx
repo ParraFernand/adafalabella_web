@@ -9,7 +9,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <Carousel />
+<<<<<<< HEAD
       <ValuesSection/>
+=======
+>>>>>>> 762d824 (cambios 19)
     </main>
   )
 }

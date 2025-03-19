@@ -25,8 +25,8 @@ export function Footer() {
       <div className="bg-gray-800 py-4">
         <div className="container mx-auto px-4 flex items-center justify-center">
           <Image
-            src="/placeholder.svg?height=50&width=50"
-            alt="Masterline Logo"
+            src="/logo_ada2.png"
+            alt="adfalabella Logo"
             width={50}
             height={50}
             className="mr-4"
@@ -68,7 +68,7 @@ export function Footer() {
 
           {/* Discover */}
           <div>
-            <h3 className="text-brand-orange font-bold mb-4">Descubre Masterline Group</h3>
+            <h3 className="text-brand-orange font-bold mb-4">Descubre ADAFALABELLA</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#">Nuestra historia</Link>
@@ -88,12 +88,6 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="#">Contáctanos</Link>
-              </li>
-              <li>
-                <Link href="#">Solicita una cotización</Link>
-              </li>
-              <li>
-                <Link href="#">Empleo</Link>
               </li>
             </ul>
           </div>
@@ -122,9 +116,7 @@ export function Footer() {
               Políticas de privacidad
             </Link>
             <div className="text-sm text-gray-400">
-              2024 © Masterline Logistics
-              <br />
-              2024 © Masterline Group
+              2025 © ADAFALABELLA S.R.L.
             </div>
           </div>
         </div>

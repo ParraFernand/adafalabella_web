@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button"
+<<<<<<< HEAD
 import { MapPin } from "lucide-react"
+=======
+>>>>>>> 762d824 (cambios 19)
 import Image from "next/image"
 
 export function Ubicacion() {
@@ -42,7 +45,11 @@ export function Ubicacion() {
             alt="Industrial_Background"
             width={1000}          
             height={832}
+<<<<<<< HEAD
             className="w-full h-full object-cover grayscale"
+=======
+            className="w-full h-full object-cover"
+>>>>>>> 762d824 (cambios 19)
           />
         </div>
         <div className="relative container mx-auto h-full px-4 flex flex-row items-center justify-between w-full max-w-6xl">

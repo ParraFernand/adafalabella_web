@@ -1,5 +1,9 @@
 import { HeroAereo } from '@/components/hero_aereo';
+<<<<<<< HEAD
 import { Banner_aereo } from '@/components/banner_aereo';
+=======
+import { BannerAereo } from '@/components/banner_aereo';
+>>>>>>> 762d824 (cambios 19)
 import { Carousel } from '@/components/carousel';
 import React from 'react';
 
@@ -25,7 +29,11 @@ const Page = () => {
       {/* Contenido principal */}
       <div>
         <HeroAereo />
+<<<<<<< HEAD
         <Banner_aereo />
+=======
+        <BannerAereo />
+>>>>>>> 762d824 (cambios 19)
         <div className="mt-5">
         </div>
         <Carousel />

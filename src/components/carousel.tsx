@@ -8,17 +8,17 @@ import Image from "next/image"
 
 const carouselItems = [
   {
+<<<<<<< HEAD
     title: "4 talentos humanos indispensables para AdaFalabella",
+=======
+    title: "Su confianza, nuestro compromiso",
+>>>>>>> 762d824 (cambios 19)
     content:
-      "Nuestro centro siempre han sido las personas, y en estos 20 años de trayectoria, apostar por el talento humano, siempre nos ha traído grandes avances, tanto que hemos llegado a identificar 4 perfiles que están presentes en todos nuestros equipos y que nos han llevado a hacer historia, hoy los queremos compartir contigo.",
+      "Nuestro asesoramiento experto en cada despacho garantiza el cumplimiento de todas las regulaciones aduaneras nacionales e internacionales. Contamos con un equipo capacitado para ofrecer orientación y asistencia personalizada, garantizando trámites rápidos y sin errores.",
   },
   {
-    title: "Nuestra Historia",
-    content: "Más de dos décadas de experiencia en logística y transporte internacional.",
-  },
-  {
-    title: "Nuestro Equipo",
-    content: "Profesionales dedicados a impulsar el éxito de tu negocio.",
+    title: "Tu aliado estratégico de negocios",
+    content: "Proporcionamos soluciones a medida que se adaptan a tus necesidades específicas, desde la planificación hasta la ejecución de la importación o exportación. Confía en ADAFALABELLA S.R.L. para gestionar tus trámites aduaneros.",
   },
 ]
 
@@ -37,7 +37,11 @@ export function Carousel() {
     <section className="relative min-h-[600px] overflow-hidden">
       {/* Background with gradient */}
 
+<<<<<<< HEAD
       <div className="absolute inset-0 bg-black/70 via-transparent">
+=======
+      <div className="absolute inset-0 bg-black/80 via-transparent">
+>>>>>>> 762d824 (cambios 19)
         {/* Background image */}
         <div className="relative h-full w-full opacity-50 mix-blend-overlay">
           <Image
@@ -65,7 +69,7 @@ export function Carousel() {
           {/* Card */}
           <Card className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm text-white border-none">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold mb-4">{carouselItems[currentSlide].title}</h2>
+              <h2 className="text-3xl text-yellow-500 font-bold mb-4">{carouselItems[currentSlide].title}</h2>
               <p className="text-lg leading-relaxed">{carouselItems[currentSlide].content}</p>
             </CardContent>
           </Card>
