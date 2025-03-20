@@ -1,26 +1,14 @@
-<<<<<<< HEAD
-"use client";
-
-=======
 "use client"
->>>>>>> 762d824 (cambios 19)
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
 
-<<<<<<< HEAD
-const countries = ["Bolivia", "México", "España", "Chile", "Colombia", "Perú", "Otros"];
-
-export function Contact_form() {
-  const formRef = React.useRef<HTMLFormElement>(null);
-=======
 const countries = ["Argentina", "México", "España", "Chile", "Colombia", "Perú", "Otros"];
 
 export function Contact_form() {
   const formRef = React.useRef<HTMLFormElement>(null);
 
->>>>>>> 762d824 (cambios 19)
   const [formData, setFormData] = React.useState({
     firstName: "",
     lastName: "",
@@ -43,11 +31,7 @@ export function Contact_form() {
           "service_ofkr3f4",  // Reemplaza con tu Service ID de EmailJS
           "template_h8pmnw8", // Reemplaza con tu Template ID de EmailJS
           formRef.current,
-<<<<<<< HEAD
-          "8fG1MVd__D9CQqXHo"      // Reemplaza con tu Public Key de EmailJS
-=======
           "8fG1MVd__D9CQqXHo" // Reemplaza con tu Public Key de EmailJS
->>>>>>> 762d824 (cambios 19)
         );
 
         alert("Formulario enviado exitosamente");
@@ -67,11 +51,7 @@ export function Contact_form() {
   };
 
   return (
-<<<<<<< HEAD
-    <section className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-=======
     <section className="flex justify-center items-center min-h-screen bg-blue-500 p-4">
->>>>>>> 762d824 (cambios 19)
       <Card className="w-full max-w-lg bg-white shadow-lg p-6 rounded-lg">
         <CardContent>
           <h2 className="text-2xl font-bold text-center mb-6">Contáctanos</h2>
@@ -125,17 +105,10 @@ export function Contact_form() {
               <label htmlFor="country" className="block font-medium">País</label>
               <select
                 name="country"
-<<<<<<< HEAD
-                required
-                value={formData.country}
-                onChange={handleChange}
-                className="w-full p-2 border rounded relative z-10"
-=======
                 value={formData.country}
                 onChange={handleChange}
                 className="w-full p-2 border rounded relative z-10"
                 required
->>>>>>> 762d824 (cambios 19)
               >
                 <option value="">Selecciona un país</option>
                 {countries.map((country) => (

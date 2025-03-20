@@ -8,11 +8,7 @@ import Image from "next/image"
 
 const carouselItems = [
   {
-<<<<<<< HEAD
-    title: "4 talentos humanos indispensables para AdaFalabella",
-=======
     title: "Su confianza, nuestro compromiso",
->>>>>>> 762d824 (cambios 19)
     content:
       "Nuestro asesoramiento experto en cada despacho garantiza el cumplimiento de todas las regulaciones aduaneras nacionales e internacionales. Contamos con un equipo capacitado para ofrecer orientación y asistencia personalizada, garantizando trámites rápidos y sin errores.",
   },
@@ -37,11 +33,7 @@ export function Carousel() {
     <section className="relative min-h-[600px] overflow-hidden">
       {/* Background with gradient */}
 
-<<<<<<< HEAD
-      <div className="absolute inset-0 bg-black/70 via-transparent">
-=======
       <div className="absolute inset-0 bg-black/80 via-transparent">
->>>>>>> 762d824 (cambios 19)
         {/* Background image */}
         <div className="relative h-full w-full opacity-50 mix-blend-overlay">
           <Image

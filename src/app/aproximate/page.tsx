@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Hero } from '@/components/hero_aprox'
-=======
 //import { Hero } from '@/components/hero_aprox'
->>>>>>> 762d824 (cambios 19)
 import { Ubicacion } from '@/components/ubicacion'
 import Image from "next/image"
 import React from 'react'
@@ -25,10 +21,6 @@ const page = () => {
         
       </div>
         <div>
-<<<<<<< HEAD
-        <Hero/>
-=======
->>>>>>> 762d824 (cambios 19)
         <Ubicacion/>
 
         </div>

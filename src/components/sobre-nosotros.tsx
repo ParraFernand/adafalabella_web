@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Button } from "@/components/ui/button";
-=======
->>>>>>> 762d824 (cambios 19)
 
 export function SobreNosotros() {
   return (
