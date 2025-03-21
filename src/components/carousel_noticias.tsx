@@ -60,7 +60,7 @@ export function CarouselNoticias() {
 
   // Animation variants
   const slideVariants = {
-    enter: (direction : any) => ({
+    enter: (direction : number) => ({
       x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
     }),
@@ -72,7 +72,7 @@ export function CarouselNoticias() {
         opacity: { duration: 0.4 },
       },
     },
-    exit: (direction : any) => ({
+    exit: (direction : number) => ({
       x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
       transition: {
@@ -97,7 +97,7 @@ export function CarouselNoticias() {
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (custom : any) => ({
+    visible: (custom : number) => ({
       opacity: 1,
       y: 0,
       transition: {

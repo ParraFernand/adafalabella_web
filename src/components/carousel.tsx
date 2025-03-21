@@ -263,10 +263,11 @@ export function Carousel() {
               ref={progressRef}
               className="h-full bg-gradient-to-r from-[#EFC909] to-[#EFC909]/60 rounded-full"
               style={{
-                width: isPaused ? `${(currentSlide / (carouselItems.length - 1)) * 100}%` : "100%",
+                width: isPaused 
+                  ? `${(currentSlide / Math.max(carouselItems.length - 1, 1)) * 100}%`
+                  : "100%",
                 animation: isPaused ? "none" : "progress 6s linear",
-              }}
-            />
+              }} />
           </div>
 
           <div className="flex justify-center gap-4">

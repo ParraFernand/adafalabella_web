@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, ArrowRight } from 'lucide-react';
+import { Target, Eye } from 'lucide-react';
 
 export function MisionVision() {
   return (
