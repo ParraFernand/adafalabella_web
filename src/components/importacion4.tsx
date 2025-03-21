@@ -6,22 +6,18 @@ const services = [
   {
     title: "Asesoramiento en comercio exterior",
     description: "Brindamos asesoramiento experto en comercio exterior para que tus operaciones internacionales sean un éxito.",
-    image: "/papeleo1.jpg",
   },
   {
     title: "Aprovechamiento de incentivos tributarios estatales",
     description: "Te ayudamos a aprovechar los incentivos tributarios estatales disponibles para tus importaciones.",
-    image: "/servicio2-1.png",
   },
   {
     title: "Control documental desde origen directo con el proveedor y operadores",
     description: "Gestionamos y controlamos la documentación desde el origen, coordinando directamente con proveedores y operadores.",
-    image: "/servicio3-1.jpg",
   },
   {
     title: "Manejo integral de documentación digital con acceso 24/7",
     description: "Ofrecemos un manejo integral de la documentación digital con acceso 24/7 para que siempre tengas la información a tu alcance.",
-    image: "/papeleo2.jpg",
   },
 ];
 

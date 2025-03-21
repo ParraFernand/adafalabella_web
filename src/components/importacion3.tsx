@@ -6,27 +6,22 @@ const services = [
   {
     title: "Admisión temporal",
     description: "Facilitamos la admisión temporal de mercancías para que puedas contar con tus productos de manera ágil y sin complicaciones.",
-    image: "/papeleo1.jpg",
   },
   {
     title: "Despacho consumo",
     description: "Nos encargamos del despacho de mercancías para consumo, asegurando que cumplan con todas las normativas aduaneras.",
-    image: "/servicio2-1.png",
   },
   {
     title: "Despacho anticipado",
     description: "Ofrecemos servicios de despacho anticipado para agilizar la liberación de tus mercancías en el menor tiempo posible.",
-    image: "/servicio3-1.jpg",
   },
   {
     title: "Optimización de despachos aduaneros (sobre carro o anticipado)",
-    description: "Ofrecemos optimización en los despachos aduaneros, ya sea sobre carro o anticipado, para agilizar tus operaciones.",
-    image: "/papeleo2.jpg",
+    description: "Ofrecemos optimización en los despachos aduaneros, ya sea sobre carro o anticipado, para agilizar tus operaciones.",    
   },
   {
     title: "Estructuración de planeamiento logístico y aduanero para operaciones en embarques parciales",
     description: "Diseñamos planes logísticos y aduaneros eficientes para tus operaciones en embarques parciales.",
-    image: "/cajas.jpg",
   },
 ];
 

@@ -412,7 +412,7 @@ export function SobreNosotros() {
                 <Star className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-xl text-white font-medium italic">
-                    "¡No solamente manejamos números, sino también EMOCIONES!"
+                    ¡No solamente manejamos números, sino también EMOCIONES!
                   </p>
                   <motion.div
                     className="w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 mt-3"

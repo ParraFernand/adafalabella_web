@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Image from "next/image"  // Importa Image de next/image
 
 export function TransportModes() {
   return (
@@ -10,9 +11,11 @@ export function TransportModes() {
             <span className="text-xl font-bold">Por Aire</span>
           </div>
         </div>
-        <img
+        <Image
           src="/placeholder.svg?height=600&width=600"
           alt="Airplane"
+          width={600}  // Especifica el width y height para optimización
+          height={600}
           className="w-full h-full object-cover object-center opacity-90"
         />
       </div>
@@ -42,13 +45,14 @@ export function TransportModes() {
             <span className="text-xl font-bold">Por Mar</span>
           </div>
         </div>
-        <img
+        <Image
           src="/placeholder.svg?height=600&width=600"
           alt="Cargo Ship"
+          width={600}  // Especifica el width y height para optimización
+          height={600}
           className="w-full h-full object-cover object-center opacity-90"
         />
       </div>
     </section>
   )
 }
-

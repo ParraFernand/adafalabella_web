@@ -42,13 +42,13 @@ export function Carousel() {
         setCurrentSlide((prev) => (prev + 1) % carouselItems.length)
       }, 6000)
     }
-
+  
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current)
       }
     }
-  }, [isPaused, carouselItems.length])
+  }, [isPaused]);
 
   React.useEffect(() => {
     if (progressRef.current) {

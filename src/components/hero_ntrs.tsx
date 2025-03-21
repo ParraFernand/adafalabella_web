@@ -6,13 +6,16 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 export function Hero() {
-  const backgroundRef = useRef(null)
+  // Tipificación correcta para backgroundRef
+  const backgroundRef = useRef<HTMLDivElement>(null)
 
   // Parallax effect on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (backgroundRef.current) {
         const scrollY = window.scrollY
+        // Aplicando el efecto de parallax
+        backgroundRef.current.style.transform = `translateY(${scrollY * 0.5}px)`
       }
     }
 
@@ -20,7 +23,7 @@ export function Hero() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Animation variants
+  // Variantes de animación
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -181,4 +184,3 @@ export function Hero() {
     </section>
   )
 }
-

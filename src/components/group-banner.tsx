@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 
 export function GroupBanner() {
@@ -5,10 +6,12 @@ export function GroupBanner() {
     <section className="relative h-[600px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/back1.jpg"
           alt="Masterline Containers"
-          className="w-full h-full object-cover"
+          layout="fill"
+          objectFit="cover"
+          priority
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-pink-500/20 to-purple-500/20" />
@@ -36,4 +39,3 @@ export function GroupBanner() {
     </section>
   )
 }
-

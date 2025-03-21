@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import * as React from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -28,12 +27,13 @@ export function CarouselNoticias() {
   const [direction, setDirection] = React.useState(0)
   const [isAnimating, setIsAnimating] = React.useState(false)
 
-  const nextSlide = () => {
+  // Memoriza la función nextSlide usando useCallback
+  const nextSlide = React.useCallback(() => {
     if (isAnimating) return
     setIsAnimating(true)
     setDirection(1)
     setCurrentSlide((prev) => (prev + 1) % carouselItems.length)
-  }
+  }, [isAnimating])
 
   const prevSlide = () => {
     if (isAnimating) return
@@ -42,7 +42,7 @@ export function CarouselNoticias() {
     setCurrentSlide((prev) => (prev - 1 + carouselItems.length) % carouselItems.length)
   }
 
-  const goToSlide = (index : number) => {
+  const goToSlide = (index: number) => {
     if (isAnimating || index === currentSlide) return
     setIsAnimating(true)
     setDirection(index > currentSlide ? 1 : -1)
@@ -56,11 +56,11 @@ export function CarouselNoticias() {
     }, 3000)
 
     return () => clearTimeout(timer)
-  }, [currentSlide])
+  }, [nextSlide]) // Incluir nextSlide en las dependencias
 
-  // Animation variants
+  // Animación de los slides
   const slideVariants = {
-    enter: (direction : number) => ({
+    enter: (direction: number) => ({
       x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
     }),
@@ -72,7 +72,7 @@ export function CarouselNoticias() {
         opacity: { duration: 0.4 },
       },
     },
-    exit: (direction : number) => ({
+    exit: (direction: number) => ({
       x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
       transition: {
@@ -97,7 +97,7 @@ export function CarouselNoticias() {
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (custom : number) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -115,7 +115,7 @@ export function CarouselNoticias() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Full-screen background with current slide image */}
+      {/* Background and slide content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`bg-${currentSlide}`}
@@ -137,31 +137,20 @@ export function CarouselNoticias() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content container - full width and height */}
+      {/* Main content */}
       <div className="relative z-20 flex flex-col justify-center items-center w-full h-full">
         <div className="container mx-auto px-6 lg:px-16 py-8">
           <div className="flex flex-col items-center">
-            {/* Section title */}
             <motion.h2
               className="text-5xl md:text-6xl font-bold text-white mb-16 text-center"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="inline-block relative">
-                <span className="relative z-10">Noticias Destacadas</span>
-                <motion.span
-                  className="absolute bottom-2 left-0 w-full h-4 bg-yellow-500/30 -rotate-1 z-0"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                ></motion.span>
-              </span>
+              Noticias Destacadas
             </motion.h2>
 
-            {/* Main carousel content */}
             <div className="w-full max-w-7xl mx-auto relative">
-              {/* Current slide content */}
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={`slide-${currentSlide}`}
@@ -172,7 +161,7 @@ export function CarouselNoticias() {
                   exit="exit"
                   className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
                 >
-                  {/* Image side - larger and more prominent */}
+                  {/* Slide content */}
                   <motion.div
                     className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-2xl shadow-2xl border border-white/10"
                     variants={contentVariants}
@@ -191,7 +180,7 @@ export function CarouselNoticias() {
                     />
                   </motion.div>
 
-                  {/* Content side - larger text and more space */}
+                  {/* Content side */}
                   <div className="flex flex-col justify-center p-6 md:p-10 bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 h-full">
                     <motion.div
                       className="mb-4"
@@ -241,7 +230,7 @@ export function CarouselNoticias() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Navigation buttons - larger and more visible */}
+              {/* Navigation buttons */}
               <motion.button
                 onClick={prevSlide}
                 className="absolute left-4 lg:-left-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center border border-white/20 hover:bg-yellow-500 hover:text-black transition-all duration-300"
@@ -265,7 +254,7 @@ export function CarouselNoticias() {
               </motion.button>
             </div>
 
-            {/* Indicators - larger and more spaced */}
+            {/* Indicators */}
             <div className="flex justify-center gap-4 mt-12">
               {carouselItems.map((_, index) => (
                 <motion.button
@@ -306,4 +295,3 @@ export function CarouselNoticias() {
     </section>
   )
 }
-
