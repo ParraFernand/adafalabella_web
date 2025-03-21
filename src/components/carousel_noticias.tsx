@@ -53,7 +53,7 @@ export function CarouselNoticias() {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       nextSlide()
-    }, 8000)
+    }, 3000)
 
     return () => clearTimeout(timer)
   }, [currentSlide])
@@ -126,7 +126,7 @@ export function CarouselNoticias() {
           exit="exit"
           onAnimationComplete={() => setIsAnimating(false)}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-700/70 via-yellow-900/50 to-black/80 z-10"></div>
           <Image
             src={carouselItems[currentSlide].image || "/placeholder.svg"}
             alt="Background"
