@@ -7,8 +7,6 @@ const page = () => {
     <div>
       <Hero/>
       <SobreNosotros/>
-
-
     </div>
   )
 }
