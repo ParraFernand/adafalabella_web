@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+//import Image from "next/image";
 
 const services = [
   {
@@ -45,7 +45,7 @@ const services = [
   },
 ];
 
-export function ServicesGrid() {
+export function Importacion1() {
   const [expandedServiceIndex, setExpandedServiceIndex] = React.useState<null | number>(null);
 
   return (
@@ -58,7 +58,7 @@ export function ServicesGrid() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
-        <h2 className="text-white text-5xl font-bold text-center mb-12">Nuestros Servicios</h2>
+        <h2 className="text-white text-5xl font-bold text-center mb-12">Trámites Aduaneros y Permisos Especiales</h2>
 
         <div className="flex flex-wrap justify-center gap-6">
           {services.map((service, index) => (
@@ -73,26 +73,7 @@ export function ServicesGrid() {
               onMouseLeave={() => setExpandedServiceIndex(null)}
               style={{ zIndex: expandedServiceIndex === index ? 50 : 1 }}
             >
-              <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                {expandedServiceIndex === index ? (
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-300"
-                  />
-                ) : (
-               <div className="relative w-full h-full">
-                  <Image
-                    src="/container.jpg"
-                    alt="Placeholder Background"
-                    fill
-                    className="object-cover transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-blue-900/50" />
-                </div>
-                )}
-              </div>
+              
               <div className="absolute inset-0 bg-black/50 via-transparent rounded-2xl" />
               <div className="relative flex flex-col justify-center items-center text-center p-6">
                 {expandedServiceIndex === index ? (
