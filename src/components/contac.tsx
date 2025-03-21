@@ -1,13 +1,40 @@
 "use client"
-import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import emailjs from "@emailjs/browser";
 
-const countries = ["Argentina", "México", "España", "Chile", "Colombia", "Perú", "Otros"];
+import * as React from "react"
+import { motion, AnimatePresence, useInView } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import {
+  CheckCircle,
+  XCircle,
+  Send,
+  Loader2,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Users,
+  Award,
+  Star,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+} from "lucide-react"
+import emailjs from "@emailjs/browser"
 
-export function Contact_form() {
-  const formRef = React.useRef<HTMLFormElement>(null);
+const countries = ["Argentina", "México", "España", "Chile", "Colombia", "Perú", "Bolivia", "Otros"]
+
+export function ContactForm() {
+  const formRef = React.useRef<HTMLFormElement>(null)
+  const mapRef = React.useRef<HTMLDivElement>(null)
+  const statsRef = React.useRef<HTMLDivElement>(null)
+  const isMapInView = useInView(mapRef, { once: true, amount: 0.3 })
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 })
+
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [formStatus, setFormStatus] = React.useState<"idle" | "success" | "error">("idle")
+  const [focusedField, setFocusedField] = React.useState<string | null>(null)
 
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -16,25 +43,43 @@ export function Contact_form() {
     company: "",
     country: "",
     message: "",
-  });
+  })
+
+  // Load Google Maps script
+  React.useEffect(() => {
+    // This is a placeholder for Google Maps integration
+    // In a real implementation, you would load the Google Maps API
+    // and initialize the map here
+    console.log("Map would be initialized here in a real implementation")
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleFocus = (fieldName: string) => {
+    setFocusedField(fieldName)
+  }
+
+  const handleBlur = () => {
+    setFocusedField(null)
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
+    setIsSubmitting(true)
+    setFormStatus("idle")
 
     if (formRef.current) {
       try {
         await emailjs.sendForm(
-          "service_ofkr3f4",  // Reemplaza con tu Service ID de EmailJS
+          "service_ofkr3f4", // Reemplaza con tu Service ID de EmailJS
           "template_h8pmnw8", // Reemplaza con tu Template ID de EmailJS
           formRef.current,
-          "8fG1MVd__D9CQqXHo" // Reemplaza con tu Public Key de EmailJS
-        );
+          "8fG1MVd__D9CQqXHo", // Reemplaza con tu Public Key de EmailJS
+        )
 
-        alert("Formulario enviado exitosamente");
+        setFormStatus("success")
         setFormData({
           firstName: "",
           lastName: "",
@@ -42,97 +87,632 @@ export function Contact_form() {
           company: "",
           country: "",
           message: "",
-        });
+        })
+
+        // Reset form status after 5 seconds
+        setTimeout(() => {
+          setFormStatus("idle")
+        }, 5000)
       } catch (error) {
-        console.error("Error enviando correo:", error);
-        alert("Error al enviar el formulario");
+        console.error("Error enviando correo:", error)
+        setFormStatus("error")
+
+        // Reset form status after 5 seconds
+        setTimeout(() => {
+          setFormStatus("idle")
+        }, 5000)
+      } finally {
+        setIsSubmitting(false)
       }
     }
-  };
+  }
+
+  // Text animation variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  }
+
+  // Staggered letter animation for heading
+  const headingText = "Contáctanos"
+  const headingLetters = headingText.split("")
+
+  // Form field animation variants
+  const formFieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    }),
+  }
+
+  // Status message variants
+  const statusVariants = {
+    hidden: { opacity: 0, y: -20, height: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      height: "auto",
+      transition: {
+        duration: 0.4,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  }
+
+  // Contact info items
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Dirección",
+      content: "Av. Principal #123, La Paz, Bolivia",
+      color: "from-blue-400 to-blue-600",
+    },
+    {
+      icon: Phone,
+      title: "Teléfono",
+      content: "+591 2 123 4567",
+      color: "from-purple-400 to-purple-600",
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      content: "contacto@adafalabella.com",
+      color: "from-pink-400 to-pink-600",
+    },
+    {
+      icon: Clock,
+      title: "Horario",
+      content: "Lun - Vie: 9:00 - 18:00",
+      color: "from-amber-400 to-amber-600",
+    },
+  ]
+
+  // Stats items
+  const stats = [
+    {
+      icon: Users,
+      value: "500+",
+      label: "Clientes Satisfechos",
+      color: "from-blue-400 to-blue-600",
+    },
+    {
+      icon: Award,
+      value: "3+",
+      label: "Años de Experiencia",
+      color: "from-purple-400 to-purple-600",
+    },
+    {
+      icon: Star,
+      value: "98%",
+      label: "Tasa de Satisfacción",
+      color: "from-amber-400 to-amber-600",
+    },
+  ]
+
+  // Social media items
+  const socialMedia = [
+    { icon: Facebook, url: "#", label: "Facebook" },
+    { icon: Instagram, url: "#", label: "Instagram" },
+    { icon: Twitter, url: "#", label: "Twitter" },
+    { icon: Linkedin, url: "#", label: "LinkedIn" },
+  ]
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-blue-500 p-4">
-      <Card className="w-full max-w-lg bg-white shadow-lg p-6 rounded-lg">
-        <CardContent>
-          <h2 className="text-2xl font-bold text-center mb-6">Contáctanos</h2>
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="firstName" className="block font-medium">Nombre</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  required
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded relative z-10"
-                />
-              </div>
-              <div>
-                <label htmlFor="lastName" className="block font-medium">Apellido</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  required
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded relative z-10"
-                />
-              </div>
+    <section className="py-16 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Main heading */}
+        <div className="text-center mb-12">
+          <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
+            <div className="inline-flex items-center justify-center">
+              <div className="h-px w-12 bg-gradient-to-r from-blue-400 to-purple-400 mr-3" />
+              <span className="text-blue-400 font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
+              <div className="h-px w-12 bg-gradient-to-r from-purple-400 to-blue-400 ml-3" />
             </div>
-            <div>
-              <label htmlFor="email" className="block font-medium">Correo Electrónico</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-2 border rounded relative z-10"
-              />
-            </div>
-            <div>
-              <label htmlFor="company" className="block font-medium">Empresa</label>
-              <input
-                type="text"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full p-2 border rounded relative z-10"
-              />
-            </div>
-            <div>
-              <label htmlFor="country" className="block font-medium">País</label>
-              <select
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                className="w-full p-2 border rounded relative z-10"
-                required
+          </motion.div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+            {headingLetters.map((letter, index) => (
+              <motion.span
+                key={index}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { y: 40, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                    transition: {
+                      delay: 0.05 * index,
+                      duration: 0.5,
+                      ease: [0.215, 0.61, 0.355, 1],
+                    },
+                  },
+                }}
+                className="inline-block"
               >
-                <option value="">Selecciona un país</option>
-                {countries.map((country) => (
-                  <option key={country} value={country}>{country}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="message" className="block font-medium">Mensaje</label>
-              <textarea
-                name="message"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-2 border rounded relative z-10"
+                {letter === " " ? "\u00A0" : letter}
+              </motion.span>
+            ))}
+          </h1>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+            className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-4"
+          />
+        </div>
+
+        {/* Main content grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left column - Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+          >
+            <Card className="relative overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl h-full">
+              {/* Card background effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-400/10 rounded-full filter blur-[50px]" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-400/10 rounded-full filter blur-[50px]" />
+
+              {/* Decorative elements */}
+              <motion.div
+                className="absolute top-10 right-10 w-16 h-16 border border-white/10 rounded-full"
+                animate={{
+                  rotate: 360,
+                  borderColor: ["rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.1)"],
+                }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
+
+              <motion.div
+                className="absolute bottom-10 left-10 w-12 h-12 border border-white/10 rotate-45"
+                animate={{
+                  rotate: [45, 225, 45],
+                  borderColor: ["rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.1)"],
+                }}
+                transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              />
+
+              <CardContent className="relative z-10 p-8">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-white mb-2">Envíanos un mensaje</h2>
+                  <p className="text-gray-300">Completa el formulario y nos pondremos en contacto contigo pronto</p>
+                </div>
+
+                <AnimatePresence>
+                  {formStatus === "success" && (
+                    <motion.div
+                      key="success"
+                      variants={statusVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 flex items-center"
+                    >
+                      <CheckCircle className="w-5 h-5 mr-2 text-green-500" />
+                      <span>¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</span>
+                    </motion.div>
+                  )}
+
+                  {formStatus === "error" && (
+                    <motion.div
+                      key="error"
+                      variants={statusVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 flex items-center"
+                    >
+                      <XCircle className="w-5 h-5 mr-2 text-red-500" />
+                      <span>Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente.</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <motion.div
+                      custom={0}
+                      initial="hidden"
+                      animate="visible"
+                      variants={formFieldVariants}
+                      className="relative"
+                    >
+                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-200 mb-1">
+                        Nombre
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="firstName"
+                          id="firstName"
+                          required
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          onFocus={() => handleFocus("firstName")}
+                          onBlur={handleBlur}
+                          className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        />
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                          initial={{ width: "0%" }}
+                          animate={{ width: focusedField === "firstName" ? "100%" : "0%" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      custom={1}
+                      initial="hidden"
+                      animate="visible"
+                      variants={formFieldVariants}
+                      className="relative"
+                    >
+                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-200 mb-1">
+                        Apellido
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="lastName"
+                          id="lastName"
+                          required
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          onFocus={() => handleFocus("lastName")}
+                          onBlur={handleBlur}
+                          className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        />
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                          initial={{ width: "0%" }}
+                          animate={{ width: focusedField === "lastName" ? "100%" : "0%" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <motion.div
+                    custom={2}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="relative"
+                  >
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
+                      Correo Electrónico
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        onFocus={() => handleFocus("email")}
+                        onBlur={handleBlur}
+                        className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      />
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: focusedField === "email" ? "100%" : "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    custom={3}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="relative"
+                  >
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-200 mb-1">
+                      Empresa
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        name="company"
+                        id="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        onFocus={() => handleFocus("company")}
+                        onBlur={handleBlur}
+                        className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      />
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: focusedField === "company" ? "100%" : "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    custom={4}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="relative"
+                  >
+                    <label htmlFor="country" className="block text-sm font-medium text-gray-200 mb-1">
+                      País
+                    </label>
+                    <div className="relative">
+                      <select
+                        name="country"
+                        id="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        onFocus={() => handleFocus("country")}
+                        onBlur={handleBlur}
+                        className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        required
+                      >
+                        <option value="">Selecciona un país</option>
+                        {countries.map((country) => (
+                          <option key={country} value={country}>
+                            {country}
+                          </option>
+                        ))}
+                      </select>
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: focusedField === "country" ? "100%" : "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    custom={5}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="relative"
+                  >
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-1">
+                      Mensaje
+                    </label>
+                    <div className="relative">
+                      <textarea
+                        name="message"
+                        id="message"
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
+                        onFocus={() => handleFocus("message")}
+                        onBlur={handleBlur}
+                        className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      />
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: focusedField === "message" ? "100%" : "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    custom={6}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="flex justify-center pt-2"
+                  >
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="relative overflow-hidden group w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
+                    >
+                      <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      <span className="relative flex items-center justify-center gap-2">
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            <span>Enviando...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-5 h-5" />
+                            <span>Enviar Mensaje</span>
+                          </>
+                        )}
+                      </span>
+
+                      <motion.div className="absolute -inset-1 rounded-lg blur-sm bg-blue-400/30 opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
+                    </Button>
+                  </motion.div>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Right column - Contact info, Map, Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+            className="space-y-8"
+          >
+            {/* Contact Info Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.215, 0.61, 0.355, 1] }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+                  <div
+                    className={`absolute -inset-1 bg-gradient-to-r ${item.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
+                  />
+
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${item.color} flex-shrink-0`}
+                    >
+                      <item.icon className="w-6 h-6 text-white" />
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                      <p className="text-gray-300">{item.content}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="flex justify-center">
-              <Button type="submit" className="w-full relative z-10">Enviar</Button>
+
+            {/* Google Map */}
+            <motion.div
+              ref={mapRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isMapInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+              className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg h-64"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+
+              {/* Map placeholder - Replace with actual Google Maps integration */}
+              <div className="relative h-full w-full bg-gray-800/50 flex items-center justify-center">
+                <div className="text-center p-4">
+                  <MapPin className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                  <h3 className="text-lg font-semibold text-white mb-1">Nuestra Ubicación</h3>
+                  <p className="text-gray-300">Av. Principal #123, La Paz, Bolivia</p>
+                  <p className="text-sm text-gray-400 mt-2">
+                    (Aquí se mostraría el mapa de Google Maps en una implementación real)
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stats */}
+            <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isStatsInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.215, 0.61, 0.355, 1] }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg text-center"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+                  <div
+                    className={`absolute -inset-1 bg-gradient-to-r ${stat.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
+                  />
+
+                  <div className="relative z-10">
+                    <div
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${stat.color} mx-auto mb-3`}
+                    >
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+                      className="text-3xl font-bold text-white mb-1"
+                    >
+                      {stat.value}
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+                      className="text-sm text-gray-400"
+                    >
+                      {stat.label}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </form>
-        </CardContent>
-      </Card>
+
+            {/* Social Media */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+              className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+
+              <div className="relative z-10">
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Síguenos en redes sociales</h3>
+
+                <div className="flex justify-center gap-4">
+                  {socialMedia.map((social, index) => (
+                    <motion.a
+                      key={social.label}
+                      href={social.url}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.5 + index * 0.1,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
+                      whileHover={{
+                        scale: 1.2,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5 text-white" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
     </section>
-  );
+  )
 }
