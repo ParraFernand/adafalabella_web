@@ -1,3 +1,5 @@
+import Image from "next/image"  // Importa Image de next/image
+
 export function ValuesSection() {
   const values = [
     {
@@ -37,7 +39,13 @@ export function ValuesSection() {
           <div key={index} className={`flex ${value.align}`}>
             <div className={`relative overflow-hidden rounded-lg ${value.width}`}>
               <div className={`absolute inset-0 bg-gradient-to-r ${value.color} mix-blend-multiply`} />
-              <img src={value.image || "/placeholder.svg"} alt={value.title} className="w-full h-48 object-cover" />
+              <Image
+                src={value.image || "/placeholder.svg"}
+                alt={value.title}
+                width={800}  // Especifica el width y height para optimización
+                height={300}
+                className="w-full h-48 object-cover"
+              />
               <div className="absolute inset-0 flex items-center p-8">
                 <h3 className="text-4xl md:text-5xl font-bold text-white">{value.title}</h3>
               </div>
@@ -48,4 +56,3 @@ export function ValuesSection() {
     </section>
   )
 }
-

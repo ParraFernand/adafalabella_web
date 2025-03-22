@@ -45,11 +45,7 @@ export function ContactForm() {
     message: "",
   })
 
-  // Load Google Maps script
   React.useEffect(() => {
-    // This is a placeholder for Google Maps integration
-    // In a real implementation, you would load the Google Maps API
-    // and initialize the map here
     console.log("Map would be initialized here in a real implementation")
   }, [])
 
@@ -73,10 +69,10 @@ export function ContactForm() {
     if (formRef.current) {
       try {
         await emailjs.sendForm(
-          "service_ofkr3f4", // Reemplaza con tu Service ID de EmailJS
-          "template_h8pmnw8", // Reemplaza con tu Template ID de EmailJS
+          "service_ofkr3f4",
+          "template_h8pmnw8",
           formRef.current,
-          "8fG1MVd__D9CQqXHo", // Reemplaza con tu Public Key de EmailJS
+          "8fG1MVd__D9CQqXHo",
         )
 
         setFormStatus("success")
@@ -89,7 +85,6 @@ export function ContactForm() {
           message: "",
         })
 
-        // Reset form status after 5 seconds
         setTimeout(() => {
           setFormStatus("idle")
         }, 5000)
@@ -97,7 +92,6 @@ export function ContactForm() {
         console.error("Error enviando correo:", error)
         setFormStatus("error")
 
-        // Reset form status after 5 seconds
         setTimeout(() => {
           setFormStatus("idle")
         }, 5000)
@@ -107,7 +101,6 @@ export function ContactForm() {
     }
   }
 
-  // Text animation variants
   const titleVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -120,11 +113,9 @@ export function ContactForm() {
     },
   }
 
-  // Staggered letter animation for heading
   const headingText = "Contáctanos"
   const headingLetters = headingText.split("")
 
-  // Form field animation variants
   const formFieldVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -138,7 +129,6 @@ export function ContactForm() {
     }),
   }
 
-  // Status message variants
   const statusVariants = {
     hidden: { opacity: 0, y: -20, height: 0 },
     visible: {
@@ -161,57 +151,54 @@ export function ContactForm() {
     },
   }
 
-  // Contact info items
   const contactInfo = [
     {
       icon: MapPin,
       title: "Dirección",
       content: "Av. Principal #123, La Paz, Bolivia",
-      color: "from-blue-400 to-blue-600",
+      color: "from-blue-500 to-yellow-400",
     },
     {
       icon: Phone,
       title: "Teléfono",
       content: "+591 2 123 4567",
-      color: "from-purple-400 to-purple-600",
+      color: "from-yellow-400 to-blue-500",
     },
     {
       icon: Mail,
       title: "Email",
       content: "contacto@adafalabella.com",
-      color: "from-pink-400 to-pink-600",
+      color: "from-blue-400 to-yellow-500",
     },
     {
       icon: Clock,
       title: "Horario",
       content: "Lun - Vie: 9:00 - 18:00",
-      color: "from-amber-400 to-amber-600",
+      color: "from-yellow-500 to-blue-400",
     },
   ]
 
-  // Stats items
   const stats = [
     {
       icon: Users,
       value: "500+",
       label: "Clientes Satisfechos",
-      color: "from-blue-400 to-blue-600",
+      color: "from-blue-500 to-yellow-400",
     },
     {
       icon: Award,
       value: "3+",
       label: "Años de Experiencia",
-      color: "from-purple-400 to-purple-600",
+      color: "from-yellow-400 to-blue-500",
     },
     {
       icon: Star,
       value: "98%",
       label: "Tasa de Satisfacción",
-      color: "from-amber-400 to-amber-600",
+      color: "from-blue-400 to-yellow-500",
     },
   ]
 
-  // Social media items
   const socialMedia = [
     { icon: Facebook, url: "#", label: "Facebook" },
     { icon: Instagram, url: "#", label: "Instagram" },
@@ -220,19 +207,18 @@ export function ContactForm() {
   ]
 
   return (
-    <section className="py-16 px-4 md:px-8">
+    <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
       <div className="max-w-7xl mx-auto">
-        {/* Main heading */}
         <div className="text-center mb-12">
           <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
             <div className="inline-flex items-center justify-center">
-              <div className="h-px w-12 bg-gradient-to-r from-blue-400 to-purple-400 mr-3" />
-              <span className="text-blue-400 font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
-              <div className="h-px w-12 bg-gradient-to-r from-purple-400 to-blue-400 ml-3" />
+              <div className="h-px w-12 bg-gradient-to-r from-blue-400 to-yellow-400 mr-3" />
+              <span className="text-yellow-400 font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
+              <div className="h-px w-12 bg-gradient-to-r from-yellow-400 to-blue-400 ml-3" />
             </div>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-yellow-400">
             {headingLetters.map((letter, index) => (
               <motion.span
                 key={index}
@@ -262,25 +248,21 @@ export function ContactForm() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-4"
+            className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full mt-4"
           />
         </div>
 
-        {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left column - Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
           >
             <Card className="relative overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl h-full">
-              {/* Card background effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-400/10 rounded-full filter blur-[50px]" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-400/10 rounded-full filter blur-[50px]" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-[50px]" />
 
-              {/* Decorative elements */}
               <motion.div
                 className="absolute top-10 right-10 w-16 h-16 border border-white/10 rounded-full"
                 animate={{
@@ -360,7 +342,7 @@ export function ContactForm() {
                           className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                         />
                         <motion.div
-                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                           initial={{ width: "0%" }}
                           animate={{ width: focusedField === "firstName" ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -391,7 +373,7 @@ export function ContactForm() {
                           className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                         />
                         <motion.div
-                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                           initial={{ width: "0%" }}
                           animate={{ width: focusedField === "lastName" ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -423,7 +405,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "email" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -453,7 +435,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "company" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -490,7 +472,7 @@ export function ContactForm() {
                         ))}
                       </select>
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "country" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -521,7 +503,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "message" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -539,9 +521,9 @@ export function ContactForm() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="relative overflow-hidden group w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
+                      className="relative overflow-hidden group w-full bg-gradient-to-r from-blue-500 to-yellow-500 hover:from-blue-600 hover:to-yellow-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
                     >
-                      <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                       <span className="relative flex items-center justify-center gap-2">
                         {isSubmitting ? (
@@ -565,14 +547,12 @@ export function ContactForm() {
             </Card>
           </motion.div>
 
-          {/* Right column - Contact info, Map, Stats */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
             className="space-y-8"
           >
-            {/* Contact Info Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactInfo.map((item, index) => (
                 <motion.div
@@ -583,7 +563,7 @@ export function ContactForm() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
                   <div
                     className={`absolute -inset-1 bg-gradient-to-r ${item.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
                   />
@@ -604,7 +584,6 @@ export function ContactForm() {
               ))}
             </div>
 
-            {/* Google Map */}
             <motion.div
               ref={mapRef}
               initial={{ opacity: 0, y: 20 }}
@@ -612,12 +591,11 @@ export function ContactForm() {
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
               className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg h-64"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
 
-              {/* Map placeholder - Replace with actual Google Maps integration */}
               <div className="relative h-full w-full bg-gray-800/50 flex items-center justify-center">
                 <div className="text-center p-4">
-                  <MapPin className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                  <MapPin className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
                   <h3 className="text-lg font-semibold text-white mb-1">Nuestra Ubicación</h3>
                   <p className="text-gray-300">Av. Principal #123, La Paz, Bolivia</p>
                   <p className="text-sm text-gray-400 mt-2">
@@ -627,7 +605,6 @@ export function ContactForm() {
               </div>
             </motion.div>
 
-            {/* Stats */}
             <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
@@ -638,7 +615,7 @@ export function ContactForm() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg text-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
                   <div
                     className={`absolute -inset-1 bg-gradient-to-r ${stat.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
                   />
@@ -672,14 +649,13 @@ export function ContactForm() {
               ))}
             </div>
 
-            {/* Social Media */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
 
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-white mb-4 text-center">Síguenos en redes sociales</h3>

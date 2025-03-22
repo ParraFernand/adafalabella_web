@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { CalendarDays } from "lucide-react"
+import Image from "next/image"  // Asegúrate de importar Image de next/image
 
 const newsItems = [
   {
@@ -50,9 +51,11 @@ export function NewsGrid() {
             <Card key={index} className="overflow-hidden group cursor-pointer h-[400px]">
               <div className="relative h-full">
                 <div className="absolute inset-0">
-                  <img
+                  <Image
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
+                    width={300}  // Especifica el width y height de la imagen
+                    height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   {/* Gradient Overlay */}
@@ -73,4 +76,3 @@ export function NewsGrid() {
     </section>
   )
 }
-

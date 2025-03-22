@@ -1,124 +1,276 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react"
+import Image from "next/image"
+import { motion, useAnimation, useScroll, useTransform } from "framer-motion"
 
 export function Hero() {
+  const containerRef = useRef(null)
+  const { scrollY } = useScroll()
+  const controls = useAnimation()
+
+  // Parallax effect for video
+  const videoY = useTransform(scrollY, [0, 500], [0, 150])
+
+  // Animate elements on load
+  useEffect(() => {
+    controls.start("visible")
+  }, [controls])
+
+  // Animation variants
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  }
+
   return (
-    <section className="relative min-h-screen pt-12 overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0">
-        <motion.video 
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-blue-950">
+      {/* Background Video with Parallax */}
+      <motion.div className="absolute inset-0 h-[110%] w-full" style={{ y: videoY }}>
+        <motion.video
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 0.8 }}
           transition={{ duration: 1.5 }}
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         >
           <source src="cielo.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </motion.video>
-        
-        {/* Gradient Overlay with animated opacity */}
-        <motion.div 
+
+        {/* Blue Gradient Overlay */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 bg-gradient-to-r from-blue-800/80 via-blue-800/60 to-transparent"
+          className="absolute inset-0 bg-gradient-to-b from-blue-950 via-blue-900/90 to-blue-950"
         />
+      </motion.div>
+
+      {/* Animated Blue Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={`absolute rounded-full ${i % 3 === 0 ? "bg-yellow-400/30" : "bg-blue-400/20"}`}
+            initial={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              scale: Math.random() * 0.5 + 0.5,
+              opacity: 0,
+            }}
+            animate={{
+              y: [0, -100, -200],
+              opacity: [0, 0.7, 0],
+              scale: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: Math.random() * 5,
+            }}
+            style={{
+              width: `${Math.random() * 8 + 2}px`,
+              height: `${Math.random() * 8 + 2}px`,
+              filter: "blur(1px)",
+            }}
+          />
+        ))}
       </div>
 
+      {/* Blue Geometric Shapes */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 0.7, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.5 }}
+        className="hidden md:block absolute right-0 top-0 h-full w-[45%] z-0"
+        style={{
+          backgroundColor: "#1E3A8A", // Blue-900
+          clipPath: "polygon(100% 0, 100% 100%, 0 100%, 30% 0)",
+        }}
+      />
+
+      {/* Yellow Accent Shape */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 0.6, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.7 }}
+        className="hidden md:block absolute right-[5%] top-0 h-full w-[30%] z-0"
+        style={{
+          backgroundColor: "#EAB308", // Yellow-500
+          clipPath: "polygon(100% 0, 100% 100%, 30% 100%, 60% 0)",
+          mixBlendMode: "soft-light",
+        }}
+      />
+
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-6rem)] flex flex-col md:flex-row items-center justify-start">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-yellow-500 text-center w-full sm:max-w-md mx-auto md:ml-32 md:-mt-14 font-jafherb"
-        >
-          {/* Main Text */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg"
+      <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-3rem)] flex flex-col justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Text Content */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+            className="text-center md:text-left md:pl-8 lg:pl-16"
           >
-            Bienvenidos a ADAFALABELLA S.R.L
-          </motion.h1>
+            <motion.div variants={itemVariants} className="mb-2">
+              <span className="inline-block px-4 py-1 bg-yellow-500 text-blue-950 text-sm font-bold rounded-full mb-4">
+                SERVICIOS ADUANEROS
+              </span>
+            </motion.div>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-white text-xl md:text-2xl z-20 leading-relaxed drop-shadow-md"
-          >
-            Nos especializamos en brindar servicios ágiles y eficientes para asegurar que tus importaciones y exportaciones se realicen con éxito y sin contratiempo.
-          </motion.p>
-        </motion.div>
-
-        {/* Decorative Shape */}
-        <motion.div 
-          initial={{ opacity: 0, skewX: -20 }}
-          animate={{ opacity: 0.8, skewX: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="hidden md:block absolute inset-0 w-full h-full -z-10"
-          style={{
-            backgroundColor: "oklch(0.985 0.001 106.423)",
-            clipPath: "polygon(65% 0, 90% 0, 75% 100%, 50% 100%)",
-            filter: "blur(1px)",
-          }}
-        />
-
-        {/* Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8, x: 50 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 1,
-            type: "spring",
-            stiffness: 100
-          }}
-          className="hidden md:block md:absolute left-[50%] top-[20%] transform -translate-y-1/2"
-        >
-          <div className="relative">
-            <motion.div
-              animate={{ 
-                y: [0, -10, 0],
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg"
             >
-              <Image 
-                src="/girl.png" 
-                alt="Imagen Descriptiva" 
-                width={510} 
-                height={400} 
-                className="object-contain drop-shadow-2xl"
+              Bienvenidos a <span className="text-yellow-400">ADAFALABELLA</span>
+              <span className="text-yellow-400 text-sm align-top ml-1">S.R.L</span>
+            </motion.h1>
+
+            <motion.div variants={itemVariants} className="h-1 w-24 bg-yellow-400 mb-6 hidden md:block" />
+
+            <motion.p variants={itemVariants} className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+              Nos especializamos en brindar servicios ágiles y eficientes para asegurar que tus importaciones y
+              exportaciones se realicen con éxito y sin contratiempo.
+            </motion.p>
+
+            <motion.div variants={itemVariants}>
+              <motion.button
+                className="px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-blue-950 rounded-full font-bold text-lg shadow-lg transition-all duration-300"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(234, 179, 8, 0.5)" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Nuestros Servicios
+              </motion.button>
+            </motion.div>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="relative flex justify-center md:justify-end"
+          >
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
+              <Image
+                src="/girl.png"
+                alt="Imagen Descriptiva"
+                width={450}
+                height={450}
+                className="object-contain drop-shadow-xl"
                 priority
               />
             </motion.div>
-          </div>
-        </motion.div>
+
+            {/* Yellow circle behind image */}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[350px] md:h-[350px] rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/20 z-0"
+            />
+          </motion.div>
+        </div>
       </div>
 
-      {/* Animated Gradient Accent */}
+      {/* Animated Accent Lines */}
+      <div className="absolute bottom-0 left-0 w-full h-20 overflow-hidden z-10">
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: "100%" }}
+          transition={{
+            duration: 15,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute bottom-12 h-px w-full bg-gradient-to-r from-transparent via-blue-400 to-transparent"
+        />
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: "100%" }}
+          transition={{
+            duration: 20,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+            delay: 2,
+          }}
+          className="absolute bottom-8 h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent"
+        />
+      </div>
+
+      {/* Blue and Yellow Glowing Orbs */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 0.5, 0] }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-blue-500/20 to-transparent"
+        animate={{ opacity: 0.7 }}
+        transition={{ duration: 2 }}
+        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-600/20 blur-3xl"
       />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ duration: 2, delay: 0.5 }}
+        className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-yellow-500/10 blur-3xl"
+      />
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
+      >
+        <span className="text-white text-sm mb-2 opacity-70">Descubre más</span>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+          className="w-5 h-10 border-2 border-yellow-500/30 rounded-full flex justify-center p-1"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", ease: "easeInOut" }}
+            className="w-1.5 h-3 bg-yellow-400 rounded-full"
+          />
+        </motion.div>
+      </motion.div>
     </section>
-  );
+  )
 }
+

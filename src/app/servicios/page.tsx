@@ -1,12 +1,12 @@
-import { Hero } from '@/components/hero_srv'
-import { ServicesGrid } from '@/components/services-grid'
+
+import { ServiciosPage } from '@/components/servicios'
 
 const page = () => {
   return (
     <div>
       
-      <Hero/>
-      <ServicesGrid/>
+  
+      <ServiciosPage/>
     </div>
   )
 }
