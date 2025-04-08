@@ -20,9 +20,9 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-blue-900 text-white">
       {/* Countries Banner */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-blue-950 py-4">
         <div className="container mx-auto px-4 flex items-center justify-center">
           <Image
             src="/logo_ada2.png"
@@ -40,35 +40,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Solutions */}
           <div>
-            <h3 className="text-brand-orange font-bold mb-4">Soluciones logísticas</h3>
+            <h3 className="text-blue-950 font-bold mb-4">Soluciones logísticas</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#">Transporte marítimo</Link>
+                <Link href="/importacion">Servicios de Importación</Link>
               </li>
               <li>
-                <Link href="#">Transporte Aéreo</Link>
+                <Link href="/exportacion">Servicios de Exportación</Link>
               </li>
-              <li>
-                <Link href="#">Transporte Terrestre</Link>
-              </li>
-              <li>
-                <Link href="#">Proyectos industriales</Link>
-              </li>
-              <li>
-                <Link href="#">Logística Contractual</Link>
-              </li>
-              <li>
-                <Link href="#">Almacenaje y Distribución</Link>
-              </li>
-              <li>
-                <Link href="#">Seguro de carga</Link>
-              </li>
+             
             </ul>
           </div>
 
           {/* Discover */}
           <div>
-            <h3 className="text-brand-orange font-bold mb-4">Descubre ADAFALABELLA</h3>
+            <h3 className="text-blue-950 font-bold mb-4">Descubre ADAFALABELLA</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#">Nuestra historia</Link>
@@ -84,7 +70,7 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h3 className="text-brand-orange font-bold mb-4">Conéctate con nosotros</h3>
+            <h3 className="text-blue-950 font-bold mb-4">Conéctate con nosotros</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#">Contáctanos</Link>
@@ -94,7 +80,7 @@ export function Footer() {
 
           {/* Follow Us */}
           <div>
-            <h3 className="text-brand-orange font-bold mb-4">Síguenos</h3>
+            <h3 className="text-blue-950 font-bold mb-4">Síguenos</h3>
             <div className="flex gap-4">
               <Link href="#" className="hover:text-brand-orange">
                 <Facebook className="h-6 w-6" />

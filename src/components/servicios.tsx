@@ -14,7 +14,7 @@ const services = [
   {
     title: ["SERVICIOS", "EXPORTACIÓN"], // Corregido "EXPERTACIÓN" a "EXPORTACIÓN"
     image: "/servicio2-1.png",
-    href: "#",
+    href: "/exportacion",
   },
 ]
 
@@ -75,7 +75,7 @@ export function ServiciosPage() {
         <video autoPlay loop muted className="object-cover w-full h-full absolute top-0 left-0">
           <source src="/video1.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-blue-800/60"></div>
       </motion.div>
 
       {/* Contenido con efecto de desplazamiento */}

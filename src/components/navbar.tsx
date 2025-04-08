@@ -18,7 +18,6 @@ export function Navbar() {
     { label: "Inicio", href: "/" },
     { label: "Servicios", href: "/servicios" },
     { label: "Nosotros", href: "/nosotros" },
-    { label: "Aproxímate", href: "/aproximate" },
     { label: "Noticias", href: "/noticias" },
     { label: "Contacto", href: "/contacto" },
   ];

@@ -110,7 +110,7 @@ export function SobreNosotros() {
   }
 
   // Staggered letter animation for heading
-  const headingText = "Estamos aquí para mover su negocio"
+  const headingText = "Estamos aquí para mover     su negocio"
   const headingLetters = headingText.split("")
 
   return (
@@ -329,29 +329,7 @@ export function SobreNosotros() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 20px rgba(250, 204, 21, 0.4)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="relative overflow-hidden group flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-blue-900 px-8 py-4 rounded-full font-semibold transition-all duration-300"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                <span className="relative z-10">Conoce Más</span>
-                <motion.span
-                  animate={isHovering ? { x: [0, 5, 0] } : {}}
-                  transition={{ duration: 0.5, repeat: isHovering ? Number.POSITIVE_INFINITY : 0 }}
-                >
-                  <ChevronRight className="w-5 h-5 relative z-10" />
-                </motion.span>
-
-                <motion.div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <motion.div className="absolute -inset-1 rounded-full blur-md bg-yellow-300/50 opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
-              </motion.button>
+             
             </motion.div>
           </motion.div>
 

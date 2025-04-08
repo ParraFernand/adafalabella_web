@@ -207,7 +207,7 @@ export function ContactForm() {
   ]
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+    <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-blue-900/40 via-blue-800/40 to-blue-900/40">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
@@ -594,14 +594,18 @@ export function ContactForm() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
 
               <div className="relative h-full w-full bg-gray-800/50 flex items-center justify-center">
-                <div className="text-center p-4">
-                  <MapPin className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
-                  <h3 className="text-lg font-semibold text-white mb-1">Nuestra Ubicación</h3>
-                  <p className="text-gray-300">Av. Principal #123, La Paz, Bolivia</p>
-                  <p className="text-sm text-gray-400 mt-2">
-                    (Aquí se mostraría el mapa de Google Maps en una implementación real)
-                  </p>
-                </div>
+                  {/* Google Maps Embedded */}
+                  <div className="relative w-full max-w-md min-h-[200px] h-[250px] rounded-lg overflow-hidden shadow-lg z-10">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.9415934465277!2d-63.15445451720304!3d-17.724456252553217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7e55d9a3379%3A0xf7a3312a5d007438!2zQ2FsbGUgVXJ1cMOpIEIvSmVuZWNoZXLDug!5e0!3m2!1ses!2sbo!4v1744053223010!5m2!1ses!2sbo"
+
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                
               </div>
             </motion.div>
 

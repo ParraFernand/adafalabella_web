@@ -112,7 +112,7 @@ export function Carousel() {
     >
       {/* Enhanced Background with Dynamic Elements */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07479A]/90 via-[#07479A]/80 to-[#07479A]/90" />
+        
         
         <motion.div
           className="absolute inset-0"
@@ -129,7 +129,7 @@ export function Carousel() {
         >
           <Image src="/logis1.jpg" alt="Background" fill className="object-cover mix-blend-overlay" priority />
         </motion.div>
-
+        <div className="absolute inset-0 bg-blue-900/50" />
         {/* Animated Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -193,7 +193,7 @@ export function Carousel() {
                 }}
                 className="w-full"
               >
-                <Card className="bg-gradient-to-br from-[#07479A]/80 to-[#07479A]/60 backdrop-blur-xl text-white border border-[#EFC909]/20 overflow-hidden shadow-2xl">
+                <Card className="bg-gradient-to-br from-blue-700/80 to-blue-600/80 backdrop-blur-xl text-white border border-[#EFC909]/20 overflow-hidden shadow-2xl">
                   <CardContent className="p-10 md:p-12">
                     <div className="flex flex-col items-center text-center">
                       <motion.div

@@ -64,7 +64,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 bg-gradient-to-b from-blue-950 via-blue-900/90 to-blue-950"
+          className="absolute inset-0 bg-gradient-to-b from-blue-950 via-blue-900/60 to-blue-950"
         />
       </motion.div>
 
@@ -190,10 +190,10 @@ export function Hero() {
               className="relative z-10"
             >
               <Image
-                src="/girl.png"
+                src="/mujer_ada1.png"
                 alt="Imagen Descriptiva"
-                width={450}
-                height={450}
+                width={550}
+                height={550}
                 className="object-contain drop-shadow-xl"
                 priority
               />
