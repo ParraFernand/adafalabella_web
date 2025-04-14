@@ -17,10 +17,10 @@ export function MisionVision() {
             transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-yellow-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+          <div className="absolute inset-0 bg-[#07479c] rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 h-full">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-[#efc901] flex items-center justify-center">
                   <Target className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">Misión</h3>
@@ -29,7 +29,7 @@ export function MisionVision() {
                 Liderar el mercado de servicios aduaneros y logísticos, brindando soluciones innovadoras y eficientes que impulsen el crecimiento y la competitividad de nuestros clientes ofreciendo un servicio rápido, seguro y personalizado, respaldado por un equipo de expertos comprometidos con la excelencia y la satisfacción del cliente.
               </p>
               <motion.div
-                className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-yellow-400"
+                className="absolute bottom-0 left-0 h-1 bg-[#efc901]"
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true }}
@@ -46,10 +46,10 @@ export function MisionVision() {
             transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+            <div className="absolute inset-0 bg-[#07479c] rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 h-full">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-blue-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-[#efc901] flex items-center justify-center">
                   <Eye className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">Visión</h3>
@@ -58,7 +58,7 @@ export function MisionVision() {
                 Ser la empresa líder en servicios aduaneros y logísticos a nivel internacional, reconocida por nuestra excelencia en la atención al cliente, innovación tecnológica y compromiso con la sostenibilidad, teniendo presencia global, estableciendo relaciones comerciales sólidas y duraderas, y ofreciendo soluciones personalizadas y eficientes que impulsen el éxito de nuestros clientes en el comercio internacional.
               </p>
               <motion.div
-                className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-blue-500"
+                className="absolute bottom-0 left-0 h-1 bg-[#efc901]"
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true }}

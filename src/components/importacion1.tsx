@@ -307,31 +307,33 @@ export function Importacion1() {
 
       {/* Animated Navigation */}
       <div className="bg-blue-950 sticky top-0 z-50 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex overflow-x-auto py-4 gap-4">
-            {sections.map((section, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToSection(index)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-500 transform hover:scale-105
-                  ${
-                    activeSection === index
-                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/50 translate-y-[-2px]"
-                      : "bg-blue-800/50 hover:bg-blue-800 hover:shadow-md"
-                  }`}
-              >
-                <div
-                  className={`transform transition-transform duration-500 ${activeSection === index ? "rotate-360 scale-110" : ""}`}
-                >
-                  {section.icon}
-                </div>
-                <span className="font-medium whitespace-nowrap">{section.title}</span>
-              </button>
-            ))}
+  <div className="container mx-auto px-4">
+    {/* Cambia flex + overflow-x-auto por grid */}
+    <div className="grid grid-cols-3 gap-4 py-4"> {/* 3 columnas */}
+      {sections.map((section, index) => (
+        <button
+          key={index}
+          onClick={() => scrollToSection(index)}
+          className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-all duration-500 transform hover:scale-105
+            ${
+              activeSection === index
+                ? "bg-blue-500 text-white shadow-lg shadow-blue-500/50 translate-y-[-2px]"
+                : "bg-blue-800/50 hover:bg-blue-800 hover:shadow-md"
+            }`}
+        >
+          <div
+            className={`transform transition-transform duration-500 ${
+              activeSection === index ? "rotate-360 scale-110" : ""
+            }`}
+          >
+            {section.icon}
           </div>
-        </div>
-      </div>
-
+          <span className="font-medium whitespace-nowrap">{section.title}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
       {/* Add this scroll progress indicator after the navigation section */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
         <div className="flex flex-col items-center space-y-4">

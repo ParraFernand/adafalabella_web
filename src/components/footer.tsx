@@ -40,13 +40,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Solutions */}
           <div>
-            <h3 className="text-blue-950 font-bold mb-4">Soluciones logísticas</h3>
+            <h3 className="text-[#efc901] font-bold mb-4">Soluciones logísticas</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/importacion">Servicios de Importación</Link>
+                <Link className="hover:text-[#efc901]" href="/importacion">Servicios de Importación</Link>
               </li>
               <li>
-                <Link href="/exportacion">Servicios de Exportación</Link>
+                <Link className="hover:text-[#efc901]" href="/exportacion">Servicios de Exportación</Link>
               </li>
              
             </ul>
@@ -54,41 +54,41 @@ export function Footer() {
 
           {/* Discover */}
           <div>
-            <h3 className="text-blue-950 font-bold mb-4">Descubre ADAFALABELLA</h3>
+            <h3 className="text-[#efc901] font-bold mb-4">Descubre ADAFALABELLA</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#">Nuestra historia</Link>
+                <Link className="hover:text-[#efc901]"  href="#">Nuestra historia</Link>
               </li>
               <li>
-                <Link href="#">Nuestras oficinas</Link>
+                <Link className="hover:text-[#efc901]" href="#">Nuestras oficinas</Link>
               </li>
               <li>
-                <Link href="#">Noticias</Link>
+                <Link className="hover:text-[#efc901]" href="#">Noticias</Link>
               </li>
             </ul>
           </div>
 
           {/* Connect */}
           <div>
-            <h3 className="text-blue-950 font-bold mb-4">Conéctate con nosotros</h3>
+            <h3 className="text-[#efc901] font-bold mb-4">Conéctate con nosotros</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#">Contáctanos</Link>
+                <Link className="hover:text-[#efc901]" href="#">Contáctanos</Link>
               </li>
             </ul>
           </div>
 
           {/* Follow Us */}
           <div>
-            <h3 className="text-blue-950 font-bold mb-4">Síguenos</h3>
+            <h3 className="text-[#efc901]   font-bold mb-4">Síguenos</h3>
             <div className="flex gap-4">
-              <Link href="#" className="hover:text-brand-orange">
+              <Link href="#" className="hover:text-[#efc901]">
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="#" className="hover:text-brand-orange">
+              <Link href="#" className="hover:text-[#efc901]">
                 <Instagram className="h-6 w-6" />
               </Link>
-              <Link href="#" className="hover:text-brand-orange">
+              <Link href="#" className="hover:text-[#efc901]">
                 <Linkedin className="h-6 w-6" />
               </Link>
             </div>
@@ -98,7 +98,7 @@ export function Footer() {
         {/* Privacy Policy & Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <Link href="#" className="text-brand-orange hover:underline">
+            <Link href="#" className="text-[#efc901] hover:underline">
               Políticas de privacidad
             </Link>
             <div className="text-sm text-gray-400">

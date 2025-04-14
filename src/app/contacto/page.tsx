@@ -7,7 +7,7 @@ export default function ContactPage() {
       {/* Background with parallax effect */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="/fondo_art.jpg"
+          src="/fondo_nosotros.jpg"
           alt="Background"
           width={2419}
           height={2249}

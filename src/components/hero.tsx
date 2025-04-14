@@ -55,7 +55,7 @@ export function Hero() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         >
-          <source src="cielo.mp4" type="video/mp4" />
+          <source src="aduanas1.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </motion.video>
 
@@ -73,7 +73,7 @@ export function Hero() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute rounded-full ${i % 3 === 0 ? "bg-yellow-400/30" : "bg-blue-400/20"}`}
+            className={`absolute rounded-full ${i % 3 === 0 ? "bg-[#efc901]/30" : "bg-blue-400/20"}`}
             initial={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -118,7 +118,7 @@ export function Hero() {
         transition={{ duration: 1.2, delay: 0.7 }}
         className="hidden md:block absolute right-[5%] top-0 h-full w-[30%] z-0"
         style={{
-          backgroundColor: "#EAB308", // Yellow-500
+          backgroundColor: "#EAB308", // [#efc901]
           clipPath: "polygon(100% 0, 100% 100%, 30% 100%, 60% 0)",
           mixBlendMode: "soft-light",
         }}
@@ -134,21 +134,17 @@ export function Hero() {
             animate={controls}
             className="text-center md:text-left md:pl-8 lg:pl-16"
           >
-            <motion.div variants={itemVariants} className="mb-2">
-              <span className="inline-block px-4 py-1 bg-yellow-500 text-blue-950 text-sm font-bold rounded-full mb-4">
-                SERVICIOS ADUANEROS
-              </span>
-            </motion.div>
+
 
             <motion.h1
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg"
             >
-              Bienvenidos a <span className="text-yellow-400">ADAFALABELLA</span>
-              <span className="text-yellow-400 text-sm align-top ml-1">S.R.L</span>
+              Bienvenidos a <span className="text-[#efc901]">ADAFALABELLA</span>
+              <span className="text-[#efc901] text-sm align-top ml-1">S.R.L</span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="h-1 w-24 bg-yellow-400 mb-6 hidden md:block" />
+            <motion.div variants={itemVariants} className="h-1 w-24 bg-[[#efc901]] mb-6 hidden md:block" />
 
             <motion.p variants={itemVariants} className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
               Nos especializamos en brindar servicios ágiles y eficientes para asegurar que tus importaciones y
@@ -157,7 +153,7 @@ export function Hero() {
 
             <motion.div variants={itemVariants}>
               <motion.button
-                className="px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-blue-950 rounded-full font-bold text-lg shadow-lg transition-all duration-300"
+                className="px-8 py-3 bg-[#efc901] hover:bg-[#efc901] text-blue-950 rounded-full font-bold text-lg shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(234, 179, 8, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -190,7 +186,7 @@ export function Hero() {
               className="relative z-10"
             >
               <Image
-                src="/mujer_ada1.png"
+                src="/girl.png"
                 alt="Imagen Descriptiva"
                 width={550}
                 height={550}
@@ -204,7 +200,7 @@ export function Hero() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8, delay: 1.3 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[350px] md:h-[350px] rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/20 z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[350px] md:h-[350px] rounded-full bg-[#efc901]/20 backdrop-blur-sm border border-[#efc901]/20 z-0"
             />
           </motion.div>
         </div>
@@ -231,7 +227,7 @@ export function Hero() {
             ease: "linear",
             delay: 2,
           }}
-          className="absolute bottom-8 h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent"
+          className="absolute bottom-8 h-px w-full bg-gradient-to-r from-transparent via-[#efc901] to-transparent"
         />
       </div>
 
@@ -247,7 +243,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-yellow-500/10 blur-3xl"
+        className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-[#efc901]/10 blur-3xl"
       />
 
       {/* Scroll Indicator */}
@@ -261,12 +257,12 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          className="w-5 h-10 border-2 border-yellow-500/30 rounded-full flex justify-center p-1"
+          className="w-5 h-10 border-2 border-[#efc901]/30 rounded-full flex justify-center p-1"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", ease: "easeInOut" }}
-            className="w-1.5 h-3 bg-yellow-400 rounded-full"
+            className="w-1.5 h-3 bg-[#efc901] rounded-full"
           />
         </motion.div>
       </motion.div>

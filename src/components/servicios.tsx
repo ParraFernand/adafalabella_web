@@ -102,7 +102,7 @@ export function ServiciosPage() {
             <span className="relative">
               Servicios
               <motion.span
-                className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-400"
+                className="absolute -bottom-2 left-0 w-full h-1 bg-[#efc901]"
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -111,7 +111,7 @@ export function ServiciosPage() {
           </span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-16 items-center">
+        <div className="w-[150%] grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-16 items-center">
           {/* Primer servicio */}
           <motion.div
             initial="hidden"
@@ -144,11 +144,11 @@ export function ServiciosPage() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-300 group-hover:opacity-80"></div>
 
               {/* Contenido centrado */}
-              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-yellow-400/50">
+              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-[#efc901]/50">
                 {services[0].title.map((line, i) => (
                   <motion.h3
                     key={i}
-                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-yellow-400"}`}
+                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-[#efc901]"}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: i * 0.2 }}
@@ -161,13 +161,13 @@ export function ServiciosPage() {
                   initial={{ height: 0 }}
                   whileHover={{ height: "auto" }}
                 >
-                  <span className="px-4 py-2 bg-yellow-400 text-black rounded-full text-sm font-medium">Ver más</span>
+                  <span className="px-4 py-2 bg-[#efc901] text-black rounded-full text-sm font-medium">Ver más</span>
                 </motion.div>
               </div>
             </Link>
           </motion.div>
 
-          {/* Imagen PNG en el centro (más grande) */}
+          {/* Imagen PNG en el centro (más grande) 
           <motion.div
             ref={imageRef}
             className="flex justify-center items-center"
@@ -184,7 +184,7 @@ export function ServiciosPage() {
                 className="my-8 drop-shadow-2xl"
               />
               <motion.div
-                className="absolute -inset-4 rounded-full bg-yellow-400/20 -z-10 blur-xl"
+                className="absolute -inset-4 rounded-full bg-[#efc901]/20 -z-10 blur-xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -196,7 +196,7 @@ export function ServiciosPage() {
                 }}
               />
             </div>
-          </motion.div>
+          </motion.div>*/}
 
           {/* Segundo servicio */}
           <motion.div
@@ -231,11 +231,11 @@ export function ServiciosPage() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-300 group-hover:opacity-80"></div>
 
               {/* Contenido centrado */}
-              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-yellow-400/50">
+              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-[#efc901]/50">
                 {services[1].title.map((line, i) => (
                   <motion.h3
                     key={i}
-                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-yellow-400"}`}
+                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-[#efc901]"}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: i * 0.2 }}
@@ -248,7 +248,7 @@ export function ServiciosPage() {
                   initial={{ height: 0 }}
                   whileHover={{ height: "auto" }}
                 >
-                  <span className="px-4 py-2 bg-yellow-400 text-black rounded-full text-sm font-medium">Ver más</span>
+                  <span className="px-4 py-2 bg-[#efc901] text-black rounded-full text-sm font-medium">Ver más</span>
                 </motion.div>
               </div>
             </Link>
@@ -258,7 +258,7 @@ export function ServiciosPage() {
         {/* Elementos decorativos animados */}
         <div className="absolute top-20 left-10 -z-10 hidden lg:block">
           <motion.div
-            className="w-16 h-16 rounded-full bg-yellow-400/20 blur-xl"
+            className="w-16 h-16 rounded-full bg-[#efc901]/20 blur-xl"
             animate={{
               x: [0, 50, 0],
               y: [0, 30, 0],
@@ -272,7 +272,7 @@ export function ServiciosPage() {
         </div>
         <div className="absolute bottom-20 right-10 -z-10 hidden lg:block">
           <motion.div
-            className="w-24 h-24 rounded-full bg-yellow-400/20 blur-xl"
+            className="w-24 h-24 rounded-full bg-[#efc901]/20 blur-xl"
             animate={{
               x: [0, -50, 0],
               y: [0, -30, 0],

@@ -11,7 +11,7 @@ export function Hero() {
                 <h1 className="text-5xl md:text-7xl font-bold mb-1">
                     AdaFalabella
                 </h1>
-                <h2 className="text-3xl md:text-4xl font-bold">
+                <h2 className="text-3xl md:text-4xl font-bold ">
             <br />
                ¡Movemos tu mundo con
                <br />

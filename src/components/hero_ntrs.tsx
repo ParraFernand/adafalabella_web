@@ -73,7 +73,7 @@ export function Hero() {
 
       {/* Decorative Elements */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-yellow-500/10 blur-3xl"
+        className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-[#efc901]/10 blur-3xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
@@ -96,14 +96,14 @@ export function Hero() {
         >
           {/* Decorative line */}
           <motion.div
-            className="absolute -left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-500 via-yellow-400 to-transparent hidden md:block"
+            className="absolute -left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#efc901] via-[#efc901] to-transparent hidden md:block"
             variants={decorationVariants}
           />
 
           {/* Main Text */}
           <motion.div variants={itemVariants} className="relative">
             <motion.span
-              className="absolute -top-6 -left-6 text-6xl text-yellow-500/20 font-bold"
+              className="absolute -top-6 -left-6 text-6xl text-[#efc901]/20 font-bold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
@@ -117,19 +117,19 @@ export function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="h-0.5 w-32 bg-gradient-to-r from-yellow-500 to-transparent mx-auto md:mx-0 my-6"
+            className="h-0.5 w-32 bg-gradient-to-r from-[#efc901] to-transparent mx-auto md:mx-0 my-6"
           />
 
           <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold leading-tight">
             ¡Movemos tu mundo con
             <br />
-            <span className="text-yellow-400">EFICIENCIA</span> Y <span className="text-yellow-400">CONFIANZA</span>!
+            <span className="text-[#efc901]">EFICIENCIA</span> Y <span className="text-[#efc901]">CONFIANZA</span>!
           </motion.h2>
 
           {/* CTA Button */}
           <motion.div variants={itemVariants} className="mt-10">
             <motion.button
-              className="group relative px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold rounded-full overflow-hidden transition-all duration-300 shadow-lg hover:shadow-yellow-500/20 hover:shadow-xl"
+              className="group relative px-8 py-4 bg-[#efc901] hover:bg-[#efc901] text-slate-900 font-bold rounded-full overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[#efc901]/20 hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -154,8 +154,8 @@ export function Hero() {
           {/* Decorative element */}
           <motion.div className="absolute -bottom-10 right-0 w-24 h-24 hidden md:block" variants={decorationVariants}>
             <div className="relative w-full h-full">
-              <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-yellow-500/30 rounded-tl-xl" />
-              <div className="absolute bottom-0 right-0 w-3/4 h-3/4 border-b-2 border-r-2 border-yellow-500/50 rounded-br-xl" />
+              <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#efc901]/30 rounded-tl-xl" />
+              <div className="absolute bottom-0 right-0 w-3/4 h-3/4 border-b-2 border-r-2 border-[#efc901]/50 rounded-br-xl" />
             </div>
           </motion.div>
         </motion.div>
@@ -175,7 +175,7 @@ export function Hero() {
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
         >
           <motion.div
-            className="w-1.5 h-3 bg-yellow-500 rounded-full"
+            className="w-1.5 h-3 bg-[#efc901] rounded-full"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", ease: "easeInOut" }}
           />

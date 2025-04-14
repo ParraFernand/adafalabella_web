@@ -190,7 +190,7 @@ export function CarouselNoticias() {
                       exit="exit"
                       custom={2}
                     >
-                      <span className="bg-yellow-500 px-4 py-1.5 text-sm font-semibold text-black rounded-full">
+                      <span className="bg-[#efc901] px-4 py-1.5 text-sm font-semibold text-black rounded-full">
                         DESTACADO
                       </span>
                     </motion.div>
@@ -215,7 +215,7 @@ export function CarouselNoticias() {
                       {carouselItems[currentSlide].content}
                     </motion.p>
                     <motion.button
-                      className="self-start px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-medium text-lg rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+                      className="self-start px-8 py-3 bg-[#efc901] hover:bg-[#efc901] text-black font-medium text-lg rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible"
@@ -233,7 +233,7 @@ export function CarouselNoticias() {
               {/* Navigation buttons */}
               <motion.button
                 onClick={prevSlide}
-                className="absolute left-4 lg:-left-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center border border-white/20 hover:bg-yellow-500 hover:text-black transition-all duration-300"
+                className="absolute left-4 lg:-left-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center border border-white/20 hover:bg-[#efc901] hover:text-black transition-all duration-300"
                 aria-label="Anterior noticia"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -244,7 +244,7 @@ export function CarouselNoticias() {
 
               <motion.button
                 onClick={nextSlide}
-                className="absolute right-4 lg:-right-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center border border-white/20 hover:bg-yellow-500 hover:text-black transition-all duration-300"
+                className="absolute right-4 lg:-right-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center border border-white/20 hover:bg-[#efc901] hover:text-black transition-all duration-300"
                 aria-label="Siguiente noticia"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -261,7 +261,7 @@ export function CarouselNoticias() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`relative h-3 transition-all duration-300 rounded-full ${
-                    currentSlide === index ? "w-12 bg-yellow-500" : "w-3 bg-white/30 hover:bg-white/50"
+                    currentSlide === index ? "w-12 bg-[#efc901]" : "w-3 bg-white/30 hover:bg-white/50"
                   }`}
                   aria-label={`Ir a noticia ${index + 1}`}
                   whileHover={{ scale: 1.2 }}
@@ -270,7 +270,7 @@ export function CarouselNoticias() {
                 >
                   {currentSlide === index && (
                     <motion.span
-                      className="absolute inset-0 rounded-full bg-yellow-400/50"
+                      className="absolute inset-0 rounded-full bg-[#efc901]/50"
                       animate={{
                         opacity: [0.5, 1, 0.5],
                         scale: [1, 1.2, 1],

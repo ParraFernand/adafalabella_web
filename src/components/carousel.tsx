@@ -170,7 +170,7 @@ export function Carousel() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-4 z-10 h-14 w-14 rounded-full bg-[#EFC909]/20 backdrop-blur-sm hover:bg-[#EFC909]/30 text-white border border-[#EFC909]/30"
+              className="absolute left-4 z-10 h-14 w-14 rounded-full bg-[#efc901]/20 backdrop-blur-sm hover:bg-[#efc901]/30 text-white border border-[#efc901]/30"
               onClick={prevSlide}
             >
               <ChevronLeft className="h-8 w-8" />
@@ -193,7 +193,7 @@ export function Carousel() {
                 }}
                 className="w-full"
               >
-                <Card className="bg-gradient-to-br from-blue-700/80 to-blue-600/80 backdrop-blur-xl text-white border border-[#EFC909]/20 overflow-hidden shadow-2xl">
+                <Card className="bg-[#07479c] backdrop-blur-xl text-white border border-[#efc901]/20 overflow-hidden shadow-2xl">
                   <CardContent className="p-10 md:p-12">
                     <div className="flex flex-col items-center text-center">
                       <motion.div
@@ -211,7 +211,7 @@ export function Carousel() {
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-3xl md:text-4xl font-bold mb-4 text-[#EFC909]"
+                        className="text-3xl md:text-4xl font-bold mb-4 text-[#efc901]"
                       >
                         {carouselItems[currentSlide].title}
                       </motion.h2>
@@ -221,7 +221,7 @@ export function Carousel() {
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="h-1 w-24 bg-gradient-to-r from-[#EFC909] to-[#EFC909]/60 rounded-full mb-8"
+                        className="h-1 w-24 bg-gradient-to-r from-[#efc901] to-[#efc901]/60 rounded-full mb-8"
                       />
 
                       <motion.p
@@ -248,7 +248,7 @@ export function Carousel() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-4 z-10 h-14 w-14 rounded-full bg-[#EFC909]/20 backdrop-blur-sm hover:bg-[#EFC909]/30 text-white border border-[#EFC909]/30"
+              className="absolute right-4 z-10 h-14 w-14 rounded-full bg-[#efc901]/20 backdrop-blur-sm hover:bg-[#efc901]/30 text-white border border-[#efc901]/30"
               onClick={nextSlide}
             >
               <ChevronRight className="h-8 w-8" />
@@ -261,7 +261,7 @@ export function Carousel() {
           <div className="w-56 h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressRef}
-              className="h-full bg-gradient-to-r from-[#EFC909] to-[#EFC909]/60 rounded-full"
+              className="h-full bg-gradient-to-r from-[#efc901] to-[#efc901]/60 rounded-full"
               style={{
                 width: isPaused 
                   ? `${(currentSlide / Math.max(carouselItems.length - 1, 1)) * 100}%`
@@ -276,8 +276,8 @@ export function Carousel() {
                 key={index}
                 className={`relative h-3 rounded-full transition-all ${
                   currentSlide === index
-                    ? "bg-[#EFC909] w-10"
-                    : "bg-white/20 w-3 hover:bg-[#EFC909]/40"
+                    ? "bg-[#efc901] w-10"
+                    : "bg-white/20 w-3 hover:bg-[#efc901]/40"
                 }`}
                 onClick={() => goToSlide(index)}
                 whileHover={{ scale: 1.2 }}
@@ -286,7 +286,7 @@ export function Carousel() {
               >
                 {currentSlide === index && (
                   <motion.span
-                    className="absolute inset-0 rounded-full bg-[#EFC909]/40"
+                    className="absolute inset-0 rounded-full bg-[#efc901]/40"
                     animate={{
                       scale: [1, 1.8, 1],
                       opacity: [1, 0, 0],

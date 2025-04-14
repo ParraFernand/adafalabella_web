@@ -58,9 +58,9 @@ export function Navbar() {
       className="fixed w-full top-0 left-0 right-0 z-50"
     >
       <div 
-        className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-r from-blue-900 to-blue-800"
+        className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-gray-100 via-blue-300 to-blue-900"
         style={{
-          borderBottom: "3px solid #efc909",
+          borderBottom: "3px solid #efc901",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(10px)",
         }}
@@ -104,8 +104,8 @@ export function Navbar() {
                   whileHover={{ scale: 1.2 }}
                   className="relative"
                 >
-                  <Icon className="h-6 w-6 text-white transition-colors duration-300 group-hover:text-yellow-400" />
-                  <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full group-hover:left-0" />
+                  <Icon className="h-6 w-6 text-[#07479c] transition-colors duration-300 group-hover:text-[#efc901]" />
+                  <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-full group-hover:left-0" />
                 </motion.div>
               </Link>
             ))}
@@ -137,13 +137,13 @@ export function Navbar() {
                   className="relative group px-4 py-2"
                   onClick={() => setActiveItem(item.href)}
                 >
-                  <span className="text-white text-sm font-medium transition-colors duration-300 group-hover:text-yellow-400">
+                  <span className="text-white text-sm font-medium transition-colors duration-300 group-hover:text-[#efc901]">
                     {item.label}
                   </span>
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 transform origin-left transition-transform duration-300 ${activeItem === item.href ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`} />
+                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#efc901] transform origin-left transition-transform duration-300 ${activeItem === item.href ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`} />
                 </Link>
                 {index < menuItems.length - 1 && (
-                  <span className="h-4 w-px bg-yellow-400/30" />
+                  <span className="h-4 w-px bg-[#efc901]" />
                 )}
               </div>
             ))}

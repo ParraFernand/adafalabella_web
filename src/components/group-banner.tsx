@@ -30,7 +30,7 @@ export function GroupBanner() {
               Se consolida año tras año con una meta clara y contundente: ser una de las grandes empresas globales
               latinoamericanas de logística internacional.
             </p>
-            <Button variant="default" className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">
+            <Button variant="default" className="bg-[#efc901] hover:bg-yellow-600 text-black font-medium">
               Más Info
             </Button>
           </div>
