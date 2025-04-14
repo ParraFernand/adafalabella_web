@@ -26,7 +26,7 @@ export function ValuesSection() {
     {
       title: "EMPUJAMOS",
       image: "/placeholder.svg?height=300&width=800",
-      color: "from-yellow-500 to-orange-600",
+      color: "from-[#efc901] to-orange-600",
       align: "justify-end",
       width: "w-2/3",
     },

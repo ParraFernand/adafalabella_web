@@ -5,7 +5,7 @@ export function TransportModes() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-3">
       {/* Air Transport */}
-      <div className="relative h-[500px] overflow-hidden bg-gradient-to-br from-yellow-400 to-purple-600">
+      <div className="relative h-[500px] overflow-hidden bg-gradient-to-br from-[#efc901] to-purple-600">
         <div className="absolute top-8 left-8">
           <div className="border border-black px-6 py-2 bg-white/80 backdrop-blur-sm">
             <span className="text-xl font-bold">Por Aire</span>
@@ -39,7 +39,7 @@ export function TransportModes() {
       </div>
 
       {/* Sea Transport */}
-      <div className="relative h-[500px] overflow-hidden bg-gradient-to-bl from-yellow-400 to-purple-600">
+      <div className="relative h-[500px] overflow-hidden bg-gradient-to-bl from-[#efc901] to-purple-600">
         <div className="absolute top-8 right-8">
           <div className="border border-black px-6 py-2 bg-white/80 backdrop-blur-sm">
             <span className="text-xl font-bold">Por Mar</span>

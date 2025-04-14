@@ -76,7 +76,7 @@ export function SobreNosotros() {
       icon: Award,
       value: "3+",
       label: "Años de Experiencia",
-      color: "from-amber-400 to-yellow-500",
+      color: "from-amber-400 to-[#efc901]",
       delay: 0,
     },
     {
@@ -148,7 +148,7 @@ export function SobreNosotros() {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div style={{ y: bgY1 }} className="absolute top-0 left-0 w-[40rem] h-[40rem] rounded-full">
           <div
-            className="w-full h-full bg-gradient-to-br from-yellow-400/20 to-amber-500/10 rounded-full filter blur-[120px] animate-pulse"
+            className="w-full h-full bg-gradient-to-br from-[#efc901]/20 to-amber-500/10 rounded-full filter blur-[120px] animate-pulse"
             style={{ animationDuration: "8s" }}
           />
         </motion.div>
@@ -182,7 +182,7 @@ export function SobreNosotros() {
         />
 
         <motion.div
-          className="absolute bottom-32 left-[10%] w-24 h-24 border-2 border-yellow-400/20 rounded-full"
+          className="absolute bottom-32 left-[10%] w-24 h-24 border-2 border-[#efc901]/20 rounded-full"
           animate={{
             rotate: -360,
             scale: [1, 1.2, 1],
@@ -218,8 +218,8 @@ export function SobreNosotros() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="h-1 w-12 bg-gradient-to-r from-yellow-400 to-amber-500" />
-                <span className="text-yellow-400 font-medium tracking-wider uppercase text-sm">Sobre Nosotros</span>
+                <div className="h-1 w-12 bg-gradient-to-r from-[#efc901] to-amber-500" />
+                <span className="text-[#efc901] font-medium tracking-wider uppercase text-sm">Sobre Nosotros</span>
               </motion.div>
 
               <div className="overflow-hidden">
@@ -366,7 +366,7 @@ export function SobreNosotros() {
             />
 
             <motion.div
-              className="absolute bottom-20 left-4 w-16 h-16 border-2 border-yellow-400/20 rotate-45 z-20"
+              className="absolute bottom-20 left-4 w-16 h-16 border-2 border-[#efc901]/20 rotate-45 z-20"
               animate={{
                 rotate: [45, 225, 45],
                 scale: [1, 1.1, 1],
@@ -387,13 +387,13 @@ export function SobreNosotros() {
               className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 z-20"
             >
               <div className="flex items-start gap-3">
-                <Star className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                <Star className="w-6 h-6 text-[#efc901] flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-xl text-white font-medium italic">
                     ¡No solamente manejamos números, sino también EMOCIONES!
                   </p>
                   <motion.div
-                    className="w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 mt-3"
+                    className="w-0 h-0.5 bg-gradient-to-r from-[#efc901] to-amber-500 mt-3"
                     animate={{ width: "100%" }}
                     transition={{ duration: 1, delay: 1 }}
                   />

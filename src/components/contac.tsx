@@ -156,25 +156,25 @@ export function ContactForm() {
       icon: MapPin,
       title: "Dirección",
       content: "Av. Principal #123, La Paz, Bolivia",
-      color: "from-blue-500 to-yellow-400",
+      color: "[#efc901]",
     },
     {
       icon: Phone,
       title: "Teléfono",
       content: "+591 2 123 4567",
-      color: "from-yellow-400 to-blue-500",
+      color: "[#efc901]",
     },
     {
       icon: Mail,
       title: "Email",
       content: "contacto@adafalabella.com",
-      color: "from-blue-400 to-yellow-500",
+      color: "[#efc901]",
     },
     {
       icon: Clock,
       title: "Horario",
       content: "Lun - Vie: 9:00 - 18:00",
-      color: "from-yellow-500 to-blue-400",
+      color: "[#efc901]",
     },
   ]
 
@@ -183,19 +183,19 @@ export function ContactForm() {
       icon: Users,
       value: "500+",
       label: "Clientes Satisfechos",
-      color: "from-blue-500 to-yellow-400",
+      color: "[#efc901]",
     },
     {
       icon: Award,
       value: "3+",
       label: "Años de Experiencia",
-      color: "from-yellow-400 to-blue-500",
+      color: "[#efc901]",
     },
     {
       icon: Star,
       value: "98%",
       label: "Tasa de Satisfacción",
-      color: "from-blue-400 to-yellow-500",
+      color: "[#efc901]",
     },
   ]
 
@@ -212,13 +212,13 @@ export function ContactForm() {
         <div className="text-center mb-12">
           <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
             <div className="inline-flex items-center justify-center">
-              <div className="h-px w-12 bg-gradient-to-r from-blue-400 to-yellow-400 mr-3" />
-              <span className="text-yellow-400 font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
-              <div className="h-px w-12 bg-gradient-to-r from-yellow-400 to-blue-400 ml-3" />
+              <div className="h-px w-12 bg-[#efc901] mr-3" />
+              <span className="text-[#efc901] font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
+              <div className="h-px w-12 bg-[#efc901] ml-3" />
             </div>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-yellow-400">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-[#efc901]">
             {headingLetters.map((letter, index) => (
               <motion.span
                 key={index}
@@ -248,7 +248,7 @@ export function ContactForm() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full mt-4"
+            className="h-1 w-24 mx-auto bg-[#efc901] rounded-full mt-4"
           />
         </div>
 
@@ -258,10 +258,10 @@ export function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
           >
-            <Card className="relative overflow-hidden bg-white/10 backdrop-blur-md border-white/20 shadow-2xl h-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
+            <Card className="relative overflow-hidden bg-white/5 backdrop-blur-md border-white/20 shadow-2xl h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-400/10 rounded-full filter blur-[50px]" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-[50px]" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#efc901]/10 rounded-full filter blur-[50px]" />
 
               <motion.div
                 className="absolute top-10 right-10 w-16 h-16 border border-white/10 rounded-full"
@@ -342,7 +342,7 @@ export function ContactForm() {
                           className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                         />
                         <motion.div
-                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                           initial={{ width: "0%" }}
                           animate={{ width: focusedField === "firstName" ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -373,7 +373,7 @@ export function ContactForm() {
                           className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                         />
                         <motion.div
-                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                           initial={{ width: "0%" }}
                           animate={{ width: focusedField === "lastName" ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -405,7 +405,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "email" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -435,7 +435,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "company" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -472,7 +472,7 @@ export function ContactForm() {
                         ))}
                       </select>
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "country" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -503,7 +503,7 @@ export function ContactForm() {
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                       />
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: focusedField === "message" ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -521,9 +521,9 @@ export function ContactForm() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="relative overflow-hidden group w-full bg-gradient-to-r from-blue-500 to-yellow-500 hover:from-blue-600 hover:to-yellow-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
+                      className="relative overflow-hidden group w-full bg-[#efc901] hover:bg-[#07479c] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
                     >
-                      <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <motion.div className="absolute inset-0 bg-[#07479c] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                       <span className="relative flex items-center justify-center gap-2">
                         {isSubmitting ? (
@@ -533,8 +533,8 @@ export function ContactForm() {
                           </>
                         ) : (
                           <>
-                            <Send className="w-5 h-5" />
-                            <span>Enviar Mensaje</span>
+                            <Send className="w-5 h-5 text-black" />
+                            <span className="text-black">Enviar Mensaje</span>
                           </>
                         )}
                       </span>
@@ -563,16 +563,16 @@ export function ContactForm() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
                   <div
-                    className={`absolute -inset-1 bg-gradient-to-r ${item.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
+                    className={`absolute -inset-1 bg-[#efc901] opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
                   />
 
                   <div className="relative z-10 flex items-start gap-4">
                     <div
-                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${item.color} flex-shrink-0`}
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-[#efc901] flex-shrink-0`}
                     >
-                      <item.icon className="w-6 h-6 text-white" />
+                      <item.icon className="w-6 h-6 text-[#07479c]" />
                     </div>
 
                     <div>
@@ -591,7 +591,7 @@ export function ContactForm() {
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
               className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg h-64"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
 
               <div className="relative h-full w-full bg-gray-800/50 flex items-center justify-center">
                   {/* Google Maps Embedded */}
@@ -619,16 +619,16 @@ export function ContactForm() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg text-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
                   <div
                     className={`absolute -inset-1 bg-gradient-to-r ${stat.color} opacity-0 hover:opacity-20 blur-xl transition-opacity duration-700`}
                   />
 
                   <div className="relative z-10">
                     <div
-                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${stat.color} mx-auto mb-3`}
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center bg-[#efc901] mx-auto mb-3`}
                     >
-                      <stat.icon className="w-6 h-6 text-white" />
+                      <stat.icon className="w-6 h-6 text-[#07479c]" />
                     </div>
 
                     <motion.div
@@ -659,7 +659,7 @@ export function ContactForm() {
               transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-yellow-500/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
 
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-white mb-4 text-center">Síguenos en redes sociales</h3>

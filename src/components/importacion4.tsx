@@ -57,7 +57,7 @@ export function Importacion4() {
                     <p>{service.description}</p>
                   </div>
                 ) : (
-                  <h3 className="text-xl font-bold text-yellow-400">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-[#efc901]">{service.title}</h3>
                 )}
               </div>
             </div>

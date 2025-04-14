@@ -19,7 +19,7 @@ const cards = [
     title: "Reféscate",
     question: "¿Por qué somos eficientes?",
     color: "bg-red-500",
-    quoteColor: "text-yellow-400",
+    quoteColor: "text-[#efc901]",
   },
 ]
 
