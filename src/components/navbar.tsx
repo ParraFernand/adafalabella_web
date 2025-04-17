@@ -58,7 +58,7 @@ export function Navbar() {
       className="fixed w-full top-0 left-0 right-0 z-50"
     >
       <div 
-        className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-gray-100 via-blue-300 to-blue-900"
+        className="absolute inset-0 w-full h-full -z-10 bg-[#07479c]"
         style={{
           borderBottom: "3px solid #efc901",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -76,7 +76,7 @@ export function Navbar() {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="transform hover:scale-105 transition-transform duration-300">
-              <Image src="/logo_ada1.png" alt="Logo Principal" width={230} height={60} className="rounded" />
+              <Image src="/logo_ada3.png" alt="Logo Principal" width={280} height={110} className="rounded" />
             </Link>
             <Link href="/" className="transform hover:scale-110 transition-transform duration-300">
               <Image src="/logo_ada2.png" alt="Logo Secundario" width={70} height={40} className="rounded" />
@@ -104,7 +104,7 @@ export function Navbar() {
                   whileHover={{ scale: 1.2 }}
                   className="relative"
                 >
-                  <Icon className="h-6 w-6 text-[#07479c] transition-colors duration-300 group-hover:text-[#efc901]" />
+                  <Icon className="h-7 w-7 text-white transition-colors duration-300 group-hover:text-[#efc901]" />
                   <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-full group-hover:left-0" />
                 </motion.div>
               </Link>
@@ -137,7 +137,7 @@ export function Navbar() {
                   className="relative group px-4 py-2"
                   onClick={() => setActiveItem(item.href)}
                 >
-                  <span className="text-white text-sm font-medium transition-colors duration-300 group-hover:text-[#efc901]">
+                  <span className="text-white text-xl font-medium transition-colors duration-300 group-hover:text-[#efc901]">
                     {item.label}
                   </span>
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#efc901] transform origin-left transition-transform duration-300 ${activeItem === item.href ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`} />
