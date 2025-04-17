@@ -186,10 +186,10 @@ export function Hero() {
               className="relative z-10"
             >
               <Image
-                src="/girl.png"
+                src="/girlhero4.png"
                 alt="Imagen Descriptiva"
-                width={550}
-                height={550}
+                width={450}
+                height={450}
                 className="object-contain drop-shadow-xl"
                 priority
               />
