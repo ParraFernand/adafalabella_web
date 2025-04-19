@@ -11,13 +11,13 @@ export function MisionVision() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Misión */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-            className="relative group"
-          >
-          <div className="absolute inset-0 bg-[#07479c] rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+  initial={{ opacity: 0, x: -30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+  className="relative group min-h-[400px]" 
+>
+<div className="absolute inset-[-10px] bg-[#07479c] rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 h-full">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-lg bg-[#efc901] flex items-center justify-center">
@@ -25,7 +25,7 @@ export function MisionVision() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Misión</h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-white leading-relaxed text-justify pt-10">
                 Liderar el mercado de servicios aduaneros y logísticos, brindando soluciones innovadoras y eficientes que impulsen el crecimiento y la competitividad de nuestros clientes ofreciendo un servicio rápido, seguro y personalizado, respaldado por un equipo de expertos comprometidos con la excelencia y la satisfacción del cliente.
               </p>
               <motion.div
@@ -54,7 +54,7 @@ export function MisionVision() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Visión</h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-white leading-relaxed text-justify pt-10">
                 Ser la empresa líder en servicios aduaneros y logísticos a nivel internacional, reconocida por nuestra excelencia en la atención al cliente, innovación tecnológica y compromiso con la sostenibilidad, teniendo presencia global, estableciendo relaciones comerciales sólidas y duraderas, y ofreciendo soluciones personalizadas y eficientes que impulsen el éxito de nuestros clientes en el comercio internacional.
               </p>
               <motion.div
