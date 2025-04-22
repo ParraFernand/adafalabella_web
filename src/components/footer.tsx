@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin } from "lucide-react"
+import { FaWhatsapp } from "react-icons/fa";
+import { BsWhatsapp } from "react-icons/bs";
 
 export function Footer() {
   const countries = [
@@ -27,7 +29,7 @@ export function Footer() {
           <Image
             src="/logo_ada2.png"
             alt="adfalabella Logo"
-            width={50}
+            width={100}
             height={50}
             className="mr-4"
           />
@@ -90,6 +92,9 @@ export function Footer() {
               </Link>
               <Link href="#" className="hover:text-[#efc901]">
                 <Linkedin className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="hover:text-[#efc901]">
+                <FaWhatsapp className="h-6 w-6" />
               </Link>
             </div>
           </div>

@@ -8,12 +8,12 @@ import { motion, useAnimation, useInView, useScroll, useTransform } from "framer
 const services = [
   {
     title: ["SERVICIOS", "IMPORTACIÓN"],
-    image: "/servicio1-1.png",
+    image: "/import.jpg",
     href: "/importacion",
   },
   {
     title: ["SERVICIOS", "EXPORTACIÓN"], // Corregido "EXPERTACIÓN" a "EXPORTACIÓN"
-    image: "/servicio2-1.png",
+    image: "/export.jpg",
     href: "/exportacion",
   },
 ]
@@ -111,7 +111,7 @@ export function ServiciosPage() {
           </span>
         </motion.h2>
 
-        <div className="w-[150%] grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-16 items-center">
+        <div className="w-[100%] grid grid-cols-1 gap-16 items-center">
           {/* Primer servicio */}
           <motion.div
             initial="hidden"
@@ -166,37 +166,6 @@ export function ServiciosPage() {
               </div>
             </Link>
           </motion.div>
-
-          {/* Imagen PNG en el centro (más grande) 
-          <motion.div
-            ref={imageRef}
-            className="flex justify-center items-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={imageControls}
-            transition={{ duration: 1 }}
-          >
-            <div className="relative">
-              <Image
-                src="/mujer_ada1.png"
-                alt="Imagen central"
-                width={1500}
-                height={1500}
-                className="my-8 drop-shadow-2xl"
-              />
-              <motion.div
-                className="absolute -inset-4 rounded-full bg-[#efc901]/20 -z-10 blur-xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                }}
-              />
-            </div>
-          </motion.div>*/}
 
           {/* Segundo servicio */}
           <motion.div

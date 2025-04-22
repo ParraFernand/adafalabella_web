@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Menu, X } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Menu, X, Wallpaper } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 //import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -58,7 +59,7 @@ export function Navbar() {
       className="fixed w-full top-0 left-0 right-0 z-50"
     >
       <div 
-        className="absolute inset-0 w-full h-full -z-10 bg-[#07479c]"
+        className="absolute inset-0 w-full h-full -z-10 bg-[#11079c]"
         style={{
           borderBottom: "3px solid #efc901",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -66,26 +67,53 @@ export function Navbar() {
         }}
       />
       
-      <div className="container mx-auto px-4 lg:px-28 py-4">
+      <div className="container mx-auto px-4 lg:px-0 py-4">
         <div className="w-full flex justify-between items-center">
           {/* Logos */}
           <motion.div 
-            className="flex items-center gap-6"
+            className="flex items-center gap-6 ml-[-70px]"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="transform hover:scale-105 transition-transform duration-300">
-              <Image src="/logo_ada3.png" alt="Logo Principal" width={280} height={110} className="rounded" />
+              <Image src="/logo_ada3.png" alt="Logo Principal" width={450} height={110} className="rounded" />
             </Link>
-            <Link href="/" className="transform hover:scale-110 transition-transform duration-300">
-              <Image src="/logo_ada2.png" alt="Logo Secundario" width={70} height={40} className="rounded" />
+            <Link href="/" className="transform hover:scale-110 transition-transform duration-300 ml-[-50px]">
+              <Image src="/logo_ada2.png" alt="Logo Secundario" width={130} height={40} className="rounded" />
             </Link>
           </motion.div>
+           {/* Desktop Menu */}
+            <motion.div 
+              className="hidden lg:flex justify-center mt-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center space-x-1">
+                {menuItems.map((item, index) => (
+                  <div key={item.label} className="flex items-center">
+                    <Link 
+                      href={item.href}
+                      className="relative group px-4 py-2"
+                      onClick={() => setActiveItem(item.href)}
+                    >
+                      <span className="text-white text-2xl font-title transition-colors duration-300 group-hover:text-[#efc901]">
+                        {item.label}
+                      </span>
+                      <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#efc901] transform origin-left transition-transform duration-300 ${activeItem === item.href ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`} />
+                    </Link>
+                    {index < menuItems.length - 1 && (
+                      <span className="h-4 w-px bg-[#efc901]" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
           {/* Social Media Icons */}
           <motion.div 
-            className="hidden lg:flex gap-8"
+            className="hidden lg:flex gap-10"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -94,6 +122,7 @@ export function Navbar() {
               { Icon: Facebook, href: "#" },
               { Icon: Instagram, href: "#" },
               { Icon: Linkedin, href: "#" },
+              { Icon: FaWhatsapp, href: "#"},
             ].map(({ Icon, href }, index) => (
               <Link 
                 key={index}
@@ -122,33 +151,7 @@ export function Navbar() {
           </motion.button>
         </div>
 
-        {/* Desktop Menu */}
-        <motion.div 
-          className="hidden lg:flex justify-center mt-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <div className="flex items-center space-x-1">
-            {menuItems.map((item, index) => (
-              <div key={item.label} className="flex items-center">
-                <Link 
-                  href={item.href}
-                  className="relative group px-4 py-2"
-                  onClick={() => setActiveItem(item.href)}
-                >
-                  <span className="text-white text-xl font-medium transition-colors duration-300 group-hover:text-[#efc901]">
-                    {item.label}
-                  </span>
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#efc901] transform origin-left transition-transform duration-300 ${activeItem === item.href ? 'scale-x-100' : 'scale-x-0'} group-hover:scale-x-100`} />
-                </Link>
-                {index < menuItems.length - 1 && (
-                  <span className="h-4 w-px bg-[#efc901]" />
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
 
       {/* Mobile Menu */}

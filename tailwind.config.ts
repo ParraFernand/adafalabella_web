@@ -20,6 +20,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         jafherb: ["JAF Herb", "sans-serif"],
+        title: ['var(--font-playfair)', 'serif'],
+        merriweather: ['var(--font-merriweather)', 'serif2'],
+        pacifico: ['var(--font-pacifico)', 'cursive'],
+        roboto: ['var(--font-roboto)', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,6 +1,8 @@
 "use client"
-import React from "react"
 import { Package2, FileCheck, Truck, Users, Building2, FileText } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import Image from "next/image"
+import { motion } from "framer-motion"
 
 const placeholderImages = [
   "/service-placeholder-1.jpg",
@@ -31,7 +33,7 @@ const sections = [
         title: "RITEX",
         description:
           "Gestionamos el régimen Ritex (Régimen de Importación Temporal para Exportación) para que tus productos importados temporalmente puedan ser exportados sin problemas.",
-          image: "/aduana.jpg",
+          image: "/papeleo1.jpg",
         },
       {
         title: "Trámites y permisos especiales",
@@ -43,7 +45,7 @@ const sections = [
         title: "Gestión ante entidades especializadas (SENASAG, AGEMED, etc.)",
         description:
           "Gestionamos trámites ante entidades especializadas como SENASAG y AGEMED para que tus productos cumplan con todas las regulaciones.",
-          image: "/senasag.jpg",
+          image: "/papeleo5.jpg",
       },
       {
         title: "Gestión de autorizaciones previas para vehículos (VICEMINISTERIO DE TRANSPORTES, IBMETRO)",
@@ -209,6 +211,7 @@ export function Importacion1() {
   const [hoveredService, setHoveredService] = React.useState<number | null>(null)
   const [isVisible, setIsVisible] = React.useState(false)
   const [imageMap, setImageMap] = React.useState<Map<string, string>>(new Map())
+  const [scale, setScale] = useState(1);
 
   const sectionRefs = React.useRef<(HTMLDivElement | null)[]>([])
 
@@ -274,22 +277,71 @@ export function Importacion1() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900/45 to-black/45 text-white overflow-hidden">
-      {/* Hero Section with Parallax Effect */}
-      <div
-        className="relative h-[60vh] bg-cover bg-center bg-fixed transform transition-transform duration-1000"
-        style={{
-          backgroundImage: "url('cajas_amarillas.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section with Enhanced Parallax Effect - Similar to Carousel */}
+      <div className="relative h-[60vh] overflow-hidden">
+        {/* Background container with animations */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0.4 }}
+            animate={{
+              opacity: [0.4, 0.6, 0.4],
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
+            <Image 
+              src="/cajas.jpg" 
+              alt="Background" 
+              fill 
+              className="object-cover mix-blend-overlay" 
+              priority 
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-black/50" />
+          
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(239,201,9,0.15) 0%, rgba(239,201,9,0) 70%)",
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+            />
+            
+            <motion.div
+              className="absolute -bottom-1/4 -right-1/4 w-[800px] h-[800px] rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(7,71,154,0.2) 0%, rgba(7,71,154,0) 70%)",
+              }}
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.4, 0.6, 0.4],
+              }}
+              transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+            />
+          </div>
+        </div>
+
+        {/* Hero Content */}
         <div className="relative h-full flex items-center justify-center">
           <div
             className={`text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
           >
-            <h1 className="text-6xl font-bold text-center mb-4 animate-fade-in">Servicios de Importación</h1>
-            <span className="block text-3xl text-blue-300 animate-slide-up">Soluciones integrales para tu negocio</span>
+            <h1 className="text-8xl font-merriweather text-center mb-4 animate-fade-in">Servicios de Importación</h1>
+            <span className="block text-5xl font-merriweather text-blue-300 animate-slide-up">Soluciones integrales para tu negocio</span>
           </div>
         </div>
+        
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-0 right-0 flex justify-center">
           <div className="cursor-pointer scroll-indicator-container" onClick={() => scrollToSection(0)}>
@@ -307,33 +359,34 @@ export function Importacion1() {
 
       {/* Animated Navigation */}
       <div className="bg-blue-950 sticky top-0 z-50 backdrop-blur-sm">
-  <div className="container mx-auto px-4">
-    {/* Cambia flex + overflow-x-auto por grid */}
-    <div className="grid grid-cols-3 gap-4 py-4"> {/* 3 columnas */}
-      {sections.map((section, index) => (
-        <button
-          key={index}
-          onClick={() => scrollToSection(index)}
-          className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-all duration-500 transform hover:scale-105
-            ${
-              activeSection === index
-                ? "bg-blue-500 text-white shadow-lg shadow-blue-500/50 translate-y-[-2px]"
-                : "bg-blue-800/50 hover:bg-blue-800 hover:shadow-md"
-            }`}
-        >
-          <div
-            className={`transform transition-transform duration-500 ${
-              activeSection === index ? "rotate-360 scale-110" : ""
-            }`}
-          >
-            {section.icon}
+        <div className="container mx-auto px-4">
+          {/* Cambia flex + overflow-x-auto por grid */}
+          <div className="grid grid-cols-3 gap-4 py-4"> {/* 3 columnas */}
+            {sections.map((section, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSection(index)}
+                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-all duration-500 transform hover:scale-105
+                  ${
+                    activeSection === index
+                      ? "bg-blue-500 text-white shadow-lg shadow-blue-500/50 translate-y-[-2px]"
+                      : "bg-blue-800/50 hover:bg-blue-800 hover:shadow-md"
+                  }`}
+              >
+                <div
+                  className={`transform transition-transform duration-500 ${
+                    activeSection === index ? "rotate-360 scale-110" : ""
+                  }`}
+                >
+                  {section.icon}
+                </div>
+                <span className="font-medium whitespace-nowrap">{section.title}</span>
+              </button>
+            ))}
           </div>
-          <span className="font-medium whitespace-nowrap">{section.title}</span>
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
+      
       {/* Add this scroll progress indicator after the navigation section */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
         <div className="flex flex-col items-center space-y-4">
@@ -363,7 +416,9 @@ export function Importacion1() {
       </div>
 
       {/* Video Background for Services - Eliminado el margen gris */}
-      <div className="relative w-full py-16" ref={(el) => (sectionRefs.current[activeSection] = el)}>
+      <div 
+        className="relative w-full py-16" 
+        ref={(el) => {(sectionRefs.current[activeSection] = el)}}>
         <video className="absolute inset-0 w-full h-full object-cover z-[-1]" autoPlay muted loop>
           <source src="/agua_mar.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -415,14 +470,12 @@ export function Importacion1() {
                     <p className="text-gray-300 group-hover:text-white transition-all duration-300 transform group-hover:translate-x-2 line-clamp-3">
                       {service.description}
                     </p>
-
-                   
                   </div>
                 </div>
 
                 {/* Borde animado */}
                 <div
-                  className={`absolute bottom-0 ${isImageRight ? "right-0" : "left-0"} w-1/2 h-1 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-${isImageRight ? "right" : "left"}`}
+                  className={`absolute bottom-0 ${isImageRight ? "right-0" : "left-0"} w-1/2 h-1 bg-[#efc901] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-${isImageRight ? "right" : "left"}`}
                 />
               </div>
             )
@@ -635,4 +688,3 @@ export function Importacion1() {
     </div>
   )
 }
-

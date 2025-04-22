@@ -3,6 +3,34 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Playfair_Display } from 'next/font/google';
+import { Merriweather } from 'next/font/google';
+import { Pacifico } from 'next/font/google';
+import { Roboto } from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400'], 
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '500', '700'],
+});
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  variable: '--font-merriweather',
+  weight: ['400'],
+});
+
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  variable: '--font-pacifico',
+  weight: ['400'],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +55,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${roboto.variable} antialiased`}
       >
         <Navbar />
-        <div className="mt-28">
+        <div className="mt-32">
           {children}
         </div>
         <Footer/>

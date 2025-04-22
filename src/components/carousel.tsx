@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Handshake, ShieldCheck, BriefcaseBusiness } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -12,19 +12,19 @@ const carouselItems = [
     title: "Su confianza, nuestro compromiso",
     content:
       "Nuestro asesoramiento experto en cada despacho garantiza el cumplimiento de todas las regulaciones aduaneras nacionales e internacionales. Contamos con un equipo capacitado para ofrecer orientación y asistencia personalizada, garantizando trámites rápidos y sin errores.",
-    icon: "🌎",
+      icon: () => <ShieldCheck className="w-16 h-16 text-white" />,
   },
   {
     title: "Tu aliado estratégico de negocios",
     content:
       "Proporcionamos soluciones a medida que se adaptan a tus necesidades específicas, desde la planificación hasta la ejecución de la importación o exportación. Confía en ADAFALABELLA S.R.L. para gestionar tus trámites aduaneros.",
-    icon: "🤝",
+      icon: () => <Handshake className="w-16 h-16 text-white" />,
   },
   {
     title: "Experiencia y profesionalismo",
     content:
       "Con más de 3 años en el mercado, nuestro equipo de profesionales altamente capacitados garantiza un servicio de calidad superior. Nos mantenemos actualizados con las últimas regulaciones para ofrecerte el mejor asesoramiento.",
-    icon: "✨",
+      icon: () => <BriefcaseBusiness className="w-16 h-16 text-white" />,
   },
 ]
 
@@ -203,7 +203,7 @@ export function Carousel() {
                         animate="visible"
                         className="text-6xl mb-8"
                       >
-                        {carouselItems[currentSlide].icon}
+                        {carouselItems[currentSlide].icon()}
                       </motion.div>
 
                       <motion.h2
@@ -211,25 +211,19 @@ export function Carousel() {
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-3xl md:text-4xl font-bold mb-4 text-[#efc901]"
+                        className="text-4xl md:text-4xl font-title mb-4 text-[#efc901]"
                       >
                         {carouselItems[currentSlide].title}
                       </motion.h2>
 
-                      <motion.div
-                        custom={1.5}
-                        variants={contentVariants}
-                        initial="hidden"
-                        animate="visible"
-                        className="h-1 w-24 bg-gradient-to-r from-[#efc901] to-[#efc901]/60 rounded-full mb-8"
-                      />
+                      
 
                       <motion.p
                         custom={2}
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-lg md:text-xl leading-relaxed text-white/90"
+                        className="text-lg md:text-2xl leading-relaxed font-merriweather text-white/90"
                       >
                         {carouselItems[currentSlide].content}
                       </motion.p>

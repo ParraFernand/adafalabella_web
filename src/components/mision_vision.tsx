@@ -25,7 +25,7 @@ export function MisionVision() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Misión</h3>
               </div>
-              <p className="text-white leading-relaxed text-justify pt-10">
+              <p className="text-white leading-relaxed font-merriweather text-justify pt-10">
                 Liderar el mercado de servicios aduaneros y logísticos, brindando soluciones innovadoras y eficientes que impulsen el crecimiento y la competitividad de nuestros clientes ofreciendo un servicio rápido, seguro y personalizado, respaldado por un equipo de expertos comprometidos con la excelencia y la satisfacción del cliente.
               </p>
               <motion.div

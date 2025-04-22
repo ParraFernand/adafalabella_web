@@ -53,7 +53,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="aduanas1.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
@@ -64,7 +64,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 bg-gradient-to-b from-blue-950 via-blue-900/60 to-blue-950"
+          className="absolute inset-0 bg-gradient-to-b from-blue-950/60 via-blue-900/60 to-blue-950"
         />
       </motion.div>
 
@@ -98,19 +98,6 @@ export function Hero() {
           />
         ))}
       </div>
-
-      {/* Blue Geometric Shapes */}
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 0.7, x: 0 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        className="hidden md:block absolute right-0 top-0 h-full w-[45%] z-0"
-        style={{
-          backgroundColor: "#1E3A8A", // Blue-900
-          clipPath: "polygon(100% 0, 100% 100%, 0 100%, 30% 0)",
-        }}
-      />
-
       {/* Yellow Accent Shape */}
       <motion.div
         initial={{ opacity: 0, x: 100 }}
@@ -125,7 +112,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-3rem)] flex flex-col justify-center">
+      <div className="relative z-10 container mx-auto px-0 h-[calc(100vh-3rem)] flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <motion.div
@@ -134,26 +121,24 @@ export function Hero() {
             animate={controls}
             className="text-center md:text-left md:pl-8 lg:pl-16"
           >
-
-
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg"
+              className="text-5xl md:text-3xl lg:text-7xl font-pacifico mb-6 text-white drop-shadow-lg"
             >
-              Bienvenidos a <span className="text-[#efc901]">ADAFALABELLA</span>
+             Bienvenidos a  <span className="lg:text-9xl text-[#efc901]">AdaFalabella</span>
               <span className="text-[#efc901] text-sm align-top ml-1">S.R.L</span>
             </motion.h1>
 
             <motion.div variants={itemVariants} className="h-1 w-24 bg-[[#efc901]] mb-6 hidden md:block" />
 
-            <motion.p variants={itemVariants} className="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+            <motion.p variants={itemVariants} className="text-white text-lg md:text-3xl font-merriweather text-justify leading-relaxed mb-8 max-w-lg">
               Nos especializamos en brindar servicios ágiles y eficientes para asegurar que tus importaciones y
               exportaciones se realicen con éxito y sin contratiempo.
             </motion.p>
 
             <motion.div variants={itemVariants}>
               <motion.button
-                className="px-8 py-3 bg-[#efc901] hover:bg-[#efc901] text-blue-950 rounded-full font-bold text-lg shadow-lg transition-all duration-300"
+                className="px-8 py-3 bg-[#efc901] hover:bg-[#efc901] text-blue-950 rounded-full font-merriweather text-3xl shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(234, 179, 8, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -186,10 +171,10 @@ export function Hero() {
               className="relative z-10"
             >
               <Image
-                src="/girlhero4.png"
+                src="/girl_hero.png"
                 alt="Imagen Descriptiva"
-                width={450}
-                height={450}
+                width={320}
+                height={250}
                 className="object-contain drop-shadow-xl"
                 priority
               />

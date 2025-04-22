@@ -1,7 +1,8 @@
 "use client"
 import React from "react"
 import { Package2, FileCheck, Truck, Users, Building2, FileText } from "lucide-react"
-
+import Image from "next/image"
+import { motion } from "framer-motion"
 
 const sections = [
   {
@@ -18,10 +19,10 @@ const sections = [
         title: "Gestión sanitaria y de origen para la exportación",
         description:
           "Nos encargamos de la gestión sanitaria y certificación de origen de tus productos, cumpliendo con todos los requisitos normativos para garantizar su aceptación en los mercados de destino.",
-          image: "/aduana.jpg",
+          image: "/papeleo3.jpg",
         },
       {
-        title: "Preparación legal de la empresa para la exportación",
+      title: "Preparación legal de la empresa para la exportación",
         description:
           "Te ayudamos a preparar tu empresa legalmente para la exportación, asegurando el cumplimiento de todas las normativas y requisitos legales necesarios para una operación exitosa.",
           image: "/permiso.jpg",
@@ -30,7 +31,7 @@ const sections = [
         title: "Dosificación de facturas de exportación ante el SIN",
         description:
           "Gestionamos la dosificación de facturas de exportación ante el Servicio de Impuestos Nacionales (SIN), facilitando el proceso fiscal de tus operaciones internacionales.",
-          image: "/senasag.jpg",
+          image: "/papeleo4.jpg",
       },
       {
         title: "Trámite de exportación",
@@ -40,7 +41,6 @@ const sections = [
       },
     ],
   },
-  
 ]
 
 export function Exportacion1() {
@@ -61,7 +61,6 @@ export function Exportacion1() {
     }
   }
 
-  // For smooth scrolling
   React.useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth"
     return () => {
@@ -74,19 +73,14 @@ export function Exportacion1() {
   }, [])
 
   React.useEffect(() => {
-    // Asignar imágenes únicas a cada servicio
     const newImageMap = new Map<string, string>()
     let imageIndex = 0
 
     sections.forEach((section) => {
       section.services.forEach((service) => {
         if (!service.image) {
-          // Usar el ID único del servicio (título) como clave
           const serviceId = `${section.title}-${service.title}`
-          if (!newImageMap.has(serviceId)) {
-            newImageMap.set(serviceId, placeholderImages[imageIndex % placeholderImages.length])
-            imageIndex++
-          }
+          service.image = "/images/placeholder.jpg";
         }
       })
     })
@@ -113,22 +107,71 @@ export function Exportacion1() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900/45 to-black/45 text-white overflow-hidden">
-      {/* Hero Section with Parallax Effect */}
-      <div
-        className="relative h-[60vh] bg-cover bg-center bg-fixed transform transition-transform duration-1000"
-        style={{
-          backgroundImage: "url('cajas.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section with Enhanced Parallax Effect */}
+      <div className="relative h-[60vh] overflow-hidden">
+        {/* Background container with animations */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0.4 }}
+            animate={{
+              opacity: [0.4, 0.6, 0.4],
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
+            <Image 
+              src="/cajas.jpg" 
+              alt="Background" 
+              fill 
+              className="object-cover mix-blend-overlay" 
+              priority 
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-black/50" />
+          
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(239,201,9,0.15) 0%, rgba(239,201,9,0) 70%)",
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+            />
+            
+            <motion.div
+              className="absolute -bottom-1/4 -right-1/4 w-[800px] h-[800px] rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(7,71,154,0.2) 0%, rgba(7,71,154,0) 70%)",
+              }}
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.4, 0.6, 0.4],
+              }}
+              transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+            />
+          </div>
+        </div>
+
+        {/* Hero Content */}
         <div className="relative h-full flex items-center justify-center">
           <div
             className={`text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
           >
-            <h1 className="text-6xl font-bold text-center mb-4 animate-fade-in">Servicios de Exportación</h1>
-            <span className="block text-3xl text-blue-300 animate-slide-up">Soluciones integrales para tu negocio</span>
+            <h1 className="text-8xl font-merriweather text-center mb-4 animate-fade-in">Servicios de Exportación</h1>
+            <span className="block text-4xl font-merriweather text-blue-300 animate-slide-up">Soluciones integrales para tu negocio</span>
           </div>
         </div>
+        
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-0 right-0 flex justify-center">
           <div className="cursor-pointer scroll-indicator-container" onClick={() => scrollToSection(0)}>
@@ -144,7 +187,7 @@ export function Exportacion1() {
         </div>
       </div>
 
-      {/* Animated Navigation */}
+      {/* Rest of the component remains unchanged */}
       <div className="bg-blue-950 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex overflow-x-auto py-4 gap-4">
@@ -171,7 +214,6 @@ export function Exportacion1() {
         </div>
       </div>
 
-      {/* Add this scroll progress indicator after the navigation section */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
         <div className="flex flex-col items-center space-y-4">
           {sections.map((section, index) => (
@@ -199,8 +241,7 @@ export function Exportacion1() {
         </div>
       </div>
 
-      {/* Video Background for Services - Eliminado el margen gris */}
-      <div className="relative w-full py-16" ref={(el) => (sectionRefs.current[activeSection] = el)}>
+      <div className="relative w-full py-16" ref={(el) => {(sectionRefs.current[activeSection] = el)}}>
         <video className="absolute inset-0 w-full h-full object-cover z-[-1]" autoPlay muted loop>
           <source src="/agua_mar.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -208,11 +249,8 @@ export function Exportacion1() {
         <div className="absolute inset-0 bg-blue-700/40"></div>
         <div className="container mx-auto px-4 flex flex-col gap-8">
           {sections[activeSection].services.map((service, index) => {
-            // Obtener una imagen única para este servicio
             const serviceId = `${sections[activeSection].title}-${service.title}`
-            const serviceImage = service.image || imageMap.get(serviceId) || placeholderImages[0]
-
-            // Determinar si la imagen va a la izquierda o a la derecha
+            const serviceImage = service.image ||  'path/to/default/placeholder.jpg'
             const isImageRight = index % 2 === 0
 
             return (
@@ -224,13 +262,12 @@ export function Exportacion1() {
                   animate-fade-slide-up bg-gradient-to-b from-blue-900/80 to-black/90 group-hover:from-blue-800/90 group-hover:to-black`}
                 style={{
                   animationDelay: `${index * 150}ms`,
-                  height: "250px", // Altura fija para todos los servicios
+                  height: "250px",
                 }}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
                 <div className={`flex flex-col md:flex-row ${isImageRight ? "md:flex-row-reverse" : ""} h-full`}>
-                  {/* Imagen - Tamaño fijo */}
                   <div className="relative md:w-1/2 h-64 md:h-full overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                       <img
@@ -244,7 +281,6 @@ export function Exportacion1() {
                     />
                   </div>
 
-                  {/* Contenido - Tamaño fijo */}
                   <div className="relative md:w-1/2 p-8 flex flex-col justify-center transform transition-transform duration-500 group-hover:translate-y-[-4px] h-full">
                     <h3 className="text-2xl font-bold mb-4 text-blue-300 group-hover:text-blue-200 transition-colors duration-300 line-clamp-1">
                       {service.title}
@@ -252,12 +288,9 @@ export function Exportacion1() {
                     <p className="text-gray-300 group-hover:text-white transition-all duration-300 transform group-hover:translate-x-2 line-clamp-3">
                       {service.description}
                     </p>
-
-                   
                   </div>
                 </div>
 
-                {/* Borde animado */}
                 <div
                   className={`absolute bottom-0 ${isImageRight ? "right-0" : "left-0"} w-1/2 h-1 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-${isImageRight ? "right" : "left"}`}
                 />
@@ -429,7 +462,6 @@ export function Exportacion1() {
           transform: skewY(-30deg);
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
           width: 10px;
         }
@@ -447,14 +479,12 @@ export function Exportacion1() {
           background: linear-gradient(to bottom, #60a5fa, #2563eb);
         }
 
-        /* Add parallax effect to service cards */
         .animate-fade-slide-up {
           opacity: 0;
           animation: fade-slide-up 0.5s ease-out forwards;
           transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* Limitar líneas de texto */
         .line-clamp-1 {
           display: -webkit-box;
           -webkit-line-clamp: 1;
@@ -472,4 +502,3 @@ export function Exportacion1() {
     </div>
   )
 }
-

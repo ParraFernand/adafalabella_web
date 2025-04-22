@@ -62,12 +62,12 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+    <section className="relative min-h-screen  overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
       {/* Background Image with Parallax */}
       <div className="absolute inset-0 overflow-hidden">
         <div ref={backgroundRef} className="absolute inset-0 h-[120%] w-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-slate-900/90 z-10"></div>
-          <Image src="/mujer_leon_1.png" alt="Background" fill priority className="object-cover object-center" />
+          {/*<div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/70 to-slate-900/90 z-10"></div>*/}
+          <Image src="/mujer_leon_1.png" alt="Background" fill priority className="object-cover" style={{ objectPosition: '10% 20%' }} />
         </div>
       </div>
 
@@ -87,7 +87,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
+      <div className="relative z-10 h-[calc(100vh-6rem)] flex flex-col items-start justify-center px-6 md:px-20 max-w-full">
         <motion.div
           className="text-white text-center md:text-left w-full max-w-3xl mx-auto md:ml-12 font-jafherb relative"
           variants={containerVariants}
@@ -102,23 +102,10 @@ export function Hero() {
 
           {/* Main Text */}
           <motion.div variants={itemVariants} className="relative">
-            <motion.span
-              className="absolute -top-6 -left-6 text-6xl text-[#efc901]/20 font-bold"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 1 }}
-            >
-              AF
-            </motion.span>
             <h1 className="text-6xl md:text-8xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-yellow-100 to-white">
               AdaFalabella
             </h1>
           </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="h-0.5 w-32 bg-gradient-to-r from-[#efc901] to-transparent mx-auto md:mx-0 my-6"
-          />
 
           <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold leading-tight">
             ¡Movemos tu mundo con

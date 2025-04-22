@@ -53,7 +53,7 @@ export function CarouselNoticias() {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       nextSlide()
-    }, 3000)
+    }, 6000)
 
     return () => clearTimeout(timer)
   }, [nextSlide]) // Incluir nextSlide en las dependencias
@@ -163,7 +163,7 @@ export function CarouselNoticias() {
                 >
                   {/* Slide content */}
                   <motion.div
-                    className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-2xl shadow-2xl border border-white/10"
+                    className="relative h-[500px] sm:h-[600px] md:h-[800px] w-full overflow-hidden rounded-2xl shadow-2xl border border-white/10"
                     variants={contentVariants}
                     initial="hidden"
                     animate="visible"
@@ -172,10 +172,11 @@ export function CarouselNoticias() {
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-10"></div>
                     <Image
-                      src={carouselItems[currentSlide].image || "/placeholder.svg"}
+                      src={carouselItems[currentSlide].image}
                       alt={carouselItems[currentSlide].title}
-                      fill
-                      className="object-cover"
+                      width={800}
+                      height={500}
+                      className="object-contain w-full h-full"
                       priority
                     />
                   </motion.div>

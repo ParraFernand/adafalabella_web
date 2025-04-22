@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion"
 import { ChevronRight, Award, Users, Clock, Star } from "lucide-react"
@@ -11,6 +10,8 @@ export function SobreNosotros() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const [isHovering, setIsHovering] = useState(false)
+
+  
 
   // Scroll animations
   const { scrollYProgress } = useScroll({
@@ -256,9 +257,9 @@ export function SobreNosotros() {
               initial="hidden"
               whileInView="visible"
               variants={textVariants}
-              className="text-lg text-gray-300 leading-relaxed"
+              className="text-lg text-gray-300 text-justify leading-relaxed"
             >
-              <span className="text-white font-semibold">ADAFALABELLA SRL</span> ha ofrecido sus servicios de la más
+              <span className="text-white font-merriweather">ADAFALABELLA SRL</span> ha ofrecido sus servicios de la más
               alta calidad a los residentes de toda Bolivia desde el año 2020. Un servicio excelente comienza con
               personas excelentes y con mucha experiencia, por lo que nos esforzamos en elegir a los mejores para
               nuestro equipo.
@@ -340,18 +341,23 @@ export function SobreNosotros() {
             transition={{ duration: 1, ease: [0.215, 0.61, 0.355, 1] }}
             className="relative aspect-[4/3] rounded-2xl overflow-hidden z-10"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 backdrop-blur-sm z-10" />
+            <div className="absolute inset-0  z-10" />
 
+            {/* Acá esta el video */}
             <motion.div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: "url('/edificio.jpg')",
-              }}
+              className="absolute inset-0 w-full h-full"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5 }}
             >
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/80 via-transparent to-transparent" />
+              <video
+                className="w-full h-full object-cover"
+                src="/video_final.mp4"  // Reemplaza con la ruta de tu video
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            
             </motion.div>
 
             {/* Decorative elements */}
@@ -390,7 +396,7 @@ export function SobreNosotros() {
                 <Star className="w-6 h-6 text-[#efc901] flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-xl text-white font-medium italic">
-                    ¡No solamente manejamos números, sino también EMOCIONES!
+                  ¡Aquí trabajamos con números y también con EMOCIONES!
                   </p>
                   <motion.div
                     className="w-0 h-0.5 bg-gradient-to-r from-[#efc901] to-amber-500 mt-3"

@@ -4,24 +4,9 @@ import * as React from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import {
-  CheckCircle,
-  XCircle,
-  Send,
-  Loader2,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Users,
-  Award,
-  Star,
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-} from "lucide-react"
+import { CheckCircle, XCircle, Send, Loader2, MapPin, Phone, Mail, Clock, Users, Award, Star, Facebook, Instagram, X, Linkedin, } from "lucide-react"
 import emailjs from "@emailjs/browser"
+import { FaWhatsapp } from "react-icons/fa";
 
 const countries = ["Argentina", "México", "España", "Chile", "Colombia", "Perú", "Bolivia", "Otros"]
 
@@ -39,6 +24,7 @@ export function ContactForm() {
   const [formData, setFormData] = React.useState({
     firstName: "",
     lastName: "",
+    phone: "",
     email: "",
     company: "",
     country: "",
@@ -79,6 +65,7 @@ export function ContactForm() {
         setFormData({
           firstName: "",
           lastName: "",
+          phone: "",
           email: "",
           company: "",
           country: "",
@@ -202,8 +189,9 @@ export function ContactForm() {
   const socialMedia = [
     { icon: Facebook, url: "#", label: "Facebook" },
     { icon: Instagram, url: "#", label: "Instagram" },
-    { icon: Twitter, url: "#", label: "Twitter" },
+    { icon: X, url: "#", label: "X" },
     { icon: Linkedin, url: "#", label: "LinkedIn" },
+    { icon: FaWhatsapp, url: "#", label: "WhatsApp" },
   ]
 
   return (
@@ -213,12 +201,12 @@ export function ContactForm() {
           <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
             <div className="inline-flex items-center justify-center">
               <div className="h-px w-12 bg-[#efc901] mr-3" />
-              <span className="text-[#efc901] font-medium uppercase text-xs tracking-wider">Estamos para ayudarte</span>
+              <span className="text-[#efc901] font-merriweather uppercase text-xl tracking-wider">Estamos para ayudarte</span>
               <div className="h-px w-12 bg-[#efc901] ml-3" />
             </div>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-[#efc901]">
+          <h1 className="text-4xl md:text-6xl font-merriweather text-center mb-4 bg-clip-text text-transparent bg-[#efc901]">
             {headingLetters.map((letter, index) => (
               <motion.span
                 key={index}
@@ -244,12 +232,7 @@ export function ContactForm() {
             ))}
           </h1>
 
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="h-1 w-24 mx-auto bg-[#efc901] rounded-full mt-4"
-          />
+          
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -284,7 +267,7 @@ export function ContactForm() {
               <CardContent className="relative z-10 p-8">
                 <div className="text-center mb-6">
                   <h2 className="text-2xl font-bold text-white mb-2">Envíanos un mensaje</h2>
-                  <p className="text-gray-300">Completa el formulario y nos pondremos en contacto contigo pronto</p>
+                  <p className="text-gray-300">En breve, uno de nuestros asesores te atenderá para ayudarte con lo que necesites. Mientras tanto, ¿Podrías adelantarnos algún detalle sobre tu consulta o envío?</p>
                 </div>
 
                 <AnimatePresence>
@@ -381,6 +364,36 @@ export function ContactForm() {
                       </div>
                     </motion.div>
                   </div>
+                  <motion.div
+                    custom={2}
+                    initial="hidden"
+                    animate="visible"
+                    variants={formFieldVariants}
+                    className="relative"
+                  >
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-1">
+                      Número de Celular
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        required
+                        value={formData.phone || ""}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onFocus={() => handleFocus("phone")}
+                        onBlur={handleBlur}
+                        className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                      />
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
+                        initial={{ width: "0%" }}
+                        animate={{ width: focusedField === "phone" ? "100%" : "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </motion.div>
 
                   <motion.div
                     custom={2}
