@@ -7,6 +7,7 @@ import { Playfair_Display } from 'next/font/google';
 import { Merriweather } from 'next/font/google';
 import { Pacifico } from 'next/font/google';
 import { Roboto } from 'next/font/google';
+import { Corinthia } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -32,6 +33,13 @@ const pacifico = Pacifico({
   weight: ['400'],
 });
 
+const corinthia = Corinthia({
+  subsets: ['latin'],
+  variable: '--font-corinthia',
+  weight: ['400'],
+});
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -55,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${roboto.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${corinthia.variable} ${roboto.variable} antialiased`}
       >
         <Navbar />
         <div className="mt-32">
