@@ -10,6 +10,7 @@ export function SobreNosotros() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const [isHovering, setIsHovering] = useState(false)
+  const [isMuted, setIsMuted] = useState(true);
 
   
 
@@ -354,12 +355,11 @@ export function SobreNosotros() {
                 src="/video_final.mp4"  // Reemplaza con la ruta de tu video
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 playsInline
               />
             
             </motion.div>
-
             {/* Decorative elements */}
             <motion.div
               className="absolute top-4 right-4 w-20 h-20 border-2 border-white/10 rounded-full z-20"
@@ -380,6 +380,7 @@ export function SobreNosotros() {
               }}
               transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
+            
 
             {/* Floating Quote */}
             <motion.div
@@ -398,6 +399,23 @@ export function SobreNosotros() {
                   <p className="text-xl text-white font-medium italic">
                   ¡Aquí trabajamos con números y también con EMOCIONES!
                   </p>
+                  <button 
+                    onClick={() => setIsMuted(!isMuted)}
+                    className="absolute bottom-4 right-4 z-10 p-2 bg-black bg-opacity-50 rounded-full"
+                    aria-label={isMuted ? 'Activar sonido' : 'Desactivar sonido'}
+                  >
+                    {isMuted ? (
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                      </svg>
+                    ) : (
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      </svg>
+                    )}
+                  </button>
                   <motion.div
                     className="w-0 h-0.5 bg-gradient-to-r from-[#efc901] to-amber-500 mt-3"
                     animate={{ width: "100%" }}
