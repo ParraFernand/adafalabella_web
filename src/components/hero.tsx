@@ -105,7 +105,7 @@ export function Hero() {
         transition={{ duration: 1.2, delay: 0.7 }}
         className="hidden md:block absolute right-[5%] top-0 h-full w-[30%] z-0"
         style={{
-          backgroundColor: "#EAB308", // [#efc901]
+          backgroundColor: "#ffffff", // [#efc901]
           clipPath: "polygon(100% 0, 100% 100%, 30% 100%, 60% 0)",
           mixBlendMode: "soft-light",
         }}
@@ -125,7 +125,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-5xl md:text-3xl lg:text-7xl font-pacifico mb-6 text-white drop-shadow-lg"
             >
-             Bienvenidos a  <span className="lg:text-9xl text-[#efc901]">AdaFalabella</span>
+             Bienvenidos a  <span className="font-bold font-corinthia lg:text-9xl text-[#efc901]">AdaFalabella</span>
               <span className="text-[#efc901] text-sm align-top ml-1">S.R.L</span>
             </motion.h1>
 
@@ -170,6 +170,7 @@ export function Hero() {
               }}
               className="relative z-10"
             >
+              
               <Image
                 src="/girl_hero.png"
                 alt="Imagen Descriptiva"
@@ -180,13 +181,6 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* Yellow circle behind image */}
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[350px] md:h-[350px] rounded-full bg-[#efc901]/20 backdrop-blur-sm border border-[#efc901]/20 z-0"
-            />
           </motion.div>
         </div>
       </div>
