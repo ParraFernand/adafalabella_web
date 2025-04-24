@@ -56,5 +56,6 @@ export function SociosEstrategicos() {
       <CarouselNext className="hidden md:flex right-2" />
     </Carousel>
   </div>
-</div>   )
+</div>  
+ )
 }
