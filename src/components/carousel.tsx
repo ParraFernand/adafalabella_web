@@ -304,5 +304,6 @@ export function Carousel() {
         }
       `}</style>
     </section>
+    
   )
 }

@@ -23,6 +23,7 @@ const config: Config = {
         title: ['var(--font-playfair)', 'serif'],
         merriweather: ['var(--font-merriweather)', 'serif2'],
         pacifico: ['var(--font-pacifico)', 'cursive'],
+        corinthia: ['var(--font-corinthia)', 'cursive'],
         roboto: ['var(--font-roboto)', 'sans-serif'],
       },
       colors: {
