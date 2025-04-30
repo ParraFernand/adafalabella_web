@@ -42,7 +42,7 @@ export function Hero() {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-blue-950">
+    <section ref={containerRef} className="relative md:py-0 py-10 overflow-hidden bg-blue-950">
       {/* Background Video with Parallax */}
       <motion.div className="absolute inset-0 h-[110%] w-full" style={{ y: videoY }}>
         <motion.video
@@ -74,27 +74,6 @@ export function Hero() {
           <motion.div
             key={i}
             className={`absolute rounded-full ${i % 3 === 0 ? "bg-[#efc901]/30" : "bg-blue-400/20"}`}
-            initial={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              scale: Math.random() * 0.5 + 0.5,
-              opacity: 0,
-            }}
-            animate={{
-              y: [0, -100, -200],
-              opacity: [0, 0.7, 0],
-              scale: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 5,
-            }}
-            style={{
-              width: `${Math.random() * 8 + 2}px`,
-              height: `${Math.random() * 8 + 2}px`,
-              filter: "blur(1px)",
-            }}
           />
         ))}
       </div>
@@ -112,7 +91,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-0 h-[calc(100vh-3rem)] flex flex-col justify-center">
+      <div className="relative z-10 container mx-auto px-4 md:px-0 py-2 pb-24 flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <motion.div
@@ -123,22 +102,22 @@ export function Hero() {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-3xl lg:text-7xl font-pacifico mb-6 text-white drop-shadow-lg"
+              className="text-7xl md:text-3xl lg:text-7xl font-corinthia mb-0 text-white drop-shadow-lg"
             >
-             Bienvenidos a  <span className="font-bold font-corinthia lg:text-9xl text-[#efc901]">AdaFalabella</span>
-              <span className="text-[#efc901] text-sm align-top ml-1">S.R.L</span>
+             Bienvenidos a  <span className="font-bold font-corinthia text-8xl md:lg:text-[200px] text-[#2e66dd]">AdaFalabella</span>
+              <span className="text-[#efc901] text-sm align-top ml-6">S.R.L</span>
             </motion.h1>
 
             <motion.div variants={itemVariants} className="h-1 w-24 bg-[[#efc901]] mb-6 hidden md:block" />
 
-            <motion.p variants={itemVariants} className="text-white text-lg md:text-3xl font-merriweather text-justify leading-relaxed mb-8 max-w-lg">
+            <motion.p variants={itemVariants} className="w-full md:w-[900px] text-white text-base sm:text-lg md:text-3xl font-sans text-justify leading-relaxed mb-4 sm:px-0">
               Nos especializamos en brindar servicios ágiles y eficientes para asegurar que tus importaciones y
               exportaciones se realicen con éxito y sin contratiempo.
             </motion.p>
 
             <motion.div variants={itemVariants}>
               <motion.button
-                className="px-8 py-3 bg-[#efc901] hover:bg-[#efc901] text-blue-950 rounded-full font-merriweather text-3xl shadow-lg transition-all duration-300"
+                className="px-6 py-2 bg-[#efc901] hover:bg-[#efc901] text-blue-950 rounded-full font-merriweather text-xl sm:text-2xl md:text-3xl shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(234, 179, 8, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -157,7 +136,7 @@ export function Hero() {
               type: "spring",
               stiffness: 100,
             }}
-            className="relative flex justify-center md:justify-end"
+            className="hidden md:flex justify-center md:justify-end"
           >
             <motion.div
               animate={{

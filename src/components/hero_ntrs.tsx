@@ -102,12 +102,12 @@ export function Hero() {
 
           {/* Main Text */}
           <motion.div variants={itemVariants} className="relative">
-            <h1 className="text-6xl md:text-8xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-yellow-100 to-white">
+            <h1 className="text-6xl md:lg:text-[150px] font-corinthia mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-yellow-100 to-white">
               AdaFalabella
             </h1>
           </motion.div>
 
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold leading-tight">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-pacifico leading-tight">
             ¡Movemos tu mundo con
             <br />
             <span className="text-[#efc901]">EFICIENCIA</span> Y <span className="text-[#efc901]">CONFIANZA</span>!

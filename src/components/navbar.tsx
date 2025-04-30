@@ -69,7 +69,7 @@ export function Navbar() {
     }}
   />
   
-  <div className="container mx-auto px-4 lg:px-0 py-6">
+  <div className="container mx-auto px-4 lg:px-0 py-6 ">
     <div className="w-full flex justify-between items-center">
       {/* Logos con efecto hover mejorado */}
       <motion.div 
@@ -87,7 +87,7 @@ export function Navbar() {
             <Image 
               src="/logo_ada3.png" 
               alt="Logo Principal" 
-              width={450} 
+              width={550} 
               height={110} 
               className="rounded transition-all duration-500" 
             />
@@ -103,7 +103,7 @@ export function Navbar() {
             <Image 
               src="/logo_ada2.png" 
               alt="Logo Secundario" 
-              width={130} 
+              width={160} 
               height={40} 
               className="rounded transition-all duration-500 group-hover:brightness-110"
             />

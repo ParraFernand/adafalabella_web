@@ -420,7 +420,7 @@ export function Importacion1() {
         className="relative w-full py-16" 
         ref={(el) => {(sectionRefs.current[activeSection] = el)}}>
         <video className="absolute inset-0 w-full h-full object-cover z-[-1]" autoPlay muted loop>
-          <source src="/videoservicio.mp4" type="video/mp4" />
+          <source src="/world_network.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-blue-700/40"></div>
