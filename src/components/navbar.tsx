@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Menu, X, Wallpaper } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Menu, X} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 //import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
@@ -68,7 +68,7 @@ export function Navbar() {
   >
   
   <div 
-    className="absolute inset-0 w-full h-full -z-10 bg-[#07479c]"
+    className="absolute inset-0 w-full h-full -z-10 bg-[#161891]"
     style={{
       borderBottom: "3px solid #efc901",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.2)",
