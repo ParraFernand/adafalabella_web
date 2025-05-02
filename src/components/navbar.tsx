@@ -17,11 +17,19 @@ export function Navbar() {
 
   const menuItems = [
     { label: "Inicio", href: "/" },
-    { label: "Servicios", href: "/servicios" },
+    { 
+      label: "Servicios", 
+      href: "/servicios",
+      submenu: [
+        { label: "Servicios de Importación", href: "/importacion" },
+        { label: "Servicios de Exportación", href: "/exportacion" }
+      ]
+    },
     { label: "Nosotros", href: "/nosotros" },
     { label: "Noticias", href: "/noticias" },
     { label: "Contacto", href: "/contacto" },
   ];
+  const [hoveredService, setHoveredService] = useState(false)
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -118,44 +126,85 @@ export function Navbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center space-x-1">
-          {menuItems.map((item, index) => (
-            <div key={item.label} className="flex items-center">
-              <Link 
-                href={item.href}
-                className="relative group px-5 py-3"
-                onClick={() => setActiveItem(item.href)}
+          <div className="flex items-center space-x-1">
+    {menuItems.map((item, index) => (
+      <div 
+        key={item.label} 
+        className="flex items-center relative"
+        onMouseEnter={() => item.submenu && setHoveredService(true)}
+        onMouseLeave={() => item.submenu && setHoveredService(false)}
+      >
+        <Link 
+          href={item.href}
+          className="relative group px-5 py-3"
+          onClick={() => setActiveItem(item.href)}
+        >
+          <span className="text-white text-lg font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901] flex items-center">
+            {item.label}
+            {item.submenu && (
+              <svg 
+                className={`ml-1 h-4 w-4 transition-transform duration-200 ${hoveredService ? 'rotate-180' : ''}`}
+                viewBox="0 0 20 20" 
+                fill="currentColor"
               >
-                <span className="text-white text-lg font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901]">
-                  {item.label}
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            )}
+          </span>
+          
+          {/* Líneas decorativas (igual que antes) */}
+          <span className={`
+            absolute left-0 top-0 h-full w-0.5 bg-[#efc901]
+            transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
+            ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
+            group-hover:scale-y-100 group-hover:opacity-100
+            rounded-full
+            shadow-[0_0_8px_rgba(239,201,1,0.6)]
+          `} />
+          
+          <span className={`
+            absolute right-0 top-0 h-full w-0.5 bg-[#efc901]
+            transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
+            ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
+            group-hover:scale-y-100 group-hover:opacity-100
+            rounded-full
+            shadow-[0_0_8px_rgba(239,201,1,0.6)]
+          `} />
+        </Link>
+        
+        {/* Submenú desplegable */}
+        {item.submenu && hoveredService && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 w-56 bg-[#07479c] shadow-lg rounded-b-lg overflow-hidden border border-[#efc901]/30 z-50"
+          >
+            {item.submenu.map((subItem) => (
+              <Link
+                key={subItem.href}
+                href={subItem.href}
+                className="block px-4 py-3 text-white hover:bg-[#efc901]/10 transition-colors duration-200 border-b border-[#efc901]/10 last:border-b-0"
+                onClick={() => {
+                  setActiveItem(subItem.href);
+                  setHoveredService(false);
+                }}
+              >
+                <span className="flex items-center">
+                  <span className="text-[#efc901] mr-2">•</span>
+                  {subItem.label}
                 </span>
-                
-                <span className={`
-                  absolute left-0 top-0 h-full w-0.5 bg-[#efc901]
-                  transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
-                  ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
-                  group-hover:scale-y-100 group-hover:opacity-100
-                  rounded-full
-                  shadow-[0_0_8px_rgba(239,201,1,0.6)]
-                `} />
-                
-                <span className={`
-                  absolute right-0 top-0 h-full w-0.5 bg-[#efc901]
-                  transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
-                  ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
-                  group-hover:scale-y-100 group-hover:opacity-100
-                  rounded-full
-                  shadow-[0_0_8px_rgba(239,201,1,0.6)]
-                `} />
-                
               </Link>
-              
-              {index < menuItems.length - 1 && (
-                <span className="h-5 w-px bg-[#efc901]/40" />
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </motion.div>
+        )}
+
+        {index < menuItems.length - 1 && (
+          <span className="h-5 w-px bg-[#efc901]/40" />
+        )}
+      </div>
+    ))}
+  </div>
       </motion.div>
 
       {/* Social Media Icons mejorados */}
@@ -251,7 +300,7 @@ export function Navbar() {
             closed: {},
           }}
         >
-          {menuItems.map((item, index) => (
+         {menuItems.map((item, index) => (
             <motion.div
               key={item.label}
               variants={{
@@ -268,17 +317,39 @@ export function Navbar() {
               }}
               className="w-full"
             >
-              <Link
-                href={item.href}
-                className="block py-4 px-6 text-white font-mono uppercase text-center hover:bg-[#efc901]/10 transition-colors duration-300 relative group"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setActiveItem(item.href);
-                }}
-              >
-                {item.label}
-                <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-10 group-hover:left-[calc(50%-20px)]" />
-              </Link>
+              <div className="flex flex-col">
+                <Link
+                  href={item.href}
+                  className="block py-4 px-6 text-white font-mono uppercase text-center hover:bg-[#efc901]/10 transition-colors duration-300 relative group"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setActiveItem(item.href);
+                  }}
+                >
+                  {item.label}
+                  <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-10 group-hover:left-[calc(50%-20px)]" />
+                </Link>
+                
+                {/* Submenú móvil */}
+                {item.submenu && (
+                  <div className="bg-[#07479c]/80 pl-8">
+                    {item.submenu.map((subItem) => (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        className="block py-3 px-6 text-white text-sm hover:bg-[#efc901]/10 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span className="flex items-center">
+                          <span className="text-[#efc901] mr-2">-</span>
+                          {subItem.label}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               {index < menuItems.length - 1 && (
                 <div className="h-px bg-[#efc901]/10 mx-6" />
               )}
