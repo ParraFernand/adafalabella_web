@@ -68,78 +68,83 @@ export function Navbar() {
   >
   
   <div 
-    className="absolute inset-0 w-full h-full -z-10 bg-[#161891]"
+    className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-gray-800 via-gray-900 to-black"
     style={{
-      borderBottom: "3px solid #efc901",
-      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.2)",
+      borderBottom: "5px solid #efc901",
+      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)"
     }}
   />
   
-  <div className="container mx-auto px-4 lg:px-0 py-6 ">
-    <div className="w-full flex justify-between items-center">
-      {/* Logos con efecto hover mejorado */}
+  <div className="w-full max-w-7xl mx-auto px-4 lg:px-0 py-3">
+    <div className="w-full flex justify-between items-center gap-6">
+      {/* Logos */}
+      <div className="flex items-start space-x-10 flex-shrink-0 gap-x-10"> 
       <motion.div 
-        className="flex items-center gap-6"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <Link href="/" className="group relative">
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            <Image 
-              src="/logo_ada3.png" 
-              alt="Logo Principal" 
-              width={550} 
-              height={110} 
-              className="rounded transition-all duration-500" 
-            />
-            <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
-          </motion.div>
-        </Link>
-        
-        <Link href="/" className="group relative ml-[-30px]">
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image 
-              src="/logo_ada2.png" 
-              alt="Logo Secundario" 
-              width={160} 
-              height={40} 
-              className="rounded transition-all duration-500 group-hover:brightness-110"
-            />
-          </motion.div>
-        </Link>
-      </motion.div>
-
+          className="flex items-center"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <Link href="/" className="group relative">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              <Image 
+                src="/logo_ada3.png" 
+                alt="Logo Principal" 
+                width={280} 
+                height={410} 
+                className="rounded transition-all duration-500" 
+              />
+              <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+            </motion.div>
+          </Link>
+          <Link href="/" className="group relative">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+              className="relative"
+            >
+              <Image 
+                src="/logo_ada2.png" 
+                alt="Logo Principal" 
+                width={90} 
+                height={410} 
+                className="rounded transition-all duration-500" 
+              />
+              <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+            </motion.div>
+          </Link>
+        </motion.div>
+      </div>
       {/* Desktop Menu - Versión mejorada */}
+      
       <motion.div 
-        className="hidden lg:flex"
+        className="hidden lg:flex w-full"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-          <div className="flex items-center space-x-1">
-    {menuItems.map((item, index) => (
+      
+      <div className="flex items-center   space-x-1">
+      {menuItems.map((item, index) => (
       <div 
         key={item.label} 
         className="flex items-center relative"
         onMouseEnter={() => item.submenu && setHoveredService(true)}
         onMouseLeave={() => item.submenu && setHoveredService(false)}
       >
+        
         <Link 
           href={item.href}
           className="relative group px-5 py-3"
           onClick={() => setActiveItem(item.href)}
         >
-          <span className="text-white text-lg font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901] flex items-center">
+          <span className="text-white text-base font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901] flex items-center">
             {item.label}
             {item.submenu && (
               <svg 
@@ -197,19 +202,15 @@ export function Navbar() {
               </Link>
             ))}
           </motion.div>
-        )}
-
-        {index < menuItems.length - 1 && (
-          <span className="h-5 w-px bg-[#efc901]/40" />
-        )}
+            )}
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
       </motion.div>
 
       {/* Social Media Icons mejorados */}
       <motion.div 
-        className="hidden lg:flex gap-8 items-center"
+        className="hidden lg:flex gap-4 items-center"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
@@ -231,7 +232,7 @@ export function Navbar() {
               className="relative"
             >
               <Icon className="h-6 w-6 text-white transition-all duration-300 group-hover:text-[#efc901] group-hover:drop-shadow-[0_0_8px_rgba(239,201,1,0.6)]" />
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#efc901] transition-all duration-500 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#efc901]/30 transition-all duration-500 group-hover:w-full" />
             </motion.div>
           </Link>
         ))}
@@ -242,14 +243,14 @@ export function Navbar() {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="
-              bg-[#efc901] hover:bg-[#07479c] 
+              bg-[#FFD700] hover:bg-[#07479c] 
               text-[#07479c] hover:text-white font-semibold 
               py-2 px-5
               rounded-lg 
               shadow-md hover:shadow-lg 
               transition-all duration-300 
               ease-out 
-              focus:outline-none focus:ring-2 focus:ring-[#efc901] focus:ring-opacity-50
+              focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-opacity-50
               relative overflow-hidden
             "
           >

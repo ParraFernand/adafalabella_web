@@ -6,7 +6,7 @@ import { Target, Eye } from 'lucide-react';
 
 export function MisionVision() {
   return (
-    <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+    <section className="py-16 px-4 md:px-8 bg-cyan-800/80">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Misión */}

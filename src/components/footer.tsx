@@ -22,7 +22,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-blue-900 text-white">
+    <footer className="bg-gradient-to-b from-blue-500 via-black to-black text-white">
       {/* Countries Banner */}
       <div className="bg-blue-950 py-4">
         <div className="container mx-auto px-4 flex items-center justify-center">

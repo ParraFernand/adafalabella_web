@@ -62,7 +62,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen  overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Background Image with Parallax */}
       <div className="absolute inset-0 overflow-hidden">
         <div ref={backgroundRef} className="absolute inset-0 h-[120%] w-full">
@@ -87,7 +87,8 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-[calc(100vh-6rem)] flex flex-col items-start justify-center px-6 md:px-20 max-w-full">
+      <div className="relative z-10 h-[60vh] flex flex-col items-start justify-center px-6 md:px-20 max-w-full">
+
         <motion.div
           className="text-white text-center md:text-left w-full max-w-3xl mx-auto md:ml-12 font-jafherb relative"
           variants={containerVariants}

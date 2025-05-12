@@ -8,7 +8,14 @@ import { Merriweather } from 'next/font/google';
 import { Pacifico } from 'next/font/google';
 import { Roboto } from 'next/font/google';
 import { Corinthia } from "next/font/google";
+import { Anton } from 'next/font/google';
+import { Barlow_Condensed } from 'next/font/google';
 
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  variable: '--font-barlow-condensed', 
+  weight: ['400', '700'],  
+});
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
@@ -19,7 +26,13 @@ const roboto = Roboto({
   subsets: ['latin'],
   variable: '--font-roboto',
   weight: ['400', '500', '700'],
-});
+}); 
+
+const anton = Anton({
+  subsets: ['latin'],
+  variable: '--font-anton',
+  weight: '400', 
+}); 
 
 const merriweather = Merriweather({
   subsets: ['latin'],
@@ -63,10 +76,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${corinthia.variable} ${roboto.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${corinthia.variable} ${roboto.variable} ${anton.variable} ${barlowCondensed.variable} antialiased`}
       >
         <Navbar />
-        <div className="mt-32">
+        <div className="mt-28">
           {children}
         </div>
         <Footer/>

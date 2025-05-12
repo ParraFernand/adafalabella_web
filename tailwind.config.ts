@@ -3,6 +3,15 @@ import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
+  safelist: [
+    'bg-black/30',
+    'bg-black/50',
+    'bg-[#001f3f]/30',
+    'bg-[#004d40]/40',
+    'bg-[#6d4c41]/40',
+    'bg-[#3f51b5]/30',
+  ],
+  
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -25,6 +34,8 @@ const config: Config = {
         pacifico: ['var(--font-pacifico)', 'cursive'],
         corinthia: ['var(--font-corinthia)', 'cursive'],
         roboto: ['var(--font-roboto)', 'sans-serif'],
+        anton: ['var(--font-anton)', 'sans-serif'],
+        barlowCondensed: ['var(--font-barlow-condensed)', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

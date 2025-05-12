@@ -34,7 +34,15 @@ export function Carousel() {
   const [direction, setDirection] = React.useState<"right" | "left">("right")
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null)
   const progressRef = React.useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const videoRef = React.useRef<HTMLVideoElement | null>(null)
 
+  
+  const videos = [
+    "walking_girl.mp4",
+
+  ]
+  
   React.useEffect(() => {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
@@ -103,6 +111,7 @@ export function Carousel() {
       },
     }),
   }
+  
 
   return (
     <section
@@ -114,22 +123,25 @@ export function Carousel() {
       <div className="absolute inset-0">
         
         
-        <motion.div
-          className="absolute inset-0"
-          initial={{ opacity: 0.4 }}
-          animate={{
-            opacity: [0.4, 0.6, 0.4],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+        <motion.video
+          key={videos[currentIndex]} // clave para forzar recarga al cambiar
+          ref={videoRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ duration: 1.5 }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <Image src="/logis1.jpg" alt="Background" fill className="object-cover mix-blend-overlay" priority />
-        </motion.div>
-        <div className="absolute inset-0 bg-blue-900/50" />
+          <source src={videos[currentIndex]} type="video/mp4" />
+          Tu navegador no soporta videos HTML5.
+          
+        </motion.video>
+
+        
+        <div className="absolute inset-0 bg-black/20" />
         {/* Animated Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -170,7 +182,7 @@ export function Carousel() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-4 z-10 h-14 w-14 rounded-full bg-[#efc901]/20 backdrop-blur-sm hover:bg-[#efc901]/30 text-white border border-[#efc901]/30"
+              className="absolute left-4 z-10 p-2 text-white hover:text-[#efc901] transition-colors"
               onClick={prevSlide}
             >
               <ChevronLeft className="h-8 w-8" />
@@ -193,37 +205,28 @@ export function Carousel() {
                 }}
                 className="w-full"
               >
-                <Card className="bg-[#07479c] backdrop-blur-xl text-white border border-[#efc901]/20 overflow-hidden shadow-2xl">
-                  <CardContent className="p-10 md:p-12">
+                <Card className="bg-cyan-950/80  text-white border border-[#efc901]/20 overflow-hidden shadow-2xl">
+                  <CardContent className="p-10 md:p-4">
                     <div className="flex flex-col items-center text-center">
-                      <motion.div
-                        custom={0}
-                        variants={contentVariants}
-                        initial="hidden"
-                        animate="visible"
-                        className="text-6xl mb-8"
-                      >
-                        {carouselItems[currentSlide].icon()}
-                      </motion.div>
+                    
 
                       <motion.h2
                         custom={1}
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-4xl md:text-4xl font-title mb-4 text-[#efc901]"
+                        className="text-4xl md:text-5xl font-anton mb-20 text-[#efc901]"
                       >
                         {carouselItems[currentSlide].title}
                       </motion.h2>
 
                       
-
                       <motion.p
                         custom={2}
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
-                        className="text-lg md:text-2xl leading-relaxed font-merriweather text-white/90"
+                        className="text-lg md:text-4xl leading-relaxed text-justify w-[650] font-barlowCondensed text-white/90"
                       >
                         {carouselItems[currentSlide].content}
                       </motion.p>
@@ -242,7 +245,8 @@ export function Carousel() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-4 z-10 h-14 w-14 rounded-full bg-[#efc901]/20 backdrop-blur-sm hover:bg-[#efc901]/30 text-white border border-[#efc901]/30"
+              className="absolute right-4 z-10 p-5 text-white hover:text-[#efc901] transition-colors"
+
               onClick={nextSlide}
             >
               <ChevronRight className="h-8 w-8" />

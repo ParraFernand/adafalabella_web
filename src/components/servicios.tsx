@@ -5,15 +5,46 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useAnimation, useInView, useScroll, useTransform } from "framer-motion"
 
+const getOverlayColor = (index: number) => {
+  const colors = [
+    "bg-black/30",
+    "bg-black/50",
+    "bg-[#001f3f]/70",
+    "bg-[#004d40]/70",
+    "bg-[#6d4c41]/70",
+    "bg-blue-500/70",
+  ]
+  return colors[index % colors.length];
+}
 const services = [
   {
-    title: ["SERVICIOS", "IMPORTACIÓN"],
-    image: "/import.jpg",
+    title: ["Trámites Aduaneros y Certificaciones Generales", "Gestionamos tus trámites y certificaciones para un despacho rápido y seguro"],
+    image: "/tramite_aduanero.jpg",
     href: "/importacion",
   },
   {
-    title: ["SERVICIOS", "EXPORTACIÓN"], // Corregido "EXPERTACIÓN" a "EXPORTACIÓN"
-    image: "/export.jpg",
+    title: ["Regímenes Especiales y Beneficios Tributarios", "Aprovecha regímenes especiales y beneficios tributarios con nuestra guía experta."], 
+    image: "/regimen_tributario.jpg",
+    href: "/importacion2",
+  },
+  {
+    title: ["Clasificación Arancelaria y Asesoramiento", "Optimizamos tus operaciones con clasificación precisa y asesoría aduanera"], 
+    image: "/asesoramiento.jpg",
+    href: "/importacion3",
+  },
+  {
+    title: ["Permisos y Gestión Sanitaria", "Tramitamos todos los permisos sanitarios y técnicos que tu producto necesita"], 
+    image: "/sanitario.jpg",
+    href: "/exportacion",
+  },
+  {
+    title: ["Control Operativo y Documental", "Seguimiento completo y documentación organizada desde el origen hasta tu almacén"], 
+    image: "/control1.jpg",
+    href: "/exportacion",
+  },
+  {
+    title: ["Certificaciones Técnicas y Productos Específicos", "Gestionamos certificaciones y registros para productos con requisitos específicos"], 
+    image: "/productos.jpg",
     href: "/exportacion",
   },
 ]
@@ -69,20 +100,14 @@ export function ServiciosPage() {
   }, [imageControls])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen py-16 overflow-hidden">
-      {/* Video de fondo con efecto Parallax */}
-      <motion.div className="absolute inset-0 overflow-hidden" style={{ y: backgroundY }}>
-        <video autoPlay loop muted className="object-cover w-full h-full absolute top-0 left-0">
-          <source src="/video1.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-blue-800/60"></div>
-      </motion.div>
+    <section ref={sectionRef} className="relative min-h-screen py-6 overflow-hidden">
+
 
       {/* Contenido con efecto de desplazamiento */}
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-10 mx-auto">
         <motion.h2
           ref={titleRef}
-          className="text-white text-5xl font-bold text-center mb-12"
+          className="text-white text-6xl font-anton text-center mb-4"
           initial="hidden"
           animate={titleControls}
           variants={{
@@ -98,60 +123,39 @@ export function ServiciosPage() {
           }}
         >
           <span className="inline-block">
-            Nuestros{" "}
-            <span className="relative">
-              Servicios
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-1 bg-[#efc901]"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              />
-            </span>
+            SERVICIOS DE IMPORTACIÓN{" "}
+            
           </span>
         </motion.h2>
 
-        <div className="w-[100%] grid grid-cols-1 gap-16 items-center">
-          {/* Primer servicio */}
-          <motion.div
-            initial="hidden"
-            animate={cardsControls}
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: {
-                opacity: 1,
-                x: 0,
-                transition: {
-                  duration: 0.8,
-                  ease: "easeOut",
-                },
-              },
-            }}
-          >
+        <div className="w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
+          {services.map((service, index) => (
             <Link
-              href={services[0].href}
-              className="group relative flex items-center justify-center overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[300px] w-full"
+              key={index}
+              href={service.href}
+              className="group relative h-[250px] sm:h-[400px] flex items-center justify-center overflow-hidden transition-all duration-500"
             >
-              {/* Imagen de Fondo con Efecto Parallax */}
-              <div className="absolute inset-0 overflow-hidden">
+              {/* Imagen de fondo */}
+              <div className="absolute inset-0 z-0 ">
+                <div className={`absolute inset-0  transition-colors duration-300 ${getOverlayColor(index)} z-20`} />
                 <Image
-                  src={services[0].image || "/placeholder.svg"}
-                  alt={services[0].title.join(" ")}
+                  src={service.image || "/placeholder.svg"}
+                  alt={service.title.join(" ")}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:translate-y-4"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 z-0 "
                 />
+                
               </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-300 group-hover:opacity-80"></div>
 
               {/* Contenido centrado */}
-              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-[#efc901]/50">
-                {services[0].title.map((line, i) => (
+              <div className="relative z-10 text-center p-20 w-full h-full flex flex-col justify-center items-center text-white border border-white/10 transition-all">
+                {service.title.map((line, i) => (
                   <motion.h3
                     key={i}
-                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-[#efc901]"}`}
+                    className={` ${i === 1 ? "text-2xl font-barlowCondensed text-white " : "text-3xl font-anton text-white "}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ delay: i * 0.2 }}
+                    transition={{ delay: i * 0.1 }}
                   >
                     {line}
                   </motion.h3>
@@ -161,67 +165,11 @@ export function ServiciosPage() {
                   initial={{ height: 0 }}
                   whileHover={{ height: "auto" }}
                 >
-                  <span className="px-4 py-2 bg-[#efc901] text-black rounded-full text-sm font-medium">Ver más</span>
+                  <span className="px-4 py-1 bg-[#efc901] text-black rounded-full text-sm font-barlowCondensed">Ver más</span>
                 </motion.div>
               </div>
             </Link>
-          </motion.div>
-
-          {/* Segundo servicio */}
-          <motion.div
-            initial="hidden"
-            animate={cardsControls}
-            variants={{
-              hidden: { opacity: 0, x: 50 },
-              visible: {
-                opacity: 1,
-                x: 0,
-                transition: {
-                  duration: 0.8,
-                  ease: "easeOut",
-                  delay: 0.2,
-                },
-              },
-            }}
-          >
-            <Link
-              href={services[1].href}
-              className="group relative flex items-center justify-center overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[300px] w-full"
-            >
-              {/* Imagen de Fondo con Efecto Parallax */}
-              <div className="absolute inset-0 overflow-hidden">
-                <Image
-                  src={services[1].image || "/placeholder.svg"}
-                  alt={services[1].title.join(" ")}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:translate-y-4"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-300 group-hover:opacity-80"></div>
-
-              {/* Contenido centrado */}
-              <div className="relative flex flex-col justify-center items-center text-center h-full w-full p-6 border border-white/20 transition-all duration-500 group-hover:border-[#efc901]/50">
-                {services[1].title.map((line, i) => (
-                  <motion.h3
-                    key={i}
-                    className={`text-2xl font-bold ${i === 0 ? "text-white" : "text-[#efc901]"}`}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: i * 0.2 }}
-                  >
-                    {line}
-                  </motion.h3>
-                ))}
-                <motion.div
-                  className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ height: 0 }}
-                  whileHover={{ height: "auto" }}
-                >
-                  <span className="px-4 py-2 bg-[#efc901] text-black rounded-full text-sm font-medium">Ver más</span>
-                </motion.div>
-              </div>
-            </Link>
-          </motion.div>
+          ))}
         </div>
 
         {/* Elementos decorativos animados */}
@@ -254,7 +202,9 @@ export function ServiciosPage() {
           />
         </div>
       </div>
+      
     </section>
+    
   )
 }
 
