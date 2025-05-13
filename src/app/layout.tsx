@@ -3,55 +3,54 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { Playfair_Display } from 'next/font/google';
-import { Merriweather } from 'next/font/google';
-import { Pacifico } from 'next/font/google';
-import { Roboto } from 'next/font/google';
+import { Playfair_Display } from "next/font/google";
+import { Merriweather } from "next/font/google";
+import { Pacifico } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { Corinthia } from "next/font/google";
-import { Anton } from 'next/font/google';
-import { Barlow_Condensed } from 'next/font/google';
+import { Anton } from "next/font/google";
+import { Barlow_Condensed } from "next/font/google";
 
 const barlowCondensed = Barlow_Condensed({
-  subsets: ['latin'],
-  variable: '--font-barlow-condensed', 
-  weight: ['400', '700'],  
+  subsets: ["latin"],
+  variable: "--font-barlow-condensed",
+  weight: ["400", "700"],
 });
 const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400'], 
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400"],
 });
 
 const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['400', '500', '700'],
-}); 
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["400", "500", "700"],
+});
 
 const anton = Anton({
-  subsets: ['latin'],
-  variable: '--font-anton',
-  weight: '400', 
-}); 
+  subsets: ["latin"],
+  variable: "--font-anton",
+  weight: "400",
+});
 
 const merriweather = Merriweather({
-  subsets: ['latin'],
-  variable: '--font-merriweather',
-  weight: ['400'],
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+  weight: ["400"],
 });
 
 const pacifico = Pacifico({
-  subsets: ['latin'],
-  variable: '--font-pacifico',
-  weight: ['400'],
+  subsets: ["latin"],
+  variable: "--font-pacifico",
+  weight: ["400"],
 });
 
 const corinthia = Corinthia({
-  subsets: ['latin'],
-  variable: '--font-corinthia',
-  weight: ['400'],
+  subsets: ["latin"],
+  variable: "--font-corinthia",
+  weight: ["400"],
 });
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,13 +75,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable } ${merriweather.variable} ${pacifico.variable} ${corinthia.variable} ${roboto.variable} ${anton.variable} ${barlowCondensed.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${merriweather.variable} ${pacifico.variable} ${corinthia.variable} ${roboto.variable} ${anton.variable} ${barlowCondensed.variable} antialiased`}
       >
         <Navbar />
-        <div className="mt-28">
-          {children}
-        </div>
-        <Footer/>
+        <div className="mt-28">{children}</div>
+        <Footer />
       </body>
     </html>
   );

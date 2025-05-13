@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Menu, X} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-//import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -131,7 +130,7 @@ export function Navbar() {
       >
       
       <div className="flex items-center   space-x-1">
-      {menuItems.map((item, index) => (
+      {menuItems.map((item) => (
       <div 
         key={item.label} 
         className="flex items-center relative"

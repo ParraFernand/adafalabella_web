@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useAnimation, useInView, useScroll, useTransform } from "framer-motion"
+import { motion, useAnimation, useInView } from "framer-motion"
 
 const getOverlayColor = (index: number) => {
   const colors = [
@@ -65,13 +65,6 @@ export function ServiciosPage() {
   const cardsControls = useAnimation()
   const imageControls = useAnimation()
 
-  // Efecto parallax para el fondo
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  })
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
 
   // Iniciar animaciones cuando los elementos entran en el viewport
   useEffect(() => {

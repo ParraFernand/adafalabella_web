@@ -1,17 +1,12 @@
 //import { Importacion2 } from '@/components/importacion2'
-import { Exportacion1 } from '@/components/exportacion1'
-
-
+import { Exportacion1 } from "@/components/exportacion1";
 
 const page = () => {
   return (
     <div>
-      
-      <Exportacion1/>
-
-    
+      <Exportacion1 />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

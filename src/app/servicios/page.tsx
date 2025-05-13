@@ -1,5 +1,5 @@
-import { ServiciosPage } from '@/components/servicios';
-import { Hero } from '@/components/hero_srv';
+import { ServiciosPage } from "@/components/servicios";
+import { Hero } from "@/components/hero_srv";
 
 const page = () => {
   return (
@@ -12,7 +12,7 @@ const page = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          style={{ objectPosition: "center bottom" }} 
+          style={{ objectPosition: "center bottom" }}
         >
           <source src="/puerto.mp4" type="video/mp4" />
           Tu navegador no soporta el video.

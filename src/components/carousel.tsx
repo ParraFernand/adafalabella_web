@@ -4,7 +4,6 @@ import * as React from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight, Handshake, ShieldCheck, BriefcaseBusiness } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 
 const carouselItems = [
@@ -34,7 +33,6 @@ export function Carousel() {
   const [direction, setDirection] = React.useState<"right" | "left">("right")
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null)
   const progressRef = React.useRef<HTMLDivElement>(null)
-  const [currentIndex, setCurrentIndex] = React.useState(0)
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
 
   

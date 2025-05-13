@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa";
-import { BsWhatsapp } from "react-icons/bs";
 
 export function Footer() {
   const countries = [

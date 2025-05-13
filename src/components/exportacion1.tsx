@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { Package2, FileCheck, Truck, Users, Building2, FileText } from "lucide-react"
+import { FileCheck } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
@@ -47,7 +47,7 @@ export function Exportacion1() {
   const [activeSection, setActiveSection] = React.useState(0)
   const [hoveredService, setHoveredService] = React.useState<number | null>(null)
   const [isVisible, setIsVisible] = React.useState(false)
-  const [imageMap, setImageMap] = React.useState<Map<string, string>>(new Map())
+  const [, setImageMap] = React.useState<Map<string, string>>(new Map())
 
   const sectionRefs = React.useRef<(HTMLDivElement | null)[]>([])
 
@@ -74,12 +74,11 @@ export function Exportacion1() {
 
   React.useEffect(() => {
     const newImageMap = new Map<string, string>()
-    let imageIndex = 0
+   
 
     sections.forEach((section) => {
       section.services.forEach((service) => {
         if (!service.image) {
-          const serviceId = `${section.title}-${service.title}`
           service.image = "/images/placeholder.jpg";
         }
       })
@@ -249,7 +248,6 @@ export function Exportacion1() {
         <div className="absolute inset-0 bg-blue-700/40"></div>
         <div className="container mx-auto px-4 flex flex-col gap-8">
           {sections[activeSection].services.map((service, index) => {
-            const serviceId = `${sections[activeSection].title}-${service.title}`
             const serviceImage = service.image ||  'path/to/default/placeholder.jpg'
             const isImageRight = index % 2 === 0
 

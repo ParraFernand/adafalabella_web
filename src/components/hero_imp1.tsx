@@ -1,11 +1,11 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 
 
 export function Hero() {
-  const containerRef = useRef(null)
+
   const controls = useAnimation()
     // Animate elements on load
     useEffect(() => {

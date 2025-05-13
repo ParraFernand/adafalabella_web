@@ -1,62 +1,67 @@
 "use client";
-import * as React from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import * as React from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const carouselItems = [
   {
     image: "/noticia3.jpg",
     title: "Noticias Internacionales",
-    content: "Actualizaciones importantes del comercio internacional y tratados recientes.",
+    content:
+      "Actualizaciones importantes del comercio internacional y tratados recientes.",
   },
   {
     image: "/noticia1.jpg",
     title: "Novedades Logísticas",
-    content: "Nuevas estrategias para optimizar costos y mejorar tiempos de entrega.",
+    content:
+      "Nuevas estrategias para optimizar costos y mejorar tiempos de entrega.",
   },
   {
     image: "/noticia2.jpg",
     title: "Regulaciones Aduaneras",
-    content: "Cambios recientes en normativas aduaneras y procedimientos de importación/exportación.",
+    content:
+      "Cambios recientes en normativas aduaneras y procedimientos de importación/exportación.",
   },
-]
+];
 
 export function CarouselNoticias() {
-  const [currentSlide, setCurrentSlide] = React.useState(0)
-  const [direction, setDirection] = React.useState(0)
-  const [isAnimating, setIsAnimating] = React.useState(false)
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [direction, setDirection] = React.useState(0);
+  const [isAnimating, setIsAnimating] = React.useState(false);
 
   // Memoriza la función nextSlide usando useCallback
   const nextSlide = React.useCallback(() => {
-    if (isAnimating) return
-    setIsAnimating(true)
-    setDirection(1)
-    setCurrentSlide((prev) => (prev + 1) % carouselItems.length)
-  }, [isAnimating])
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+  }, [isAnimating]);
 
   const prevSlide = () => {
-    if (isAnimating) return
-    setIsAnimating(true)
-    setDirection(-1)
-    setCurrentSlide((prev) => (prev - 1 + carouselItems.length) % carouselItems.length)
-  }
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection(-1);
+    setCurrentSlide(
+      (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
+    );
+  };
 
   const goToSlide = (index: number) => {
-    if (isAnimating || index === currentSlide) return
-    setIsAnimating(true)
-    setDirection(index > currentSlide ? 1 : -1)
-    setCurrentSlide(index)
-  }
+    if (isAnimating || index === currentSlide) return;
+    setIsAnimating(true);
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
+  };
 
   // Auto-advance slides
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      nextSlide()
-    }, 6000)
+      nextSlide();
+    }, 6000);
 
-    return () => clearTimeout(timer)
-  }, [nextSlide]) // Incluir nextSlide en las dependencias
+    return () => clearTimeout(timer);
+  }, [nextSlide]); // Incluir nextSlide en las dependencias
 
   // Animación de los slides
   const slideVariants = {
@@ -80,7 +85,7 @@ export function CarouselNoticias() {
         opacity: { duration: 0.2 },
       },
     }),
-  }
+  };
 
   const backgroundVariants = {
     initial: { scale: 1.2, opacity: 0 },
@@ -93,7 +98,7 @@ export function CarouselNoticias() {
       opacity: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -111,7 +116,7 @@ export function CarouselNoticias() {
       y: -20,
       transition: { duration: 0.3 },
     },
-  }
+  };
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -262,7 +267,9 @@ export function CarouselNoticias() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`relative h-3 transition-all duration-300 rounded-full ${
-                    currentSlide === index ? "w-12 bg-[#efc901]" : "w-3 bg-white/30 hover:bg-white/50"
+                    currentSlide === index
+                      ? "w-12 bg-[#efc901]"
+                      : "w-3 bg-white/30 hover:bg-white/50"
                   }`}
                   aria-label={`Ir a noticia ${index + 1}`}
                   whileHover={{ scale: 1.2 }}
@@ -294,5 +301,5 @@ export function CarouselNoticias() {
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-10"></div>
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent z-10"></div>
     </section>
-  )
+  );
 }

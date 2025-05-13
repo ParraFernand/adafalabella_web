@@ -3,13 +3,12 @@
 import type React from "react"
 import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion"
-import { ChevronRight, Award, Users, Clock, Star } from "lucide-react"
+import { Award, Users, Clock, Star } from "lucide-react"
 
 export function SobreNosotros() {
   const containerRef = useRef<HTMLElement>(null)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-  const [isHovering, setIsHovering] = useState(false)
   const [isMuted, setIsMuted] = useState(true);
 
   
