@@ -38,10 +38,7 @@ export function Carousel() {
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
 
   
-  const videos = [
-    "walking_girl.mp4",
-
-  ]
+ 
   
   React.useEffect(() => {
     if (!isPaused) {
@@ -123,22 +120,21 @@ export function Carousel() {
       <div className="absolute inset-0">
         
         
-        <motion.video
-          key={videos[currentIndex]} // clave para forzar recarga al cambiar
-          ref={videoRef}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1.5 }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={videos[currentIndex]} type="video/mp4" />
-          Tu navegador no soporta videos HTML5.
-          
-        </motion.video>
+<motion.video
+  ref={videoRef}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 0.8 }}
+  transition={{ duration: 1.5 }}
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src="https://res.cloudinary.com/dcoidemmj/video/upload/v1747084683/walking_girl_fk2tc5.mp4" type="video/mp4" />
+  Tu navegador no soporta videos HTML5.
+</motion.video>
+
 
         
         <div className="absolute inset-0 bg-black/20" />

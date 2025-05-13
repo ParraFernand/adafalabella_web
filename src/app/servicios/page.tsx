@@ -1,6 +1,5 @@
 import { ServiciosPage } from '@/components/servicios';
 import { Hero } from '@/components/hero_srv';
-import BackgroundVideo from '@/components/back_video';
 
 const page = () => {
   return (

@@ -24,7 +24,7 @@ const VideoComponent = () => {
       playsInline
       className="absolute inset-0 w-full h-full object-cover "
     >
-      <source src="clouds.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dcoidemmj/video/upload/v1747083877/r60ernytxribzqjgv3ll.mp4" type="video/mp4" />
       Tu navegador no soporta videos HTML5.
       
     </motion.video>
