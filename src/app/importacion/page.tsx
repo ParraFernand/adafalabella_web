@@ -1,9 +1,6 @@
 import { Hero } from "@/components/hero_imp1";
 import { Importacion } from "@/components/importacion";
-import { Importacion1 } from "@/components/importacion1";
-import { Importacion2 } from "@/components/importacion2";
-import { Importacion3 } from "@/components/importacion3";
-import { Importacion4 } from "@/components/importacion4";
+
 
 const page = () => {
   return (
@@ -24,10 +21,6 @@ const page = () => {
       </div>
       <Hero />
       <Importacion />
-      <Importacion1 />
-      <Importacion2 />
-      <Importacion3 />
-      <Importacion4 />
     </div>
   );
 };

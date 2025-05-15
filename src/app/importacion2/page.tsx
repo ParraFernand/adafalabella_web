@@ -1,9 +1,5 @@
 import { Hero } from "@/components/hero_imp2";
-import { Importacion5 } from "@/components/importacion5";
-import { Importacion6 } from "@/components/importacion6";
-import { Importacion7 } from "@/components/importacion7";
-import { Importacion8 } from "@/components/importacion8";
-import { Importacion9 } from "@/components/importacion9";
+import { Importacion2 } from "@/components/importacion2";
 
 const page = () => {
   return (
@@ -23,11 +19,7 @@ const page = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <Hero />
-      <Importacion5 />
-      <Importacion6 />
-      <Importacion7 />
-      <Importacion8 />
-      <Importacion9 />
+      <Importacion2 />
     </div>
   );
 };
