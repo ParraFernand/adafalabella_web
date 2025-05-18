@@ -1,9 +1,9 @@
 import { Hero } from "@/components/hero_imp3";
-import { Importacion10 } from "@/components/importacion10";
-import { Importacion11 } from "@/components/importacion11";
-import { Importacion12 } from "@/components/importacion12";
-import { Importacion13 } from "@/components/importacion13";
-import { Importacion14 } from "@/components/importacion14";
+
+import dynamic from "next/dynamic";
+//import { Importacion3 } from "@/components/importacion3";
+
+const Importacion3 = dynamic(() =>  import("@/components/importacion3").then(mod => mod.Importacion3))
 
 const page = () => {
   return (
@@ -24,11 +24,7 @@ const page = () => {
       </div>
       <Hero />
 
-      <Importacion11 />
-      <Importacion12 />
-      <Importacion13 />
-      <Importacion14 />
-      <Importacion10 />
+      <Importacion3 />
     </div>
   );
 };
