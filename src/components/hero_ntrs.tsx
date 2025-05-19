@@ -95,20 +95,8 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Decorative line */}
-          <motion.div
-            className="absolute -left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#efc901] via-[#efc901] to-transparent hidden md:block"
-            variants={decorationVariants}
-          />
-
-          {/* Main Text */}
-          <motion.div variants={itemVariants} className="relative">
-            <h1 className="text-6xl md:lg:text-[150px] font-corinthia mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-yellow-100 to-white">
-              AdaFalabella
-            </h1>
-          </motion.div>
-
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-pacifico leading-tight">
+        
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-9xl font-anton leading-tight mt-48">
             ¡Movemos tu mundo con
             <br />
             <span className="text-[#efc901]">EFICIENCIA</span> Y <span className="text-[#efc901]">CONFIANZA</span>!

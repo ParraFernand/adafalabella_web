@@ -7,21 +7,14 @@ export function Footer() {
   const countries = [
     "BOLIVIA",
     "CHILE",
-    "COLOMBIA",
-    "COSTA RICA",
-    "EL SALVADOR",
-    "GUATEMALA",
-    "HONDURAS",
-    "NICARAGUA",
-    "PANAMÁ",
-    "PARAGUAY",
     "PERÚ",
-    "REPDOMINICANA",
-    "URUGUAY",
+    "BRASIL",
+    "ESTADOS UNIDOS",
+    "ARGENTINA",
   ]
 
   return (
-    <footer className="bg-gradient-to-b from-blue-500 via-black to-black text-white">
+    <footer className="bg-gradient-to-b from-gray-800 via-gray-950 to-black text-white">
       {/* Countries Banner */}
       <div className="bg-blue-950 py-4">
         <div className="container mx-auto px-4 flex items-center justify-center">
@@ -32,7 +25,7 @@ export function Footer() {
             height={50}
             className="mr-4"
           />
-          <div className="text-sm text-center">{countries.join(" • ")}</div>
+          <div className="text-3xl font-barlowCondensed text-center">{countries.join(" • ")}</div>
         </div>
       </div>
 

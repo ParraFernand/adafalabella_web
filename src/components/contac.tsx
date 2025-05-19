@@ -1,25 +1,51 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, XCircle, Send, Loader2, MapPin, Phone, Mail, Clock, Users, Award, Star, Facebook, Instagram, X, Linkedin, } from "lucide-react"
-import emailjs from "@emailjs/browser"
-import { FaWhatsapp } from "react-icons/fa";
+import * as React from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  CheckCircle,
+  XCircle,
+  Send,
+  Loader2,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Users,
+  Award,
+  Star,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 
-const countries = ["Argentina", "México", "España", "Chile", "Colombia", "Perú", "Bolivia", "Otros"]
+const countries = [
+  "Argentina",
+  "México",
+  "España",
+  "Chile",
+  "Colombia",
+  "Perú",
+  "Bolivia",
+  "Otros",
+];
 
 export function ContactForm() {
-  const formRef = React.useRef<HTMLFormElement>(null)
-  const mapRef = React.useRef<HTMLDivElement>(null)
-  const statsRef = React.useRef<HTMLDivElement>(null)
-  const isMapInView = useInView(mapRef, { once: true, amount: 0.3 })
-  const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 })
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const mapRef = React.useRef<HTMLDivElement>(null);
+  const statsRef = React.useRef<HTMLDivElement>(null);
+  const isMapInView = useInView(mapRef, { once: true, amount: 0.3 });
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 });
 
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [formStatus, setFormStatus] = React.useState<"idle" | "success" | "error">("idle")
-  const [focusedField, setFocusedField] = React.useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [formStatus, setFormStatus] = React.useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [focusedField, setFocusedField] = React.useState<string | null>(null);
 
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -29,28 +55,32 @@ export function ContactForm() {
     company: "",
     country: "",
     message: "",
-  })
+  });
 
   React.useEffect(() => {
-    console.log("Map would be initialized here in a real implementation")
-  }, [])
+    console.log("Map would be initialized here in a real implementation");
+  }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleFocus = (fieldName: string) => {
-    setFocusedField(fieldName)
-  }
+    setFocusedField(fieldName);
+  };
 
   const handleBlur = () => {
-    setFocusedField(null)
-  }
+    setFocusedField(null);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setFormStatus("idle")
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus("idle");
 
     if (formRef.current) {
       try {
@@ -58,10 +88,10 @@ export function ContactForm() {
           "service_ofkr3f4",
           "template_h8pmnw8",
           formRef.current,
-          "8fG1MVd__D9CQqXHo",
-        )
+          "8fG1MVd__D9CQqXHo"
+        );
 
-        setFormStatus("success")
+        setFormStatus("success");
         setFormData({
           firstName: "",
           lastName: "",
@@ -70,23 +100,23 @@ export function ContactForm() {
           company: "",
           country: "",
           message: "",
-        })
+        });
 
         setTimeout(() => {
-          setFormStatus("idle")
-        }, 5000)
+          setFormStatus("idle");
+        }, 5000);
       } catch (error) {
-        console.error("Error enviando correo:", error)
-        setFormStatus("error")
+        console.error("Error enviando correo:", error);
+        setFormStatus("error");
 
         setTimeout(() => {
-          setFormStatus("idle")
-        }, 5000)
+          setFormStatus("idle");
+        }, 5000);
       } finally {
-        setIsSubmitting(false)
+        setIsSubmitting(false);
       }
     }
-  }
+  };
 
   const titleVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -98,10 +128,10 @@ export function ContactForm() {
         ease: [0.215, 0.61, 0.355, 1],
       },
     },
-  }
+  };
 
-  const headingText = "Contáctanos"
-  const headingLetters = headingText.split("")
+  const headingText = "Contáctanos";
+  const headingLetters = headingText.split("");
 
   const formFieldVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -114,7 +144,7 @@ export function ContactForm() {
         ease: [0.215, 0.61, 0.355, 1],
       },
     }),
-  }
+  };
 
   const statusVariants = {
     hidden: { opacity: 0, y: -20, height: 0 },
@@ -136,25 +166,26 @@ export function ContactForm() {
         ease: [0.215, 0.61, 0.355, 1],
       },
     },
-  }
+  };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: "Dirección",
-      content: "Av. Principal #123, La Paz, Bolivia",
+      content: "Calle Urupé B/ Jenecherú, Santa Cruz, Bolivia",
       color: "[#efc901]",
     },
     {
       icon: Phone,
       title: "Teléfono",
-      content: "+591 2 123 4567",
+      content: "+591-78045765 / +591- 78018946",
       color: "[#efc901]",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "contacto@adafalabella.com",
+      content:
+        "ninoskatoro@adafalabella.com.bo / ventas@adafalabella.com.bo /adafalabellasrl@gmail.com",
       color: "[#efc901]",
     },
     {
@@ -163,7 +194,7 @@ export function ContactForm() {
       content: "Lun - Vie: 9:00 - 18:00",
       color: "[#efc901]",
     },
-  ]
+  ];
 
   const stats = [
     {
@@ -184,29 +215,52 @@ export function ContactForm() {
       label: "Tasa de Satisfacción",
       color: "[#efc901]",
     },
-  ]
+  ];
 
   const socialMedia = [
-    { icon: Facebook, url: "#", label: "Facebook" },
-    { icon: Instagram, url: "#", label: "Instagram" },
-    { icon: X, url: "#", label: "X" },
-    { icon: Linkedin, url: "#", label: "LinkedIn" },
-    { icon: FaWhatsapp, url: "#", label: "WhatsApp" },
-  ]
+    {
+      icon: Facebook,
+      url: "https://www.facebook.com/profile.php?id=61572991178249",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      url: "https://www.instagram.com/adafalabella_ag_despachante?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      label: "Instagram",
+    },
+    {
+      icon: Linkedin,
+      url: "https://www.linkedin.com/company/adafalabella-srl/",
+      label: "LinkedIn",
+    },
+    { icon: FaWhatsapp, url: "https://wa.me/59178018946", label: "WhatsApp" },
+    {
+      icon: FaTiktok,
+      url: "https://www.tiktok.com/@ag.adafalabellasrl?is_from_webapp=1&sender_device=pc",
+      label: "TikTok",
+    },
+  ];
 
   return (
     <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-blue-900/40 via-blue-800/40 to-blue-900/40">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <motion.div initial="hidden" animate="visible" variants={titleVariants} className="mb-2">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={titleVariants}
+            className="mb-2"
+          >
             <div className="inline-flex items-center justify-center">
               <div className="h-px w-12 bg-[#efc901] mr-3" />
-              <span className="text-[#efc901] font-merriweather uppercase text-xl tracking-wider">Estamos para ayudarte</span>
+              <span className="text-[#efc901] font-anton uppercase text-2xl tracking-wider">
+                Estamos para ayudarte
+              </span>
               <div className="h-px w-12 bg-[#efc901] ml-3" />
             </div>
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl font-merriweather text-center mb-4 bg-clip-text text-transparent bg-[#efc901]">
+          <h1 className="text-4xl md:text-6xl font-anton text-center mb-4 bg-clip-text text-transparent bg-[#efc901]">
             {headingLetters.map((letter, index) => (
               <motion.span
                 key={index}
@@ -231,8 +285,6 @@ export function ContactForm() {
               </motion.span>
             ))}
           </h1>
-
-          
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -250,24 +302,46 @@ export function ContactForm() {
                 className="absolute top-10 right-10 w-16 h-16 border border-white/10 rounded-full"
                 animate={{
                   rotate: 360,
-                  borderColor: ["rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.1)"],
+                  borderColor: [
+                    "rgba(255,255,255,0.1)",
+                    "rgba(255,255,255,0.2)",
+                    "rgba(255,255,255,0.1)",
+                  ],
                 }}
-                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                transition={{
+                  duration: 20,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
               />
 
               <motion.div
                 className="absolute bottom-10 left-10 w-12 h-12 border border-white/10 rotate-45"
                 animate={{
                   rotate: [45, 225, 45],
-                  borderColor: ["rgba(255,255,255,0.1)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.1)"],
+                  borderColor: [
+                    "rgba(255,255,255,0.1)",
+                    "rgba(255,255,255,0.2)",
+                    "rgba(255,255,255,0.1)",
+                  ],
                 }}
-                transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                transition={{
+                  duration: 15,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
               />
 
               <CardContent className="relative z-10 p-8">
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold text-white mb-2">Envíanos un mensaje</h2>
-                  <p className="text-gray-300">En breve, uno de nuestros asesores te atenderá para ayudarte con lo que necesites. Mientras tanto, ¿Podrías adelantarnos algún detalle sobre tu consulta o envío?</p>
+                  <h2 className="text-3xl font-barlowCondensed text-white mb-2">
+                    Envíanos un mensaje
+                  </h2>
+                  <p className="text-gray-300 font-barlowCondensed text-xl">
+                    En breve, uno de nuestros asesores te atenderá para ayudarte
+                    con lo que necesites. Mientras tanto, ¿Podrías adelantarnos
+                    algún detalle sobre tu consulta o envío?
+                  </p>
                 </div>
 
                 <AnimatePresence>
@@ -281,7 +355,10 @@ export function ContactForm() {
                       className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 flex items-center"
                     >
                       <CheckCircle className="w-5 h-5 mr-2 text-green-500" />
-                      <span>¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</span>
+                      <span>
+                        ¡Mensaje enviado con éxito! Nos pondremos en contacto
+                        contigo pronto.
+                      </span>
                     </motion.div>
                   )}
 
@@ -295,12 +372,19 @@ export function ContactForm() {
                       className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 flex items-center"
                     >
                       <XCircle className="w-5 h-5 mr-2 text-red-500" />
-                      <span>Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente.</span>
+                      <span>
+                        Hubo un error al enviar tu mensaje. Por favor, intenta
+                        nuevamente.
+                      </span>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <motion.div
                       custom={0}
@@ -309,7 +393,10 @@ export function ContactForm() {
                       variants={formFieldVariants}
                       className="relative"
                     >
-                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-200 mb-1">
+                      <label
+                        htmlFor="firstName"
+                        className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                      >
                         Nombre
                       </label>
                       <div className="relative">
@@ -327,7 +414,9 @@ export function ContactForm() {
                         <motion.div
                           className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                           initial={{ width: "0%" }}
-                          animate={{ width: focusedField === "firstName" ? "100%" : "0%" }}
+                          animate={{
+                            width: focusedField === "firstName" ? "100%" : "0%",
+                          }}
                           transition={{ duration: 0.3 }}
                         />
                       </div>
@@ -340,7 +429,10 @@ export function ContactForm() {
                       variants={formFieldVariants}
                       className="relative"
                     >
-                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-200 mb-1">
+                      <label
+                        htmlFor="lastName"
+                        className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                      >
                         Apellido
                       </label>
                       <div className="relative">
@@ -358,7 +450,9 @@ export function ContactForm() {
                         <motion.div
                           className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                           initial={{ width: "0%" }}
-                          animate={{ width: focusedField === "lastName" ? "100%" : "0%" }}
+                          animate={{
+                            width: focusedField === "lastName" ? "100%" : "0%",
+                          }}
                           transition={{ duration: 0.3 }}
                         />
                       </div>
@@ -371,7 +465,10 @@ export function ContactForm() {
                     variants={formFieldVariants}
                     className="relative"
                   >
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-1">
+                    <label
+                      htmlFor="phone"
+                      className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                    >
                       Número de Celular
                     </label>
                     <div className="relative">
@@ -381,7 +478,9 @@ export function ContactForm() {
                         id="phone"
                         required
                         value={formData.phone || ""}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                         onFocus={() => handleFocus("phone")}
                         onBlur={handleBlur}
                         className="w-full p-3 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
@@ -389,7 +488,9 @@ export function ContactForm() {
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
-                        animate={{ width: focusedField === "phone" ? "100%" : "0%" }}
+                        animate={{
+                          width: focusedField === "phone" ? "100%" : "0%",
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
@@ -402,7 +503,10 @@ export function ContactForm() {
                     variants={formFieldVariants}
                     className="relative"
                   >
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                    >
                       Correo Electrónico
                     </label>
                     <div className="relative">
@@ -420,7 +524,9 @@ export function ContactForm() {
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
-                        animate={{ width: focusedField === "email" ? "100%" : "0%" }}
+                        animate={{
+                          width: focusedField === "email" ? "100%" : "0%",
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
@@ -433,7 +539,10 @@ export function ContactForm() {
                     variants={formFieldVariants}
                     className="relative"
                   >
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-200 mb-1">
+                    <label
+                      htmlFor="company"
+                      className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                    >
                       Empresa
                     </label>
                     <div className="relative">
@@ -450,7 +559,9 @@ export function ContactForm() {
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
-                        animate={{ width: focusedField === "company" ? "100%" : "0%" }}
+                        animate={{
+                          width: focusedField === "company" ? "100%" : "0%",
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
@@ -463,7 +574,10 @@ export function ContactForm() {
                     variants={formFieldVariants}
                     className="relative"
                   >
-                    <label htmlFor="country" className="block text-sm font-medium text-gray-200 mb-1">
+                    <label
+                      htmlFor="country"
+                      className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                    >
                       País
                     </label>
                     <div className="relative">
@@ -487,7 +601,9 @@ export function ContactForm() {
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
-                        animate={{ width: focusedField === "country" ? "100%" : "0%" }}
+                        animate={{
+                          width: focusedField === "country" ? "100%" : "0%",
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
@@ -500,7 +616,10 @@ export function ContactForm() {
                     variants={formFieldVariants}
                     className="relative"
                   >
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-lg font-barlowCondensed text-gray-200 mb-1"
+                    >
                       Mensaje
                     </label>
                     <div className="relative">
@@ -518,7 +637,9 @@ export function ContactForm() {
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-[#efc901] rounded-full"
                         initial={{ width: "0%" }}
-                        animate={{ width: focusedField === "message" ? "100%" : "0%" }}
+                        animate={{
+                          width: focusedField === "message" ? "100%" : "0%",
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
@@ -546,8 +667,8 @@ export function ContactForm() {
                           </>
                         ) : (
                           <>
-                            <Send className="w-5 h-5 text-black" />
-                            <span className="text-black">Enviar Mensaje</span>
+                            <Send className="w-5 h-5 text-black " />
+                            <span className="text-black text-lg font-barlowCondensed">Enviar Mensaje</span>
                           </>
                         )}
                       </span>
@@ -563,7 +684,11 @@ export function ContactForm() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              ease: [0.215, 0.61, 0.355, 1],
+            }}
             className="space-y-8"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -572,7 +697,11 @@ export function ContactForm() {
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.215, 0.61, 0.355, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1 * index,
+                    ease: [0.215, 0.61, 0.355, 1],
+                  }}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
                 >
@@ -589,8 +718,10 @@ export function ContactForm() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
-                      <p className="text-gray-300">{item.content}</p>
+                      <h3 className="text-xl font-barlowCondensed text-white mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-300 text-lg font-barlowCondensed">{item.content}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -607,28 +738,33 @@ export function ContactForm() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
 
               <div className="relative h-full w-full bg-gray-800/50 flex items-center justify-center">
-                  {/* Google Maps Embedded */}
-                  <div className="relative w-full max-w-md min-h-[200px] h-[250px] rounded-lg overflow-hidden shadow-lg z-10">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.9415934465277!2d-63.15445451720304!3d-17.724456252553217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7e55d9a3379%3A0xf7a3312a5d007438!2zQ2FsbGUgVXJ1cMOpIEIvSmVuZWNoZXLDug!5e0!3m2!1ses!2sbo!4v1744053223010!5m2!1ses!2sbo"
-
-                      allowFullScreen={true}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                  </div>
-                
+                {/* Google Maps Embedded */}
+                <div className="relative w-full max-w-md min-h-[200px] h-[250px] rounded-lg overflow-hidden shadow-lg z-10">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.9415934465277!2d-63.15445451720304!3d-17.724456252553217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7e55d9a3379%3A0xf7a3312a5d007438!2zQ2FsbGUgVXJ1cMOpIEIvSmVuZWNoZXLDug!5e0!3m2!1ses!2sbo!4v1744053223010!5m2!1ses!2sbo"
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </motion.div>
 
-            <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div
+              ref={statsRef}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isStatsInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.215, 0.61, 0.355, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1 * index,
+                    ease: [0.215, 0.61, 0.355, 1],
+                  }}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg text-center"
                 >
@@ -669,19 +805,27 @@ export function ContactForm() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.4,
+                ease: [0.215, 0.61, 0.355, 1],
+              }}
               className="relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 shadow-lg"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-[#efc901]/5" />
 
               <div className="relative z-10">
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Síguenos en redes sociales</h3>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">
+                  Síguenos en redes sociales
+                </h3>
 
                 <div className="flex justify-center gap-4">
                   {socialMedia.map((social, index) => (
                     <motion.a
                       key={social.label}
                       href={social.url}
+                      target="_blank" // Esto abre en una nueva pestaña
+                      rel="noopener noreferrer" // Por seguridad
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{
@@ -707,5 +851,5 @@ export function ContactForm() {
         </div>
       </div>
     </section>
-  )
+  );
 }

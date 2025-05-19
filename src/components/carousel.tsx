@@ -110,7 +110,7 @@ export function Carousel() {
 
   return (
     <section
-      className="relative min-h-[600px] overflow-hidden bg-[#07479A]"
+      className="relative min-h-[800px] md:min-h-[900px] overflow-hidden bg-[#07479A]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -166,7 +166,7 @@ export function Carousel() {
 
       {/* Carousel Content */}
       <div className="relative container mx-auto px-4 py-16">
-        <div className="flex items-center justify-center min-h-[400px]">
+        <div className="flex items-center justify-center min-h-[600px] md:min-h-[700px]">
           {/* Navigation Buttons */}
           <motion.div
             whileHover={{ scale: 1.1 }}
@@ -200,7 +200,7 @@ export function Carousel() {
                 className="w-full"
               >
                 <Card className="bg-cyan-950/80  text-white border border-[#efc901]/20 overflow-hidden shadow-2xl">
-                  <CardContent className="p-10 md:p-4">
+                  <CardContent className="p-12 md:p-20">
                     <div className="flex flex-col items-center text-center">
                     
 

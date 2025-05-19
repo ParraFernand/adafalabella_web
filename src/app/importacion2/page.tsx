@@ -13,7 +13,7 @@ const page = () => {
           className="w-full h-full object-cover"
           style={{ objectPosition: "center bottom" }}
         >
-          <source src="/world_network.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dcoidemmj/video/upload/v1747167835/world_network_jcnhky.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
         <div className="absolute inset-0 bg-black/40" />

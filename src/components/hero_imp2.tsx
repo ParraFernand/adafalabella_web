@@ -90,7 +90,7 @@ export function Hero() {
           >
             
               <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-anton mb-6">
-                TRÁMITES ADUANEROS Y CERTIFICACIONES GENERALES
+                REGÍMENES ESPECIALES Y BENEFICIOS TRIBUTARIOS
               </motion.h1>
 
            </motion.div>

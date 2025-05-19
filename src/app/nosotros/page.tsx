@@ -15,14 +15,15 @@ const page = () => {
           className="w-full h-full object-cover"
           style={{ objectPosition: "center bottom" }}
         >
-          <source src="/black.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dcoidemmj/video/upload/v1747644602/black1_nqomqv.mp4" type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <Hero />
-      <MisionVision />
       <SobreNosotros />
+      <MisionVision />
+      
     </div>
   );
 };

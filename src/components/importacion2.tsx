@@ -46,7 +46,7 @@ export function Importacion2() {
       {/* Sección 1: Trámite de autorizaciones */}
      <section ref={ref1} className="relative h-[70vh] sm:h-[80vh] md:h-[60vh] overflow-hidden flex flex-col sm:flex-row">
             {/* Contenido de texto (menos ancho) */}
-      <div className="relative z-10  w-2/5 h-full mr-auto bg-yellow-200 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
+      <div className="relative z-10  w-2/5 h-full mr-auto bg-bonewhite flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
           <h2 className="text-2xl sm:text-4xl font-anton">Admisión temporal</h2>
           <p className='text-2xl sm:text-3xl font-barlowCondensed'>
@@ -59,12 +59,13 @@ export function Importacion2() {
         className="absolute  top-[-230px] right-0 w-full sm:w-3/5 h-[100vh] md:h-[850px] overflow-hidden"
       >
         <Image
-          src="/temporal.jpg"
+          src="/expocruz.jpg"
           alt="Imagen de parallax"
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="w-full h-full object-cover"
         />
+       
       </motion.div>
 
 
@@ -78,17 +79,17 @@ export function Importacion2() {
         className="absolute  top-[-230px] left-0 w-full sm:w-3/5 h-[100vh] md:h-[850px] overflow-hidden will-change-transform "
       >
         <Image
-          src="/papeleo1.jpg"
+          src="/ritex.png"
           alt="Imagen de parallax"
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="w-full h-full object-cover"
         />
-  
+      <div className="absolute inset-0 bg-green-500/20" />
       </motion.div>
 
       {/* Contenido de texto (menos ancho) */}
-      <div className="relative z-10  w-2/5 h-full ml-auto bg-purple-950 flex items-center p-6 sm:p-10 overflow-hidden">
+      <div className="relative z-10  w-2/5 h-full ml-auto bg-green-800 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
           <h2 className="text-2xl sm:text-4xl font-anton">RITEX</h2>
           <p className='text-2xl sm:text-3xl font-barlowCondensed'>
@@ -99,7 +100,7 @@ export function Importacion2() {
          {/* Sección 3: Despacho anticipado */}
     <section ref={ref3} className="relative h-[70vh] sm:h-[80vh] md:h-[60vh] overflow-hidden flex flex-col sm:flex-row">
             {/* Contenido de texto (menos ancho) */}
-      <div className="relative z-10  w-2/5 h-full mr-auto bg-yellow-200 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
+      <div className="relative z-10  w-2/5 h-full mr-auto bg-gray-500 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
           <h2 className="text-2xl sm:text-4xl font-anton">Aprovechamiento de incentivos tributarios estatales</h2>
           <p className='text-2xl sm:text-3xl font-barlowCondensed'>
@@ -111,12 +112,13 @@ export function Importacion2() {
         className="absolute  top-[-230px] right-0 w-full sm:w-3/5 h-[100vh] md:h-[850px] overflow-hidden"
       >
         <Image
-          src="/money.jpg"
+          src="/maquina.jpg"
           alt="Imagen de parallax"
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gray-500/20" />
       </motion.div>
 
 
@@ -129,12 +131,13 @@ export function Importacion2() {
         className="absolute  top-[-230px] left-0 w-full sm:w-3/5 h-[100vh] md:h-[850px] overflow-hidden will-change-transform"
       >
         <Image
-          src="/mapa.jpg"
+          src="/mundi.jpg"
           alt="Imagen de parallax"
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-blue-500/20" />
       </motion.div>
 
       {/* Contenido de texto (menos ancho) */}
@@ -155,7 +158,7 @@ export function Importacion2() {
         className="absolute  top-[-290px] right-0 w-full sm:w-3/5 h-[100vh] md:h-[850px] overflow-hidden will-change-transform"
       >
         <Image
-          src="/papeleo2.jpg"
+          src="/balanza.jpg"
           alt="Imagen de parallax"
           fill
           sizes="(max-width: 768px) 100vw, 60vw"

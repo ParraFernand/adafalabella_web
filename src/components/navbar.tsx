@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Menu, X} from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { Facebook, Instagram, Linkedin, Menu, X } from "lucide-react";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,19 +16,12 @@ export function Navbar() {
 
   const menuItems = [
     { label: "Inicio", href: "/" },
-    { 
-      label: "Servicios", 
-      href: "/servicios",
-      submenu: [
-        { label: "Servicios de Importación", href: "/importacion" },
-        { label: "Servicios de Exportación", href: "/exportacion" }
-      ]
-    },
+    { label: "Servicios", href: "/servicios" }, // ← Quitar `submenu`
     { label: "Nosotros", href: "/nosotros" },
     { label: "Noticias", href: "/noticias" },
     { label: "Contacto", href: "/contacto" },
   ];
-  const [hoveredService, setHoveredService] = useState(false)
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -57,191 +50,176 @@ export function Navbar() {
 
   return (
     <motion.nav
-    initial={{ y: -100 }}
-    animate={{ 
-      y: scrollingDown ? -100 : 0,
-      opacity: scrollingDown ? 0 : 1
-    }}
-    transition={{ duration: 0.3 }}
-    className="fixed w-full top-0 left-0 right-0 z-50"
-  >
-  
-  <div 
-    className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-gray-800 via-gray-900 to-black"
-    style={{
-      borderBottom: "5px solid #efc901",
-      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-      backdropFilter: "blur(12px)",
-      WebkitBackdropFilter: "blur(12px)"
-    }}
-  />
-  
-  <div className="w-full max-w-7xl mx-auto px-4 lg:px-0 py-3">
-    <div className="w-full flex justify-between items-center gap-6">
-      {/* Logos */}
-      <div className="flex items-start space-x-10 flex-shrink-0 gap-x-10"> 
-      <motion.div 
-          className="flex items-center"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <Link href="/" className="group relative">
+      initial={{ y: -100 }}
+      animate={{
+        y: scrollingDown ? -100 : 0,
+        opacity: scrollingDown ? 0 : 1,
+      }}
+      transition={{ duration: 0.3 }}
+      className="fixed w-full top-0 left-0 right-0 z-50"
+    >
+      <div
+        className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-gray-800 via-gray-900 to-black"
+        style={{
+          borderBottom: "5px solid #efc901",
+          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
+      />
+
+      <div className="w-full max-w-7xl mx-auto px-4 lg:px-0 py-3">
+        <div className="w-full flex justify-between items-center gap-6">
+          {/* Logos */}
+          <div className="flex items-start space-x-10 flex-shrink-0 gap-x-10">
             <motion.div
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
+              className="flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Image 
-                src="/logo_ada3.png" 
-                alt="Logo Principal" 
-                width={280} 
-                height={410} 
-                className="rounded transition-all duration-500" 
-              />
-              <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+              <Link href="/" className="group relative">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative"
+                >
+                  <Image
+                    src="/logo_ada3.png"
+                    alt="Logo Principal"
+                    width={280}
+                    height={410}
+                    className="rounded transition-all duration-500"
+                  />
+                  <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+                </motion.div>
+              </Link>
+              <Link href="/" className="group relative">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative"
+                >
+                  <Image
+                    src="/logo_ada2.png"
+                    alt="Logo Principal"
+                    width={90}
+                    height={410}
+                    className="rounded transition-all duration-500"
+                  />
+                  <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+                </motion.div>
+              </Link>
             </motion.div>
-          </Link>
-          <Link href="/" className="group relative">
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
-              <Image 
-                src="/logo_ada2.png" 
-                alt="Logo Principal" 
-                width={90} 
-                height={410} 
-                className="rounded transition-all duration-500" 
-              />
-              <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
-            </motion.div>
-          </Link>
-        </motion.div>
-      </div>
-      {/* Desktop Menu - Versión mejorada */}
-      
-      <motion.div 
-        className="hidden lg:flex w-full"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-      
-      <div className="flex items-center   space-x-1">
-      {menuItems.map((item) => (
-      <div 
-        key={item.label} 
-        className="flex items-center relative"
-        onMouseEnter={() => item.submenu && setHoveredService(true)}
-        onMouseLeave={() => item.submenu && setHoveredService(false)}
-      >
-        
-        <Link 
-          href={item.href}
-          className="relative group px-5 py-3"
-          onClick={() => setActiveItem(item.href)}
-        >
-          <span className="text-white text-base font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901] flex items-center">
-            {item.label}
-            {item.submenu && (
-              <svg 
-                className={`ml-1 h-4 w-4 transition-transform duration-200 ${hoveredService ? 'rotate-180' : ''}`}
-                viewBox="0 0 20 20" 
-                fill="currentColor"
-              >
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            )}
-          </span>
-          
-          {/* Líneas decorativas (igual que antes) */}
-          <span className={`
+          </div>
+          {/* Desktop Menu - Versión mejorada */}
+
+          <motion.div
+            className="hidden lg:flex w-full"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex items-center   space-x-1">
+              {menuItems.map((item) => (
+                <div key={item.label} className="flex items-center relative">
+                  <Link
+                    href={item.href}
+                    className="relative group px-5 py-3"
+                    onClick={() => setActiveItem(item.href)}
+                  >
+                    <span className="text-white text-base font-mono uppercase tracking-wider transition-all duration-300 group-hover:text-[#efc901] flex items-center">
+                      {item.label}
+                    </span>
+
+                    {/* Líneas decorativas (igual que antes) */}
+                    <span
+                      className={`
             absolute left-0 top-0 h-full w-0.5 bg-[#efc901]
             transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
-            ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
+            ${
+              activeItem === item.href
+                ? "scale-y-100 opacity-100"
+                : "scale-y-0 opacity-0"
+            }
             group-hover:scale-y-100 group-hover:opacity-100
             rounded-full
             shadow-[0_0_8px_rgba(239,201,1,0.6)]
-          `} />
-          
-          <span className={`
+          `}
+                    />
+
+                    <span
+                      className={`
             absolute right-0 top-0 h-full w-0.5 bg-[#efc901]
             transform origin-top transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
-            ${activeItem === item.href ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
+            ${
+              activeItem === item.href
+                ? "scale-y-100 opacity-100"
+                : "scale-y-0 opacity-0"
+            }
             group-hover:scale-y-100 group-hover:opacity-100
             rounded-full
             shadow-[0_0_8px_rgba(239,201,1,0.6)]
-          `} />
-        </Link>
-        
-        {/* Submenú desplegable */}
-        {item.submenu && hoveredService && (
+          `}
+                    />
+                  </Link>
+
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Social Media Icons mejorados */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-56 bg-[#07479c] shadow-lg rounded-b-lg overflow-hidden border border-[#efc901]/30 z-50"
+            className="hidden lg:flex gap-4 items-center"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            {item.submenu.map((subItem) => (
+            {[
+              {
+                Icon: Facebook,
+                href: "https://www.facebook.com/profile.php?id=61572991178249",
+              },
+              {
+                Icon: Instagram,
+                href: "https://www.instagram.com/adafalabella_ag_despachante?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/company/adafalabella-srl/",
+              },
+              { Icon: FaWhatsapp, href: "https://wa.me/59178018946" },
+              {
+                Icon: FaTiktok,
+                href: "https://www.tiktok.com/@ag.adafalabellasrl?is_from_webapp=1&sender_device=pc",
+                label: "TikTok",
+              },
+            ].map(({ Icon, href }, index) => (
               <Link
-                key={subItem.href}
-                href={subItem.href}
-                className="block px-4 py-3 text-white hover:bg-[#efc901]/10 transition-colors duration-200 border-b border-[#efc901]/10 last:border-b-0"
-                onClick={() => {
-                  setActiveItem(subItem.href);
-                  setHoveredService(false);
-                }}
+                key={index}
+                href={href}
+                className="group relative"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span className="flex items-center">
-                  <span className="text-[#efc901] mr-2">•</span>
-                  {subItem.label}
-                </span>
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: index % 2 ? 10 : -10 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative"
+                >
+                  <Icon className="h-6 w-6 text-white transition-all duration-300 group-hover:text-[#efc901] group-hover:drop-shadow-[0_0_8px_rgba(239,201,1,0.6)]" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#efc901]/30 transition-all duration-500 group-hover:w-full" />
+                </motion.div>
               </Link>
             ))}
-          </motion.div>
-            )}
-          </div>
-        ))}
-      </div>
-      </motion.div>
 
-      {/* Social Media Icons mejorados */}
-      <motion.div 
-        className="hidden lg:flex gap-4 items-center"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {[
-          { Icon: Facebook, href: "#" },
-          { Icon: Instagram, href: "#" },
-          { Icon: Linkedin, href: "#" },
-          { Icon: FaWhatsapp, href: "#" },
-        ].map(({ Icon, href }, index) => (
-          <Link 
-            key={index}
-            href={href}
-            className="group relative"
-          >
-            <motion.div
-              whileHover={{ scale: 1.2, rotate: index % 2 ? 10 : -10 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative"
-            >
-              <Icon className="h-6 w-6 text-white transition-all duration-300 group-hover:text-[#efc901] group-hover:drop-shadow-[0_0_8px_rgba(239,201,1,0.6)]" />
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#efc901]/30 transition-all duration-500 group-hover:w-full" />
-            </motion.div>
-          </Link>
-        ))}
-        
-        {/* Botón de contacto mejorado */}
-        <Link href="/contacto">
-          <motion.button
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="
+            {/* Botón de contacto mejorado */}
+            <Link href="/contacto">
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="
               bg-[#FFD700] hover:bg-[#07479c] 
               text-[#07479c] hover:text-white font-semibold 
               py-2 px-5
@@ -252,113 +230,96 @@ export function Navbar() {
               focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:ring-opacity-50
               relative overflow-hidden
             "
+              >
+                <span className="relative z-10 uppercase">Contáctanos</span>
+                <span className="absolute inset-0 bg-[#07479c] opacity-0 hover:opacity-10 transition-opacity duration-300" />
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            ref={closeButtonRef}
+            className="lg:hidden text-white p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <span className="relative z-10 uppercase">Contáctanos</span>
-            <span className="absolute inset-0 bg-[#07479c] opacity-0 hover:opacity-10 transition-opacity duration-300" />
+            {isMenuOpen ? (
+              <X className="h-7 w-7 text-[#efc901]" />
+            ) : (
+              <Menu className="h-7 w-7" />
+            )}
           </motion.button>
-        </Link>
-      </motion.div>
+        </div>
+      </div>
 
-      {/* Mobile Menu Button */}
-      <motion.button
-        ref={closeButtonRef}
-        className="lg:hidden text-white p-2"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {isMenuOpen ? (
-          <X className="h-7 w-7 text-[#efc901]" />
-        ) : (
-          <Menu className="h-7 w-7" />
-        )}
-      </motion.button>
-    </div>
-  </div>
-
-  {/* Mobile Menu mejorado */}
-  <AnimatePresence>
-    {isMenuOpen && (
-      <motion.div
-        ref={menuRef}
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: 1, height: "auto" }}
-        exit={{ opacity: 0, height: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="lg:hidden absolute top-full left-0 w-full bg-[#11079c]/95 backdrop-blur-lg shadow-xl overflow-hidden border-t border-[#efc901]/30"
-      >
-        <motion.div 
-          className="flex flex-col items-center py-2"
-          initial="closed"
-          animate="open"
-          variants={{
-            open: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-            closed: {},
-          }}
-        >
-         {menuItems.map((item, index) => (
+      {/* Mobile Menu mejorado */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            ref={menuRef}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden absolute top-full left-0 w-full bg-[#11079c]/95 backdrop-blur-lg shadow-xl overflow-hidden border-t border-[#efc901]/30"
+          >
             <motion.div
-              key={item.label}
+              className="flex flex-col items-center py-2"
+              initial="closed"
+              animate="open"
               variants={{
-                open: { 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { type: "spring", stiffness: 300 }
+                open: {
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
                 },
-                closed: { 
-                  opacity: 0, 
-                  y: 20,
-                  transition: { duration: 0.2 }
-                },
+                closed: {},
               }}
-              className="w-full"
             >
-              <div className="flex flex-col">
-                <Link
-                  href={item.href}
-                  className="block py-4 px-6 text-white font-mono uppercase text-center hover:bg-[#efc901]/10 transition-colors duration-300 relative group"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    setActiveItem(item.href);
+              {menuItems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  variants={{
+                    open: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { type: "spring", stiffness: 300 },
+                    },
+                    closed: {
+                      opacity: 0,
+                      y: 20,
+                      transition: { duration: 0.2 },
+                    },
                   }}
+                  className="w-full"
                 >
-                  {item.label}
-                  <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-10 group-hover:left-[calc(50%-20px)]" />
-                </Link>
-                
-                {/* Submenú móvil */}
-                {item.submenu && (
-                  <div className="bg-[#07479c]/80 pl-8">
-                    {item.submenu.map((subItem) => (
-                      <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        className="block py-3 px-6 text-white text-sm hover:bg-[#efc901]/10 transition-colors duration-200"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <span className="flex items-center">
-                          <span className="text-[#efc901] mr-2">-</span>
-                          {subItem.label}
-                        </span>
-                      </Link>
-                    ))}
+                  <div className="flex flex-col">
+                    <Link
+                      href={item.href}
+                      className="block py-4 px-6 text-white font-mono uppercase text-center hover:bg-[#efc901]/10 transition-colors duration-300 relative group"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setActiveItem(item.href);
+                      }}
+                    >
+                      {item.label}
+                      <span className="absolute left-1/2 bottom-2 w-0 h-0.5 bg-[#efc901] transition-all duration-300 group-hover:w-10 group-hover:left-[calc(50%-20px)]" />
+                    </Link>
+
+
                   </div>
-                )}
-              </div>
-              
-              {index < menuItems.length - 1 && (
-                <div className="h-px bg-[#efc901]/10 mx-6" />
-              )}
+
+                  {index < menuItems.length - 1 && (
+                    <div className="h-px bg-[#efc901]/10 mx-6" />
+                  )}
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

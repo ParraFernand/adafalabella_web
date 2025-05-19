@@ -102,14 +102,14 @@ export function Hero() {
               type: "spring",
               stiffness: 100,
             }}
-            className="hidden md:block absolute right-[21%] top-[20] h-full w-[30%] z-10"
+            className="hidden md:block absolute right-[25%] top-[20] h-full w-[30%] z-10"
           >
               <Image
-                src="/mujer_ada1.png"
+                src="/ninoska4.png"
                 alt="Imagen Descriptiva"
                 width={450}
                 height={550}
-                className="object-contain drop-shadow-xl opacity-90 z-10"
+                className="object-contain drop-shadow-xl opacity-80 z-10"
                 priority
               />
 
@@ -123,7 +123,7 @@ export function Hero() {
               type: "spring",
               stiffness: 100,
             }}
-            className="hidden md:block absolute right-[50%] top-[150] h-full w-[30%] z-10"
+            className="hidden md:block absolute right-[50%] top-[150px] h-full w-[30%] z-10"
           >
               <Image
                 src="/logo_ada3.png"

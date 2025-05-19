@@ -87,18 +87,6 @@ export function CarouselNoticias() {
     }),
   };
 
-  const backgroundVariants = {
-    initial: { scale: 1.2, opacity: 0 },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 1.5, ease: "easeOut" },
-    },
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.5 },
-    },
-  };
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -119,35 +107,28 @@ export function CarouselNoticias() {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Background and slide content */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`bg-${currentSlide}`}
-          className="absolute inset-0"
-          variants={backgroundVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          onAnimationComplete={() => setIsAnimating(false)}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-700/70 via-yellow-900/50 to-black/80 z-10"></div>
-          <Image
-            src={carouselItems[currentSlide].image || "/placeholder.svg"}
-            alt="Background"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative w-full min-h-screen overflow-visible pb-20">
+      {/* Video background fijo */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full min-h-full object-cover z-0"
+      >
+        <source src="https://res.cloudinary.com/dcoidemmj/video/upload/v1747644652/manos_xbuwzx.mp4" type="video/mp4" />
+        Tu navegador no soporta videos HTML5.
+      </video>
+
+      {/* Capa de superposición para mejorar contraste */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-700/70 via-yellow-900/50 to-black/80 z-10"></div>
 
       {/* Main content */}
-      <div className="relative z-20 flex flex-col justify-center items-center w-full h-full">
+      <div className="relative z-20 flex flex-col items-center justify-start w-full ">
         <div className="container mx-auto px-6 lg:px-16 py-8">
           <div className="flex flex-col items-center">
             <motion.h2
-              className="text-5xl md:text-6xl font-bold text-white mb-16 text-center"
+              className="text-5xl md:text-7xl font-anton text-white mb-16 text-center"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -165,6 +146,7 @@ export function CarouselNoticias() {
                   animate="center"
                   exit="exit"
                   className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+                  onAnimationComplete={() => setIsAnimating(false)} // <-- ESTA LÍNEA ES CLAVE
                 >
                   {/* Slide content */}
                   <motion.div
@@ -196,12 +178,12 @@ export function CarouselNoticias() {
                       exit="exit"
                       custom={2}
                     >
-                      <span className="bg-[#efc901] px-4 py-1.5 text-sm font-semibold text-black rounded-full">
+                      <span className="bg-[#efc901] px-4 py-1.5 text-lg font-anton text-black rounded-full">
                         DESTACADO
                       </span>
                     </motion.div>
                     <motion.h3
-                      className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight"
+                      className="text-4xl md:text-6xl font-anton mb-6 text-white leading-tight"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible"
@@ -211,7 +193,7 @@ export function CarouselNoticias() {
                       {carouselItems[currentSlide].title}
                     </motion.h3>
                     <motion.p
-                      className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-8"
+                      className="text-xl md:text-4xl text-gray-200 font-barlowCondensed leading-relaxed mb-8"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible"

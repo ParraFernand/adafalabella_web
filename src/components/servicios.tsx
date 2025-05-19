@@ -7,12 +7,12 @@ import { motion, useAnimation, useInView } from "framer-motion"
 
 const getOverlayColor = (index: number) => {
   const colors = [
-    "bg-black/30",
-    "bg-black/50",
-    "bg-[#001f3f]/70",
-    "bg-[#004d40]/70",
-    "bg-[#6d4c41]/70",
-    "bg-blue-500/70",
+    "bg-yellow-400/30",
+    "bg-cyan-700/40",
+    "bg-[#001f3f]/40",
+    "bg-[#004d40]/50",
+    "bg-[#6d4c41]/60",
+    "bg-blue-500/40",
   ]
   return colors[index % colors.length];
 }
@@ -34,18 +34,18 @@ const services = [
   },
   {
     title: ["Permisos y Gestión Sanitaria", "Tramitamos todos los permisos sanitarios y técnicos que tu producto necesita"], 
-    image: "/sanitario.jpg",
-    href: "/exportacion",
+    image: "/sanitario1.jpg",
+    href: "/importacion4",
   },
   {
     title: ["Control Operativo y Documental", "Seguimiento completo y documentación organizada desde el origen hasta tu almacén"], 
     image: "/control1.jpg",
-    href: "/exportacion",
+    href: "/importacion5",
   },
   {
     title: ["Certificaciones Técnicas y Productos Específicos", "Gestionamos certificaciones y registros para productos con requisitos específicos"], 
-    image: "/productos.jpg",
-    href: "/exportacion",
+    image: "/medicamentos.jpg",
+    href: "/importacion6",
   },
 ]
 
@@ -97,10 +97,10 @@ export function ServiciosPage() {
 
 
       {/* Contenido con efecto de desplazamiento */}
-      <div className="relative z-10 mx-auto">
+      <div className="relative z-10 mx-auto mb-16">
         <motion.h2
           ref={titleRef}
-          className="text-white text-6xl font-anton text-center mb-4"
+          className="text-white text-6xl font-anton text-center mb-14"
           initial="hidden"
           animate={titleControls}
           variants={{
@@ -162,7 +162,9 @@ export function ServiciosPage() {
                 </motion.div>
               </div>
             </Link>
-          ))}
+            
+          )
+          )}
         </div>
 
         {/* Elementos decorativos animados */}
