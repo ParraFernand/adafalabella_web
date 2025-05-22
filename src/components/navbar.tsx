@@ -89,7 +89,7 @@ export function Navbar() {
                     alt="Logo Principal"
                     width={280}
                     height={410}
-                    className="rounded transition-all duration-500"
+                    className="w-48 sm:w-44 md:w-56 rounded transition-all duration-500"
                   />
                   <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
                 </motion.div>
@@ -105,7 +105,7 @@ export function Navbar() {
                     alt="Logo Principal"
                     width={90}
                     height={410}
-                    className="rounded transition-all duration-500"
+                    className="w-20 sm:w-44 md:w-24 rounded transition-all duration-500"
                   />
                   <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
                 </motion.div>
