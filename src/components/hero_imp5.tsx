@@ -56,7 +56,7 @@ export function Hero() {
                    type: "spring",
                    stiffness: 100,
                  }}
-                 className="hidden md:block absolute right-[45%] top-[-6] h-full w-[30%] z-10"
+                 className="hidden md:block absolute right-[44%] top-[-6] h-full w-[30%] z-10"
                >
                    <Image
                      src="/silla1.png"
@@ -79,7 +79,7 @@ export function Hero() {
            </motion.div>
      
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-6rem)] flex flex-col md:flex-row items-center justify-center md:left-48 mt-[-15%]">
+      <div className="relative z-10 container mx-auto px-4 h-[calc(100vh-6rem)] flex flex-col md:flex-row items-center justify-center md:left-72 mt-[-15%]">
           <div className="text-white text-center md:text-right w-full sm:max-w-lg md:mr-7 md:mt-[300px]">
             {/* Texto Principal */}
             <motion.div

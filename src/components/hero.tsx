@@ -68,28 +68,20 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative md:py-30 py-24 overflow-hidden bg-white"
+      className="relative h-[60vh] md:h-[85vh] overflow-hidden bg-white"
     >
+     
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 100, x: 0 }}
         transition={{ duration: 1.2, delay: 0.7 }}
-        className="block absolute right-[51.5%] top-0 h-[100%] w-[28%] z-10 bg-gradient-to-b from-black via-cyan-800 to-cyan-950"
-        style={{
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        }}
-      />
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 100, x: 0 }}
-        transition={{ duration: 1.2, delay: 0.7 }}
-        className="block absolute right-[25%] top-[45%] h-[1.3%] w-[60%] md:right-[25%] md:top-[60%] md:h-[2%] md:w-[60%] z-10  bg-gradient-to-r from-[#ffd700] via-[#b68600] to-[#ffd700]"
+        className="block absolute right-[45%] top-[45%] h-[1.3%] w-[65%] md:right-[25%] md:top-[60%] md:h-[2%] md:w-[60%] z-20  bg-gradient-to-r from-[#ffd700] via-[#b68600] to-[#ffd700]"
         style={{
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         }}
       />
 
-      <motion.div className="absolute left-0 right-0 top-7 md:top-12 h-[82%] md:h-[83%]  w-full">
+      <motion.div className="absolute left-0 right-0 top-7 md:top-12 h-[82%] md:h-[83%] w-full">
         <VideoComponent />
 
         {/* Image */}
@@ -102,7 +94,7 @@ export function Hero() {
             type: "spring",
             stiffness: 100,
           }}
-          className="absolute top-[5vh] right-[15vw] w-[40vw] h-auto z-10"
+          className="absolute top-[5vh] right-[15vw] w-[40vw] h-auto z-20"
         >
           <Image
             src="/ninoska4.png"
@@ -113,74 +105,69 @@ export function Hero() {
             priority
           />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.8,
-            delay: 1,
-            type: "spring",
-            stiffness: 100,
-          }}
-          className="absolute block top-[10vh] right-[47vw] w-[35vw] sm:top-[18vh] sm:right-[47vw] sm:w-[35vw] md:top-[18vh] md:right-[50vw] md:w-[28vw] h-auto z-10"
-        >
-          <Image
-            src="/logo_ada3.png"
-            alt="Imagen Descriptiva"
-            width={730}
-            height={550}
-            className="object-contain drop-shadow-xl opacity-90 z-10"
-            priority
-          />
-        </motion.div>
 
         {/* Blue Gradient Overlay */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-
         />
       </motion.div>
-      
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-5xl px-4 mx-auto py-16 pb-0 justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-1 items-center">
-          {/* Text Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={controls}
-            className="text-center md:text-left "
+
+      {/* Superposición de contenido */}
+      <div className="absolute inset-0 flex items-center justify-between px-12 z-10">
+        {/* Cuadro de texto a la izquierda */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+          className=" absolute 
+              left-[0vw] 
+              sm:left-[20vw] 
+              md:left-[21vw]
+              w-[55vw] 
+              sm:w-[27vw] 
+              xs:w-[27vw]
+              bg-gradient-to-b from-black via-cyan-800 to-cyan-950
+              text-white 
+              p-6 
+              h-full shadow-xl"
+        >
+          <motion.h1
+            variants={itemVariants}
+            className="text-x md:text-5xl font-anton md:mb-16 md:mt-20 text-justify"
           >
-            <motion.h1
-              variants={itemVariants}
-              className=" absolute top-[-5vh] left-[22vw] sm:top-[13vh] sm:left-[20vw] md:top-[3vh] md:left-[17vw] lg:top-[-4vh] lg:left-[0vw] text-[4vw] sm:text-[5vw] md:text-[3.2vw] lg:text-[3vw] font-anton text-white drop-shadow-lg w-auto text-left z-2 "
-            >
-              Bienvenidos a
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="
-                w-[30vw] sm:w-[85vw] md:w-[420px] 
-                px-1 sm:px-6 md:px-0 
-                ml-[15vw] md:ml-[2vw]
-                mt-[1vh] sm:mt-[35vh] md:mt-[390px] 
-                text-white 
-                text-[2.3vw] sm:text-[2.8vw] md:text-[1.6vw] lg:text-[1.3vw]
-                font-barlowCondensed 
-                text-justify 
-                leading-relaxed
-              "
-            >
-              Nos especializamos en brindar servicios ágiles y eficientes para
-              asegurar que tus importaciones y exportaciones se realicen con
-              éxito y sin contratiempo.
-            </motion.p>
+            Bienvenidos a:
+          </motion.h1>
+         <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.8,
+              delay: 1,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="w-full flex justify-center my-14 md:my-32"
+          >
+            <Image
+              src="/logo_ada3.png"
+              alt="Imagen Descriptiva"
+              width={770}
+              height={550}
+              className="w-[120%] sm:w-[120%] md:w-[75%] lg:w-[100%] h-auto object-contain drop-shadow-xl opacity-90 z-10"
+              priority
+            />
           </motion.div>
-
-        </div>
+          <motion.p
+            variants={itemVariants}
+            className="text-m md:text-2xl font-barlowCondensed text-justify"
+          >
+            Nos especializamos en brindar servicios ágiles y eficientes para
+            asegurar que tus importaciones y exportaciones se realicen con éxito
+            y sin contratiempo.
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Animated Accent Lines */}
@@ -228,7 +215,8 @@ export function Hero() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"      >
+        className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
+      >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}

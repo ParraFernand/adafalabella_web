@@ -39,7 +39,7 @@ export function Hero() {
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 100, x: 0 }}
         transition={{ duration: 1.2, delay: 0.7 }}
-        className="block absolute right-[25%] top-[39%] h-[1%] w-[50%] z-10 bg-gradient-to-r from-[#ffd700] via-[#b68600] to-[#ffd700]"
+        className="md:block hidden absolute right-[25%] top-[39%] h-[1%] w-[50%] z-10 bg-gradient-to-r from-[#ffd700] via-[#b68600] to-[#ffd700]"
         style={{
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         }}

@@ -253,7 +253,7 @@ export function ContactForm() {
           >
             <div className="inline-flex items-center justify-center">
               <div className="h-px w-12 bg-[#efc901] mr-3" />
-              <span className="text-[#efc901] font-anton uppercase text-2xl tracking-wider">
+              <span className="text-[#efc901] font-anton uppercase text-4xl tracking-wider">
                 Estamos para ayudarte
               </span>
               <div className="h-px w-12 bg-[#efc901] ml-3" />

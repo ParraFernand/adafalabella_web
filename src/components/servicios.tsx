@@ -100,7 +100,7 @@ export function ServiciosPage() {
       <div className="relative z-10 mx-auto mb-16">
         <motion.h2
           ref={titleRef}
-          className="text-white text-6xl font-anton text-center mb-14"
+          className="text-white text-4xl md:text-6xl font-anton text-center mb-14"
           initial="hidden"
           animate={titleControls}
           variants={{
@@ -145,7 +145,7 @@ export function ServiciosPage() {
                 {service.title.map((line, i) => (
                   <motion.h3
                     key={i}
-                    className={` ${i === 1 ? "text-2xl font-barlowCondensed text-white " : "text-3xl font-anton text-white "}`}
+                    className={` ${i === 1 ? "text-2xl font-barlowCondensed text-white " : "text-xl md:text-2xl font-anton text-white "}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: i * 0.1 }}

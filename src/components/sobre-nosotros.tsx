@@ -290,7 +290,7 @@ export function SobreNosotros() {
               initial="hidden"
               whileInView="visible"
               variants={textVariants}
-              className="text-3xl text-gray-300 text-justify leading-relaxed font-barlowCondensed"
+              className="text-xl md:text-3xl text-gray-300 text-justify leading-relaxed font-barlowCondensed"
             >
               <span className="text-white ">ADAFALABELLA SRL</span> fundada el
               23 de noviembre de 2023 en Santa Cruz de la Sierra bajo el
@@ -448,12 +448,12 @@ export function SobreNosotros() {
                 y: -5,
                 boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)",
               }}
-              className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 z-20"
+              className="hidden md:absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 z-20"
             >
               <div className="flex items-start gap-3">
                 <Star className="w-6 h-6 text-[#efc901] flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-2xl text-white font-anton italic">
+                  <p className="text-sm md:text-2xl text-white font-anton italic">
                     ¡Aquí trabajamos con números y también con EMOCIONES!
                   </p>
                   <button

@@ -25,7 +25,7 @@ export function MisionVision() {
                 </div>
                 <h3 className="text-4xl font-anton text-white">Misión</h3>
               </div>
-              <p className="text-white leading-relaxed font-barlowCondensed text-justify pt-6 text-2xl">
+              <p className="text-white leading-relaxed font-barlowCondensed text-justify pt-6 md:text-2xl text-xl">
                 Liderar el mercado de servicios aduaneros y logísticos,
                 brindando soluciones innovadoras y eficientes que impulsen el
                 crecimiento y la competitividad de nuestros clientes ofreciendo
@@ -59,7 +59,7 @@ export function MisionVision() {
                 </div>
                 <h3 className="text-4xl font-anton text-white">Visión</h3>
               </div>
-              <p className="text-white leading-relaxed font-barlowCondensed text-justify pt-6 text-2xl">
+              <p className="text-white leading-relaxed font-barlowCondensed text-justify pt-6 md:text-2xl text-xl">
                 Ser la empresa líder en servicios aduaneros y logísticos a nivel
                 internacional, reconocida por nuestra excelencia en la atención
                 al cliente, innovación tecnológica y compromiso con la

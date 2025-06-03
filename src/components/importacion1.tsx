@@ -61,10 +61,10 @@ export function Importacion1() {
         </motion.div>
         <div className="relative z-10 w-2/5 h-full ml-auto bg-gray-600 flex items-center p-6 sm:p-10">
           <div className="space-y-4 max-w-md mx-auto text-white">
-            <h2 className="text-2xl sm:text-4xl font-anton">
+            <h2 className="text-xl md:text-4xl font-anton">
               Trámite de autorizaciones previas y certificaciones
             </h2>
-            <p className="text-2xl sm:text-3xl font-barlowCondensed">
+            <p className="text-m sm:text-3xl font-barlowCondensed">
               Simplificamos y gestionamos todas las autorizaciones previas y certificaciones para que tus despachos aduaneros se realicen sin contratiempos.
             </p>
           </div>
@@ -75,8 +75,8 @@ export function Importacion1() {
       <section ref={ref2} className="relative h-[70vh] sm:h-[80vh] md:h-[60vh] overflow-hidden flex flex-col sm:flex-row">
         <div className="relative z-10 w-2/5 h-full mr-auto bg-cyan-500 flex items-center p-6 sm:p-10">
           <div className="space-y-4 max-w-md mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-anton">Despacho consumo</h2>
-            <p className="text-2xl sm:text-3xl font-barlowCondensed">
+            <h2 className="text-xl sm:text-4xl font-anton">Despacho consumo</h2>
+            <p className="text-m sm:text-3xl font-barlowCondensed">
               Nos encargamos del despacho de mercancías para consumo, asegurando que cumplan con todas las normativas aduaneras.
             </p>
           </div>
@@ -115,8 +115,8 @@ export function Importacion1() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-blue-800 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Despacho anticipado, abreviado</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Despacho anticipado, abreviado</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Ofrecemos servicios de despacho anticipado para agilizar la liberación de tus mercancías en el menor tiempo posible.
           </p>
         </div>
@@ -142,8 +142,8 @@ export function Importacion1() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-gradient-to-r from-[#ffd700] via-[#ac7f03] to-[#ffd700] flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Optimización de despachos aduaneros (sobre carro o anticipado)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-m sm:text-4xl font-anton">Optimización de despachos aduaneros (sobre carro o anticipado)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Ofrecemos optimización en los despachos aduaneros, ya sea sobre carro o anticipado, para agilizar tus operaciones.          </p>
         </div>
       </div>
@@ -168,8 +168,8 @@ export function Importacion1() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-green-600 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Correlación y certificación de origen</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Correlación y certificación de origen</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos la correlación y certificación de origen de tus productos para cumplir con las normativas internacionales.          </p>
         </div>
       </div>

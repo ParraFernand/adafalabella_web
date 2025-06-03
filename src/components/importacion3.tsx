@@ -63,8 +63,8 @@ export function Importacion3() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-gray-600 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Asesoramiento en comercio exterior</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Asesoramiento en comercio exterior</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Brindamos asesoramiento experto en comercio exterior para que tus operaciones internacionales sean un éxito.
           </p>
         </div>
@@ -78,8 +78,8 @@ export function Importacion3() {
                   {/* Contenido de texto (menos ancho) */}
             <div className="relative z-10  w-2/5 h-full mr-auto bg-gradient-to-r from-[#cab437] via-[#ac7f03] to-[#ffd700] flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
               <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-                <h2 className="text-2xl sm:text-4xl font-anton">Clasificación arancelaria</h2>
-                <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+                <h2 className="text-xl sm:text-4xl font-anton">Clasificación arancelaria</h2>
+                <p className='text-m sm:text-3xl font-barlowCondensed'>
                 Realizamos la correcta clasificación arancelaria de tus productos, garantizando el cumplimiento de las normativas y optimizando costos.          </p>
               </div>
             </div>
@@ -119,8 +119,8 @@ export function Importacion3() {
           {/* Contenido de texto (menos ancho) */}
           <div className="relative z-10  w-2/5 h-full ml-auto bg-cyan-500 flex items-center p-6 sm:p-10 overflow-hidden">
             <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-              <h2 className="text-2xl sm:text-4xl font-anton">Clasificación arancelaria para suplementos</h2>
-              <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+              <h2 className="text-xl sm:text-4xl font-anton">Clasificación arancelaria para suplementos</h2>
+              <p className='text-m sm:text-3xl font-barlowCondensed'>
               Ofrecemos criterios precisos de clasificación arancelaria para suplementos alimenticios, cosméticos y medicamentos.
               </p>
             </div>
@@ -145,8 +145,8 @@ export function Importacion3() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-red-500 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Clasificación arancelaria de equipamiento y maquinaria</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Clasificación arancelaria de equipamiento y maquinaria</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Nos encargamos de la correcta clasificación arancelaria de tu equipamiento y maquinaria.          </p>
         </div>
       </div>
@@ -170,8 +170,8 @@ export function Importacion3() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-green-600 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Análisis de componentes, estructura y clasificación de plantas industriales</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Análisis de componentes, estructura y clasificación de plantas industriales</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Realizamos análisis detallados de componentes, estructura y clasificación de plantas industriales para cumplir con las normativas.          </p>
         </div>
       </div>

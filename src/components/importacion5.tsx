@@ -63,8 +63,8 @@ export function Importacion5() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-gradient-to-r from-[#ffd700] via-[#ac7f03] to-[#ffd700] flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Inspección de la mercadería</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Inspección de la mercadería</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
          Realizamos inspecciones exhaustivas de tus mercancías para asegurarnos de que cumplan con los estándares de calidad y normativas vigentes.
           </p>
         </div>
@@ -78,8 +78,8 @@ export function Importacion5() {
                   {/* Contenido de texto (menos ancho) */}
             <div className="relative z-10  w-2/5 h-full mr-auto bg-gray-500 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
               <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-                <h2 className="text-2xl sm:text-4xl font-anton">Seguimiento de envíos</h2>
-                <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+                <h2 className="text-xl sm:text-4xl font-anton">Seguimiento de envíos</h2>
+                <p className='text-m sm:text-3xl font-barlowCondensed'>
                 Ofrecemos un seguimiento continuo de tus envíos, manteniéndote informado en cada etapa del proceso.          
                 </p>
               </div>
@@ -120,8 +120,8 @@ export function Importacion5() {
           {/* Contenido de texto (menos ancho) */}
           <div className="relative z-10  w-2/5 h-full ml-auto bg-blue-800 flex items-center p-6 sm:p-10 overflow-hidden">
             <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-              <h2 className="text-2xl sm:text-4xl font-anton">Control sistémico desde origen hasta sus almacenes</h2>
-              <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+              <h2 className="text-xl sm:text-4xl font-anton">Control sistémico desde origen hasta sus almacenes</h2>
+              <p className='text-m sm:text-3xl font-barlowCondensed'>
               Implementamos un control sistémico desde el origen hasta tus almacenes para asegurar la integridad y seguridad de tus mercancías.
               </p>
             </div>
@@ -146,8 +146,8 @@ export function Importacion5() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-red-500 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Control documental desde origen directo con el proveedor y operadores</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Control documental desde origen directo con el proveedor y operadores</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos y controlamos la documentación desde el origen, coordinando directamente con proveedores y operadores.
           </p>
         </div>
@@ -173,8 +173,8 @@ export function Importacion5() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-cyan-500 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Manejo integral de documentación digital con acceso 24/7</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Manejo integral de documentación digital con acceso 24/7</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Ofrecemos un manejo integral de la documentación digital con acceso 24/7 para que siempre tengas la información a tu alcance.        
           </p>
         </div>

@@ -91,8 +91,8 @@ export function Importacion2() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-green-800 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">RITEX</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">RITEX</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos el régimen Ritex (Régimen de Importación Temporal para Exportación) para que tus productos importados temporalmente puedan ser exportados sin problemas.          </p>
         </div>
       </div>
@@ -102,8 +102,8 @@ export function Importacion2() {
             {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-gray-500 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Aprovechamiento de incentivos tributarios estatales</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Aprovechamiento de incentivos tributarios estatales</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Te ayudamos a aprovechar los incentivos tributarios estatales disponibles para tus importaciones. </p>        </div>
       </div>
       {/* Imagen parallax (más ancha) */}
@@ -143,8 +143,8 @@ export function Importacion2() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-blue-800 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Estructuración de planeamiento logístico y aduanero para operaciones en embarques parciales</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Estructuración de planeamiento logístico y aduanero para operaciones en embarques parciales</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Diseñamos planes logísticos y aduaneros eficientes para tus operaciones en embarques parciales.
           </p>
         </div>
@@ -170,8 +170,8 @@ export function Importacion2() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-red-500 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Optimización de los costos aduaneros </h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Optimización de los costos aduaneros </h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Analizamos y optimizamos tus costos aduaneros para que ahorres tiempo y dinero en tus importaciones.         </p>
         </div>
       </div>

@@ -89,7 +89,7 @@ export function Navbar() {
                     alt="Logo Principal"
                     width={280}
                     height={410}
-                    className="w-48 sm:w-44 md:w-56 rounded transition-all duration-500"
+                    className="w-48 sm:w-40 md:w-56 rounded transition-all duration-500"
                   />
                   <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
                 </motion.div>
@@ -105,7 +105,7 @@ export function Navbar() {
                     alt="Logo Principal"
                     width={90}
                     height={410}
-                    className="w-20 sm:w-44 md:w-24 rounded transition-all duration-500"
+                    className="w-20 sm:w-14 md:w-24 rounded transition-all duration-500"
                   />
                   <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
                 </motion.div>
@@ -263,7 +263,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden absolute top-full left-0 w-full bg-[#11079c]/95 backdrop-blur-lg shadow-xl overflow-hidden border-t border-[#efc901]/30"
+            className="lg:hidden absolute top-full left-0 w-full bg-gradient-to-b from-black via-cyan-800 to-cyan-950 backdrop-blur-lg shadow-xl overflow-hidden border-t border-[#efc901]/30"
           >
             <motion.div
               className="flex flex-col items-center py-2"

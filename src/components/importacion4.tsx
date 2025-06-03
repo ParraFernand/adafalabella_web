@@ -41,8 +41,8 @@ export function Importacion4() {
             {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-bonewhite flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Trámites y permisos especiales</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Trámites y permisos especiales</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos trámites y permisos especiales para que tus importaciones cumplan con todas las regulaciones específicas.        </p>
         </div>
       </div>
@@ -83,8 +83,8 @@ export function Importacion4() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-cyan-700 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión sanitaria de importaciones</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión sanitaria de importaciones</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Nos encargamos de la gestión sanitaria de tus importaciones, asegurando el cumplimiento de todas las normativas de salud.          </p>
         </div>
       </div>
@@ -94,8 +94,8 @@ export function Importacion4() {
             {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-gray-500 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión sanitaria de los CDA de importación</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión sanitaria de los CDA de importación</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Nos ocupamos de la gestión sanitaria de los Certificados de Destinación Aduanera (CDA) de importación. </p>        
           </div>
       </div>
@@ -134,8 +134,8 @@ export function Importacion4() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-green-700 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión ante entidades especializadas (SENASAG, AGEMED, etc.)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión ante entidades especializadas (SENASAG, AGEMED, etc.)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos trámites ante entidades especializadas como SENASAG y AGEMED para que tus productos cumplan con todas las regulaciones
           </p>
         </div>

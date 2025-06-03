@@ -48,8 +48,8 @@ export function Importacion6() {
             {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-gradient-to-r from-[#ffd700] via-[#ac7f03] to-[#ffd700] flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestiones de certificaciones técnicas (IBMETRO)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestiones de certificaciones técnicas (IBMETRO)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Nos encargamos de las gestiones necesarias para obtener certificaciones técnicas de IBMETRO.       
           </p>
         </div>
@@ -92,8 +92,8 @@ export function Importacion6() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-cyan-600 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión de certificaciones para equipos médicos y hospitalarios (AUTORIDAD DE TECNOLOGÍAS NUCLEARES)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión de certificaciones para equipos médicos y hospitalarios (AUTORIDAD DE TECNOLOGÍAS NUCLEARES)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Nos encargamos de la certificación de equipos médicos y hospitalarios ante la Autoridad de Tecnologías Nucleares.
           </p>
         </div>
@@ -104,8 +104,8 @@ export function Importacion6() {
             {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-gray-400 flex items-center p-6 sm:p-10 overflow-hidden will-change-transform">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión de autorizaciones previas para vehículos (VICEMINISTERIO DE TRANSPORTES, IBMETRO)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión de autorizaciones previas para vehículos (VICEMINISTERIO DE TRANSPORTES, IBMETRO)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
          Tramitamos las autorizaciones previas necesarias para la importación de vehículos ante el Viceministerio de Transportes y IBMETRO.
          </p>        
          </div>
@@ -147,8 +147,8 @@ export function Importacion6() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full ml-auto bg-blue-800 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Gestión de registro y autorizaciones para importación de sustancias controladas (MINISTERIO DE DEFENSA)</h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Gestión de registro y autorizaciones para importación de sustancias controladas (MINISTERIO DE DEFENSA)</h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Tramitamos el registro y autorizaciones para la importación de sustancias controladas ante el Ministerio de Defensa.
           </p>
         </div>
@@ -174,8 +174,8 @@ export function Importacion6() {
       {/* Contenido de texto (menos ancho) */}
       <div className="relative z-10  w-2/5 h-full mr-auto bg-red-500 flex items-center p-6 sm:p-10 overflow-hidden">
         <div className="space-y-4 max-w-md mx-auto sm:mx-0 text-white">
-          <h2 className="text-2xl sm:text-4xl font-anton">Registro y autorizaciones para importación de ropa (VICEMINISTERIO DE COMERCIO Y LOGÍSTICA INTERNA) </h2>
-          <p className='text-2xl sm:text-3xl font-barlowCondensed'>
+          <h2 className="text-xl sm:text-4xl font-anton">Registro y autorizaciones para importación de ropa (VICEMINISTERIO DE COMERCIO Y LOGÍSTICA INTERNA) </h2>
+          <p className='text-m sm:text-3xl font-barlowCondensed'>
           Gestionamos el registro y autorizaciones necesarias para la importación de ropa ante el Viceministerio de Comercio y Logística Interna
           </p>
         </div>
