@@ -19,12 +19,12 @@ const getOverlayColor = (index: number) => {
 const services = [
   {
     title: ["Trámites Aduaneros y Certificaciones Generales", "Gestionamos tus trámites y certificaciones para un despacho rápido y seguro"],
-    image: "/tramite_aduanero.jpg",
+    image: "/regimen_tributario.jpg",
     href: "/importacion",
   },
   {
     title: ["Regímenes Especiales y Beneficios Tributarios", "Aprovecha regímenes especiales y beneficios tributarios con nuestra guía experta."], 
-    image: "/regimen_tributario.jpg",
+    image: "/foto_adu.jpg",
     href: "/importacion2",
   },
   {
@@ -34,12 +34,12 @@ const services = [
   },
   {
     title: ["Permisos y Gestión Sanitaria", "Tramitamos todos los permisos sanitarios y técnicos que tu producto necesita"], 
-    image: "/sanitario1.jpg",
+    image: "/medicamentos.jpg",
     href: "/importacion4",
   },
   {
     title: ["Control Operativo y Documental", "Seguimiento completo y documentación organizada desde el origen hasta tu almacén"], 
-    image: "/control1.jpg",
+    image: "/puerto_logistica.jpg",
     href: "/importacion5",
   },
   {

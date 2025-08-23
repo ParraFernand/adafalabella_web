@@ -17,7 +17,7 @@ export function Exportacion() {
     <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-yellow-400/20 transition-colors duration-300 z-20" />
       <Image
-        src="/exportar.jpg"
+        src="/exportacion_bolivia.jpg"
         alt="Explora todos nuestros servicios"
         fill
         className="object-cover group-hover:scale-110 transition-transform duration-700 z-0"
