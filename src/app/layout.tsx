@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { WhatsAppButton } from "@/components/WhatsAppBotton";
 import { Playfair_Display } from "next/font/google";
 import { Merriweather } from "next/font/google";
 import { Pacifico } from "next/font/google";
@@ -79,6 +80,7 @@ export default function RootLayout({
       >
         <Navbar />
         <div className="mt-28">{children}</div>
+        <WhatsAppButton/>
         <Footer />
       </body>
     </html>

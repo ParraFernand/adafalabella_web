@@ -78,6 +78,22 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
+               <Link href="/" className="group relative">
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative"
+                >
+                  <Image
+                    src="/logo_ada2.png"
+                    alt="Logo Principal"
+                    width={90}
+                    height={410}
+                    className="w-20 sm:w-14 md:w-24 rounded transition-all duration-500"
+                  />
+                  <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
+                </motion.div>
+              </Link>
               <Link href="/" className="group relative">
                 <motion.div
                   whileHover={{ scale: 1.03 }}
@@ -94,22 +110,7 @@ export function Navbar() {
                   <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
                 </motion.div>
               </Link>
-              <Link href="/" className="group relative">
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative"
-                >
-                  <Image
-                    src="/logo_ada2.png"
-                    alt="Logo Principal"
-                    width={90}
-                    height={410}
-                    className="w-20 sm:w-14 md:w-24 rounded transition-all duration-500"
-                  />
-                  <span className="absolute inset-0 bg-[#efc901] opacity-0 rounded transition-opacity duration-300" />
-                </motion.div>
-              </Link>
+             
             </motion.div>
           </div>
           {/* Desktop Menu - Versión mejorada */}
@@ -220,7 +221,7 @@ export function Navbar() {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="
-              bg-[#FFD700] hover:bg-[#07479c] 
+              bg-[#efc901]/90 hover:bg-[#07479c] 
               text-[#07479c] hover:text-white font-semibold 
               py-2 px-5
               rounded-lg 

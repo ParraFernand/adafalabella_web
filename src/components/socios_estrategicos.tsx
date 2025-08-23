@@ -14,7 +14,7 @@ import Autoplay from "embla-carousel-autoplay"
 
 export function SociosEstrategicos() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 970, stopOnInteraction: true })
   )
 
   const imagenes = [

@@ -381,7 +381,7 @@ export function SobreNosotros() {
             transition={{ duration: 1, ease: [0.215, 0.61, 0.355, 1] }}
             className="relative aspect-[4/3] rounded-2xl overflow-hidden z-10"
           >
-            <div className="absolute inset-0  z-10" />
+            <div className="absolute inset-0  z-10 pointer-events-none" />
 
             {/* Acá esta el video */}
             <motion.div
@@ -391,7 +391,7 @@ export function SobreNosotros() {
             >
               <video
                 className="w-full h-full object-cover"
-                src="/video_final.mp4" // Reemplaza con la ruta de tu video
+                src="https://res.cloudinary.com/dcoidemmj/video/upload/v1755929769/video_final_2_fbbyic.mp4" 
                 autoPlay
                 loop
                 muted={isMuted}
@@ -400,7 +400,7 @@ export function SobreNosotros() {
             </motion.div>
             {/* Decorative elements */}
             <motion.div
-              className="absolute top-4 right-4 w-20 h-20 border-2 border-white/10 rounded-full z-20"
+              className="absolute top-4 right-4 w-20 h-20 border-2 border-white/10 rounded-full z-20 pointer-events-none"
               animate={{
                 rotate: 360,
                 scale: [1, 1.1, 1],
@@ -448,7 +448,7 @@ export function SobreNosotros() {
                 y: -5,
                 boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)",
               }}
-              className="hidden md:absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 z-20"
+              className="bottom-8 left-8 right-8 bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 z-20 "
             >
               <div className="flex items-start gap-3">
                 <Star className="w-6 h-6 text-[#efc901] flex-shrink-0 mt-1" />
@@ -458,7 +458,7 @@ export function SobreNosotros() {
                   </p>
                   <button
                     onClick={() => setIsMuted(!isMuted)}
-                    className="absolute bottom-4 right-4 z-10 p-2 bg-black bg-opacity-50 rounded-full"
+                    className="absolute bottom-4 right-4 z-30 p-2 bg-black bg-opacity-50 rounded-full"
                     aria-label={
                       isMuted ? "Activar sonido" : "Desactivar sonido"
                     }

@@ -43,7 +43,7 @@ const services = [
     href: "/importacion5",
   },
   {
-    title: ["Certificaciones Técnicas y Productos Específicos", "Gestionamos certificaciones y registros para productos con requisitos específicos"], 
+    title: ["Certificaciones Técnicas de Productos Específicos", "Gestionamos certificaciones y registros para productos con requisitos específicos"], 
     image: "/medicamentos.jpg",
     href: "/importacion6",
   },

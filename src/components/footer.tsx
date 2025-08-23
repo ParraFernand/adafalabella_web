@@ -9,23 +9,36 @@ export function Footer() {
     "CHILE",
     "PERÚ",
     "BRASIL",
-    "ESTADOS UNIDOS",
     "ARGENTINA",
+    "PARAGUAY",
+    "ESTADOS UNIDOS",
+    "EUROPA",
   ]
 
   return (
     <footer className="bg-gradient-to-b from-gray-800 via-gray-950 to-black text-white">
       {/* Countries Banner */}
       <div className="from-gray-800 via-gray-950 to-black py-4">
-        <div className="container mx-auto px-4 flex items-center justify-center">
+          {/* Texto Operamos en */}
+          <div className="font-barlowCondensed flex-col text-xl md:text-3xl mb-2 justify-center text-center">
+            Operamos en:
+          </div>
+
+        <div className="container mx-auto px-4 flex items-center justify-center text-center">
           <Image
             src="/logo_ada2.png"
             alt="adfalabella Logo"
             width={100}
             height={30}
-            className="mr-4"
+            className="mb-2"
           />
-          <div className="font-barlowCondensed text-xl md:text-3xl text-center">{countries.join(" • ")}</div>
+
+        
+
+          {/* Lista de países */}
+          <div className="font-barlowCondensed text-lg md:text-2xl">
+            {countries.join(" • ")}
+          </div>
         </div>
       </div>
 
@@ -100,6 +113,9 @@ export function Footer() {
             </Link>
             <div className="text-gray-400 font-barlowCondensed text-xl" >
               2025 © ADAFALABELLA S.R.L.
+            </div>
+            <div className="text-gray-400 font-barlowCondensed text-xl" >
+              © Copyright 2025 Desarrollado por NOXUN
             </div>
           </div>
         </div>

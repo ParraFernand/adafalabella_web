@@ -94,14 +94,14 @@ export function Hero() {
             type: "spring",
             stiffness: 100,
           }}
-          className="absolute top-[5vh] right-[15vw] w-[40vw] h-auto z-20"
+          className="absolute top-[5vh] right-[15vw] w-[39vw] h-auto z-20"
         >
           <Image
-            src="/ninoska4.png"
+            src="/ninoska.png"
             alt="Imagen Descriptiva"
             width={450}
             height={550}
-            className="object-contain drop-shadow-xl opacity-80 z-10"
+            className="object-contain drop-shadow-xl opacity-90 z-10"
             priority
           />
         </motion.div>
@@ -135,7 +135,7 @@ export function Hero() {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-x md:text-5xl font-anton md:mb-16 md:mt-20 text-justify"
+            className="text-x md:text-5xl font-barlowCondensed md:mb-16 md:mt-20 text-justify"
           >
             Bienvenidos a:
           </motion.h1>
@@ -154,7 +154,7 @@ export function Hero() {
               src="/logo_ada3.png"
               alt="Imagen Descriptiva"
               width={770}
-              height={550}
+              height={560}
               className="w-[120%] sm:w-[120%] md:w-[75%] lg:w-[100%] h-auto object-contain drop-shadow-xl opacity-90 z-10"
               priority
             />
@@ -194,21 +194,6 @@ export function Hero() {
           className="absolute bottom-8 h-px w-full bg-gradient-to-r from-transparent via-[#efc901] to-transparent"
         />
       </div>
-
-      {/* Blue and Yellow Glowing Orbs */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
-        transition={{ duration: 2 }}
-        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-600/20 blur-3xl"
-      />
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-[#efc901]/10 blur-3xl"
-      />
 
       {/* Scroll Indicator */}
       <motion.div
